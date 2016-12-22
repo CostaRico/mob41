@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: st
+  host: localhost
+  port: 5432
+  pool: 5
+  username: deployer  
+  password: deployer

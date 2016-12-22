@@ -1,0 +1,12 @@
+<% if (@product.images + @product.variant_images).uniq.size > 1 %>
+    <% @product.images.each do |i| %>  
+        <%= link_to(image_tag(i.attachment.url(:mini), :class=>"wp-post-image"), i.attachment.url(:product)) %>
+    <% end %>
+
+    <% if @product.has_variants? %>
+      <% @product.variant_images.each do |i| %>
+        <% next if @product.images.include?(i) %>
+          <%= link_to(image_tag(i.attachment.url(:mini), :class=>"wp-post-image"), i.attachment.url(:product)) %>
+      <% end %>
+    <% end %>
+<% end %>

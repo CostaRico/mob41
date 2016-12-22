@@ -1,0 +1,14 @@
+<% if items.empty? or items.nil? %>
+  <li class="empty">No products in the cart.</li>
+<% else %>  
+  <% items.each do |item|%>
+    <li class="mini_cart_item">
+      <a title="Remove this item" class="remove" href="#">×</a>
+      <a href="single-product.html">
+        <%= small_image(item.product, itemprop: "image", :class =>"attachment-shop_thumbnail size-shop_thumbnail wp-post-image") %><%= item.product.name %>&nbsp;
+        
+      </a>
+      <span class="quantity"><%= item.quantity %> × <span class="amount"><%=  item.single_money.to_html%></span></span>
+    </li>
+  <% end %>
+<% end %>

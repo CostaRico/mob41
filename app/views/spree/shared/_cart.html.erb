@@ -1,0 +1,44 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$( ".navbar-mini-cart" ).on( "click", ".nav-item", function() {
+ 	 	if ($(this).children(".nav-link").attr("aria-expanded")=='false')
+ 	 	{
+  			$(this).addClass(" open");
+  			$(this).children(".nav-link").attr("aria-expanded","true")
+  		}
+  		else
+		{ 
+			$(this).removeClass("open");
+  			$(this).children(".nav-link").attr("aria-expanded","false")
+  		}
+	});
+});
+	
+</script>
+<ul class="navbar-mini-cart navbar-nav animate-dropdown nav pull-right flip" >
+    <li class="nav-item dropdown" >
+        <a href="#" class="nav-link" data-toggle="dropdown" aria-expanded="false">
+            <i class="ec ec-shopping-bag"></i>
+            <span class="cart-items-count count"><%= order.nil? ? 0 : order.item_count %></span>
+            <span class="cart-items-total-price total-price"><span class="amount"><%= order.nil? ? 0 : order.total%> Руб.</span></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-mini-cart">
+            <li>
+                <div class="widget_shopping_cart_content">
+					<ul class="cart_list product_list_widget ">
+            <% if order.nil? %>
+              <li class="empty">No products in the cart.</li>
+            <% else %>
+					    <%= render :partial => "/spree/shared/cart_item", :locals => {:items => order.line_items}%>
+                    </ul>
+                    <p class="total"><strong>Subtotal:</strong> <span class="amount"><%= order.nil? ? 0 : order.total %></span></p>
+                    <p class="buttons">
+                        <a class="button wc-forward" href="/cart">View Cart</a>
+                      	<a class="button checkout wc-forward" href="/checkout">Checkout</a>
+                    </p>
+                </div>
+            </li>
+            <% end %>
+        </ul>
+   	</li>
+</ul>

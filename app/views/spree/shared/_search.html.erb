@@ -1,0 +1,9 @@
+<%= form_tag spree.products_path, method: :get, class: "navbar-search" do %>
+  	<div class="input-group">
+	    <%= search_field_tag :keywords, params[:keywords], placeholder: Spree.t(:search), class: "form-control search-field" %>
+	  	<div class="input-group-btn">
+            <button type="submit" class="btn btn-secondary"><i class="ec ec-search"></i></button>
+        </div>
+    </div>
+  <%#= submit_tag Spree.t(:search), name: nil, class: "btn btn-success" %>
+<% end %>

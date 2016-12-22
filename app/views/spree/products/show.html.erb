@@ -1,0 +1,79 @@
+<% @body_id = 'product-details' %>
+<% cache cache_key_for_product do %>
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main">
+      <div class="product single-product">
+        <div class="single-product-wrapper">
+          <div class="product-images-wrapper">
+            <!-- <span class="onsale">Sale!</span> -->
+            <div class="images electro-gallery">
+              <div class="thumbnails-single owl-carousel">
+                  <% if (@product.images + @product.variant_images).uniq.size > 1 %>
+                      <% @product.images.each do |i| %>  
+                          <%= link_to(image_tag(i.attachment.url(:product), :class=>"wp-post-image"), i.attachment.url(:original), :class => "zoom") %>
+                      <% end %>
+
+                      <% if @product.has_variants? %>
+                        <% @product.variant_images.each do |i| %>
+                          <% next if @product.images.include?(i) %>
+                            <%= link_to(image_tag(i.attachment.url(:product), :class=>"wp-post-image"), i.attachment.url(:original), :class => "zoom") %>
+                        <% end %>
+                      <% end %>
+                  <% end %>
+              </div>
+              <div class="thumbnails-all columns-5 owl-carousel">
+                <%= render partial: 'thumbnails' %>
+              </div>
+            </div>     
+          </div>
+          <div class="summary entry-summary">
+            <span class="loop-product-categories">
+              <%= link_to @taxon.name, seo_url(@taxon), :rel=>"tag"%>
+            </span>
+            <h1 itemprop="name" class="product_title entry-title"><%= @product.name %></h1>
+            <div class="availability in-stock">Availablity: <span>In stock</span></div>
+            <hr class="single-product-title-divider" />
+            <p><strong>SKU</strong>: <%= @product.code%></p>
+            <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+              <p class="price"><span class="electro-price">
+                <span class="amount"><%= display_price(@product) %></span>
+              </p>
+              <meta itemprop="price" content="1215" />
+              <meta itemprop="priceCurrency" content="rub" />
+              <link itemprop="availability" href="http://schema.org/InStock" />
+              <%= render partial: 'cart_form' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="woocommerce-tabs wc-tabs-wrapper">
+          <ul class="nav nav-tabs electro-nav-tabs tabs wc-tabs" role="tablist">
+                  <!-- <li class="nav-item accessories_tab">
+                    <a href="#tab-accessories" data-toggle="tab">Complectation</a>
+                  </li> -->
+                  <li class="nav-item description_tab">
+                    <a href="#tab-description" class="active" data-toggle="tab">Description</a>
+                  </li>
+                  <li class="nav-item specification_tab">
+                    <a href="#tab-specification" data-toggle="tab">Specification</a>
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane panel entry-content wc-tab" id="tab-accessories">
+                    <div class="accessories">
+                    </div>
+                  </div>
+                  <div class="tab-pane active in panel entry-content wc-tab" id="tab-description">
+                    <div class="electro-description">
+                      <p><%= @product.description%></p>
+                    </div>
+                  </div>
+                  <div class="tab-pane panel entry-content wc-tab" id="tab-specification">
+                    <%= render partial: 'properties' %>
+                  </div>
+                </div>
+        </div> 
+    </main>
+  </div>
+<% end %>
+

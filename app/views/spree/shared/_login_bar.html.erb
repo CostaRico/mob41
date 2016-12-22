@@ -1,0 +1,17 @@
+<% if spree_current_user %>
+  	<li class="menu-item animate-dropdown">
+	  	<%= link_to spree.account_path do%>
+	  		<i class="ec ec-user"></i><%= Spree.t(:my_account)%>
+	  	<% end %>
+  	</li>
+  	<li class="menu-item animate-dropdown"> 	
+  		<%= link_to Spree.t(:logout), spree.logout_path, {:title=>"logout"} %>		
+  	</li>
+<% else %>
+  	<li class="menu-item animate-dropdown">         
+	    <a href="/register" id="customer_register_link"><i class="ec ec-user"></i>Регистрация</a>
+	</li>
+	<li class="menu-item animate-dropdown">
+	    <a href="/login" id="customer_login_link">Логин</a>
+    </li>
+<% end %>

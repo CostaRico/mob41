@@ -1,0 +1,16 @@
+<% @body_id = 'home-page' %>
+
+
+<div id="primary" class="content-area" data-hook="homepage_products" style="    padding-left: 0.9375rem; width: 75%; left: 25%;">
+	<main class="site-main" id="main">
+		<% cache(cache_key_for_products) do %>
+	    	<%= render partial: 'spree/shared/featured_products', locals: { products: @products } %>
+	  	<% end %>	
+	</main>
+  
+</div>
+<%# content_for :sidebar do %>
+  	<div id="sidebar" class="sidebar" role="complementary" style="margin-top: 12px;">
+  		<%= render partial: "spree/shared/latest_products"%>
+  	</div>
+<%#end %>

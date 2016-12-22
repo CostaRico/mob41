@@ -1,0 +1,116 @@
+<!-- <h1 class="taxon-title"><%#= @taxon.name %></h1>
+
+<%# content_for :sidebar do %>
+  <div data-hook="taxon_sidebar_navigation">
+    <%#= render partial: 'spree/shared/taxonomies' %>
+    <%#= render partial: 'spree/shared/filters' if @taxon.leaf? %>
+  </div>
+<%# end %>
+
+<div data-hook="taxon_products">
+</div>
+
+<%# unless params[:keywords].present? %>
+  <div data-hook="taxon_children">
+    <%# cache [I18n.locale, @taxon] do %>
+      <%#= render partial: 'taxon', collection: @taxon.children %>
+    <%# end %>
+  </div>
+<%# end %> -->
+<div id="primary" class="content-area" data-hook="homepage_products" style="padding-left: 0.9375rem; width: 75%; left: 25%;">
+  <main class="site-main" id="main">
+    <header class="page-header">
+      <h1 class="page-title"><%= @taxon.name %></h1>
+      <!-- <p class="woocommerce-result-count">Showing 1–15 of 20 results</p> -->
+    </header>
+    <div class="shop-control-bar">
+      <ul class="shop-view-switcher nav nav-tabs" role="tablist">
+                                  
+      </ul>
+        <form class="woocommerce-ordering" method="get">
+          <select name="orderby" class="orderby">
+            <option value="menu_order" selected="selected">Default sorting</option>
+            <option value="popularity">Sort by popularity</option>
+            <option value="rating">Sort by average rating</option>
+            <option value="date">Sort by newness</option>
+            <option value="price">Sort by price: low to high</option>
+            <option value="price-desc">Sort by price: high to low</option>
+          </select>
+        </form>
+      <nav class="electro-advanced-pagination">
+        <form method="post" class="form-adv-pagination">
+          <input id="goto-page" size="2" min="1" max="<%= @products.total_pages%>" step="1" type="number" class="form-control" value="<%= @products.current_page%>"></form> of <%= @products.total_pages%>
+          <a class="next page-numbers" href="#">→</a>      
+          <script>
+            jQuery(document).ready(function($){
+              $( '.form-adv-pagination' ).on( 'submit', function() {
+                var link    = window.location.pathname,
+                goto_page   = $( '#goto-page' ).val(),
+                new_link  = (link+"?page=" + goto_page);
+                window.location.href = new_link;
+                return false;
+              });
+            });
+          </script>
+      </nav>
+    </div>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="grid" area-expanded=true>
+          <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
+        </div>
+    </div>
+  </main>
+</div>
+<div id="sidebar" class="sitebar">
+  <aside class="widget woocommerce widget_product_categories electro_widget_product_categories">
+    <ul class="product-categories category-single">
+      <li class="product-cat">
+        <ul class="show-all-cat">
+          <li class="product_cat">
+            <span class="show-all-cat-dropdown">Показать все категории <span class="child-indicator"></span>
+            </span>
+            <ul style="display:none;">
+              <%(@taxon.parent.children.to_a - [@taxon]).each do |taxon|%>
+                <li class="cat-item">
+                  <%= link_to taxon.name, seo_url(taxon) %>
+                  <span class="count">(<%= taxon.products.size%>)</span>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+        <ul>
+          <li class="cat-item current-cat">
+            <%= link_to @taxon.name, seo_url(@taxon) %>
+            <span class="count">(<%= @taxon.products.size%>)</span>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </aside>
+  <aside class="widget widget_electro_products_filter">
+    <h3 class="widget-title">Фильтры</h3>
+    <aside class="widget woocommerce widget_price_filter">
+      <h3 class="widget-title">Price</h3>
+      <form action="#">
+        <div class="price_slider_wrapper">
+          <div class="price_slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" style="">
+            <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div>
+            <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 0%;"></span>
+            <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 100%;"></span>
+          </div>
+          <div class="price_slider_amount">
+            <input type="text" id="min_price" name="min_price" value="" data-min="0" placeholder="Min price" style="display: none;">
+            <input type="text" id="max_price" name="max_price" value="" data-max="150000" placeholder="Max price" style="display: none;">
+            <button type="submit" class="button">Filter</button>
+            <div class="price_label" style="">
+              Price: <span class="from">0</span> — <span class="to">150000</span>
+            </div>
+            
+            <div class="clear"></div>
+          </div>
+        </div>
+      </form>
+    </aside>
+  </aside>
+</div>
