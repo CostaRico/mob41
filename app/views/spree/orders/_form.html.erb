@@ -1,0 +1,43 @@
+<%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
+<table class="shop_table shop_table_responsive cart" id="cart-detail" data-hook>
+  <thead>
+    <tr class="active" data-hook="cart_items_headers">
+      <th class="product-remove">&nbsp;</th>
+      <th class="product-thumbnail">&nbsp;</th>
+      <th class="product-name"><%= Spree.t(:item) %></th>
+      <th class="product-price"><%= Spree.t(:price) %></th>
+      <th class="product-quantity"><%= Spree.t(:qty) %></th>
+      <th class="product-subtotal"><%= Spree.t(:total) %></th>
+    </tr>
+  </thead>
+  <tbody id="line_items" data-hook class="cart_item">
+    <%= render partial: 'spree/orders/line_item', collection: order_form.object.line_items, locals: { order_form: order_form } %>
+  </tbody>
+  <% if @order.adjustments.nonzero.exists? || @order.line_item_adjustments.nonzero.exists? || @order.shipment_adjustments.nonzero.exists? || @order.shipments.any? %>
+    <tr class="cart-subtotal">
+      <td colspan="4" align='right'><h5><%= Spree.t(:cart_subtotal, count: @order.line_items.sum(:quantity)) %></h5></td>
+      <td colspan><h5><%= order_form.object.display_item_total %></h5></td>
+      <td></td>
+    </tr>
+    <%= render "spree/orders/adjustments" %>
+  <% end %>
+  <tr>
+    <td class="actions" colspan="6">
+      <div class="coupon">
+                    <%#= order_form.label :coupon_code %>
+        <%= order_form.text_field :coupon_code, class: 'input-text', :placeholder => Spree.t(:coupon_code) %>
+        <input type="submit" value="Принять" name="apply_coupon" class="button">
+                    <%#= button_tag Spree.t(:apply), class: 'button' %>
+      </div>
+        <%= button_tag class: 'button', id: 'update-button' do %>
+          <%= Spree.t(:update) %>
+        <% end %>
+        <div class="wc-proceed-to-checkout">           
+          <%= button_tag class: 'checkout-button button alt wc-forward', id: 'checkout-link', name: 'checkout' do %>
+            <%= Spree.t(:checkout) %>
+          <% end %>
+        </div>
+    </td>
+  </tr>
+</table>
+           

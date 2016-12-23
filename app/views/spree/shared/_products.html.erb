@@ -29,7 +29,7 @@
                 <%= link_to url do %>
                   <h3><%= product.name%></h3>
                   <div class="product-thumbnail">
-                    <%= small_image(product, itemprop: "image", :style => "display: block; margin: 0 auto;") %>
+                    <%= product_image(product, itemprop: "image", :style => "display: block; margin: 0 auto;") %>
                   </div>
                 <% end %>
               <div class="price-add-to-cart">

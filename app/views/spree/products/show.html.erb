@@ -10,13 +10,13 @@
               <div class="thumbnails-single owl-carousel">
                   <% if (@product.images + @product.variant_images).uniq.size > 1 %>
                       <% @product.images.each do |i| %>  
-                          <%= link_to(image_tag(i.attachment.url(:product), :class=>"wp-post-image"), i.attachment.url(:original), :class => "zoom") %>
+                          <%= link_to(image_tag(i.attachment.url(:product), :class=>"wp-attachment-shop_single size-shop_single-image"), i.attachment.url(:original), :class => "zoom", :data=> {:rel => "prettyPhoto[product-gallery]"}) %>
                       <% end %>
 
                       <% if @product.has_variants? %>
                         <% @product.variant_images.each do |i| %>
                           <% next if @product.images.include?(i) %>
-                            <%= link_to(image_tag(i.attachment.url(:product), :class=>"wp-post-image"), i.attachment.url(:original), :class => "zoom") %>
+                            <%= link_to(image_tag(i.attachment.url(:product), :class=>"wp-attachment-shop_single size-shop_single-image"), i.attachment.url(:original), :class => "zoom", :data=> {:rel => "prettyPhoto[product-gallery]"}) %>
                         <% end %>
                       <% end %>
                   <% end %>
