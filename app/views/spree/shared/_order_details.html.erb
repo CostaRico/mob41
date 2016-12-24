@@ -1,0 +1,115 @@
+<div class="woocommerce-checkout-review-order" id="order_review">
+  <table class="shop_table woocommerce-checkout-review-order-table">
+    <thead>
+      <tr>
+        <% if order.has_step?("address") %>
+          <th class="product-name"><%= Spree.t(:billing_address) %> <%= link_to "(#{Spree.t(:edit)})", checkout_state_path(:address) unless order.completed? %></th>
+          <% if order.has_step?("delivery") %>
+            <th class="product-name"><%= Spree.t(:shipping_address) %> <%= link_to "(#{Spree.t(:edit)})", checkout_state_path(:address) unless order.completed? %></th>
+            <th class="product-name"><%= Spree.t(:shipments) %> <%= link_to "(#{Spree.t(:edit)})", checkout_state_path(:delivery) unless order.completed? %></th>
+          <% end -%>
+        <% end %>
+        <% if order.has_step?("payment") %>
+          <th class="product-name"><%= Spree.t(:payment_information) %> <%= link_to "(#{Spree.t(:edit)})", checkout_state_path(:payment) unless order.completed? %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% if order.has_step?("address") %>
+          <td data-hook="order-bill-address">
+            <%= render 'spree/shared/address', address: order.bill_address %>
+          </td>
+          <% if order.has_step?("delivery") %>
+            <td data-hook="order-ship-address"><%= render 'spree/shared/address', address: order.ship_address %></td>
+            <td data-hook="order-shipment">
+              <% order.shipments.each do |shipment| %>
+                  <i class='fa fa-truck'></i>
+                  <%= Spree.t(:shipment_details, stock_location: shipment.stock_location.name, shipping_method: shipment.selected_shipping_rate.name) %>
+                  <%= render 'spree/shared/shipment_tracking', order: order if order.shipped? %>
+              <% end %>
+            </td>
+            <td data-hook="order-payment">
+               <% order.payments.valid.each do |payment| %>
+                <%= render payment %><br/>
+              <% end %>
+            </td>
+          <% end %>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+  <table id='line-items' data-hook="order_details " class="shop_table woocommerce-checkout-review-order-table">
+    <thead>
+      <tr>
+        <th class="product-thumbnail">&nbsp;</th>
+        <th class="product-name"><%= Spree.t(:item) %></th>
+        <th class="product-price"><%= Spree.t(:price) %></th>
+        <th class="product-quantity"><%= Spree.t(:qty) %></th>
+        <th class="product-subtotal"><%= Spree.t(:total) %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% order.line_items.each do |item| %>
+      <tr data-hook="order_details_line_item_row" class="line-item">
+        <td data-hook="order_item_image" class="product-thumbnail">
+          <% if item.variant.images.length == 0 %>
+            <%= link_to small_image(item.variant.product), item.variant.product %>
+          <% else %>
+            <%= link_to image_tag(item.variant.images.first.attachment.url(:small)), item.variant.product %>
+          <% end %>
+        </td>
+        <td class=" product-name" data-hook="order_item_description">
+          <%= item.name %>
+          <%= "(" + item.variant.options_text + ")" unless item.variant.option_values.empty? %>
+        </td>
+        <td data-hook="order_item_price" class="product-price"><%= item.single_money.to_html %></td>
+        <td data-hook="order_item_qty" class="product-quantity"><%= item.quantity %></td>
+        <td data-hook="order_item_total" class="product-subtotal"><%= item.display_amount.to_html %></td>
+      </tr>
+    <% end %>
+    </tbody>
+    <tfoot id="order-total" data-hook="order_details_total">
+      <tr class="warning total">
+        <th> <%= Spree.t(:order_total) %>: </th> 
+        <td class="total"><span id="order_total" class="amount"><%= order.display_total.to_html %></span></td>
+      </tr>
+      <tr class="order-total" id="subtotal-row">
+        <td><%= Spree.t(:subtotal) %>:</td>
+        <td class="total"><span class="amount"><%= order.display_item_total.to_html %></span></td>
+      </tr>
+    
+      <% if order.line_item_adjustments.exists? %>
+        <% if order.line_item_adjustments.promotion.eligible.exists? %>
+            <% order.line_item_adjustments.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
+             <tr class="total" data-hook="order_details_price_adjustments">
+               <td><%= Spree.t(:promotion) %>: <strong><%= label %></strong></td>
+               <td class="total"><span><%= Spree::Money.new(adjustments.sum(&:amount), currency: order.currency) %></span></td>
+             </tr>
+           <% end %>
+        <% end %>
+      <% end %>
+      <% order.shipments.group_by { |s| s.selected_shipping_rate.name }.each do |name, shipments| %>
+        <tr class="order-total" data-hook='shipment-row'>
+          <td class="text-muted"><%= Spree.t(:shipping) %>: <strong><%= name %></strong></td>
+          <td class="total"><span><%= Spree::Money.new(shipments.sum(&:discounted_cost), currency: order.currency).to_html %></span></td>
+        </tr>
+      <% end %>
+      <% if order.all_adjustments.tax.exists? %>
+        <% order.all_adjustments.tax.group_by(&:label).each do |label, adjustments| %>
+          <tr class="order-total" data-hook="order_details_tax_adjustments">
+            <td class="text-muted"><%= Spree.t(:tax) %>: <strong><%= label %></strong></td>
+            <td class="total"><span><%= Spree::Money.new(adjustments.sum(&:amount), currency: order.currency) %></span></td>
+          </tr>
+        <% end %>
+      <% end %>
+      <% order.adjustments.eligible.each do |adjustment| %>
+          <% next if (adjustment.source_type == 'Spree::TaxRate') and (adjustment.amount == 0) %>
+          <tr class="order-total" data-hook="order_details_adjustments">
+            <td><strong><%= adjustment.label %></strong></td>
+            <td class="total"><span><%= adjustment.display_amount.to_html %></span></td>
+          </tr>
+      <% end %>
+    </tfoot>
+  </table>
+</div>
