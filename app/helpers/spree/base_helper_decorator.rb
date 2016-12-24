@@ -17,6 +17,8 @@ Spree::BaseHelper.class_eval do
       content_tag(:nav, crumb_list, id: 'breadcrumbs', class: 'woocommerce-breadcrumb')
   end
   def checkout_progress(numbers: false)
+      compl_css = "padding: 0.465em 0.929em; background-color: #f5f5f5; border-radius: 0.357em"
+      current_css = "padding: 0.465em 0.929em;    background-color: #fed700; border-radius: 0.357em"
       states = @order.checkout_steps
       items = states.each_with_index.map do |state, i|
         text = Spree.t("order_state.#{state}").titleize
@@ -27,10 +29,12 @@ Spree::BaseHelper.class_eval do
         state_index = states.index(state)
 
         if state_index < current_index
-          css_classes << 'completed'
+          css_classes << 'complete_br'
           text = link_to text, checkout_state_path(state)
         end
-
+        if state_index == current_index
+          css_classes << "current_br"
+        end
         css_classes << 'next' if state_index == current_index + 1
         css_classes << 'active' if state == @order.state
         css_classes << 'first' if state_index == 0

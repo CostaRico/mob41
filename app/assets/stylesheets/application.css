@@ -14,4 +14,14 @@
  *= require_tree ./colors
  *= require_self
  */
+.complete_br{
+ 	padding: 0.465em 0.929em; 
+ 	background-color: #f5f5f5; 
+ 	border-radius: 0.357em;
+ }
+.current_br{
+	padding: 0.465em 0.929em;
+	background-color: #fed700;
+	border-radius: 0.357em;
+}
  

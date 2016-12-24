@@ -12,7 +12,7 @@ task :add_products => :environment do
 		{:name=>"Трапы, душевые лотки", :url=>"/trapy_i_dushevye_lotki/"}, {:name=>"Диспоузеры (измельчители)", :url=>"/kuhonnye_mojki/dispouzery/"}, 
 		{:name=>"Фильтры под мойку", :url=>"/filtry_dlja_vody/pod_moyku/"}, 
 		{:name=>"Люки сантехнические", :url=>"/santehnicheskie_ljuki/"}, {:name=>"Теплые полы", :url=>"/teplotehnika/teplye_poly/"}] 
-	files = ["Водонагреватели","Чугунные ванны","Биде","Ванны из искусственного камня","Диспоузеры (измельчители)","Душевые боксы","Душевые кабины","Душ"]
+	files = ["Водонагреватели","Чугунные ванны","Биде","Ванны из искусственного камня","Диспоузеры (измельчители)","Душевые боксы","Душевые кабины","Душ", "Инсталляции"]
 	path_to_file = Rails.root.to_s+"/public/product_list/"
 	init_taxons(first_level, second_level)
 	files.each do |file|

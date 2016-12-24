@@ -47,8 +47,8 @@ task :run_parser => :environment do
 	 #  	"Инсталляции", "Кухонные мойки", "Люки сантехнические", "Писсуары", "Полотенцесушители", "Раковины", "Сифоны", "Смесители", "Стальные ванны",
 	 #  	"Теплые полы", "Трапы, душевые лотки", "Уголки, ограждения, поддоны", "Унитазы", "Фильтры под мойку", "products_list" ]
 	#file = "http://santehnika-online.ru//product/mebel_dlya_vannoy_briklaer_lyuchiya_100_belyy_glyanets/"
-	#files =["Водонагреватели","Чугунные ванны","Биде","Ванны из искусственного камня","Диспоузеры (измельчители)","Душевые боксы","Душевые кабины","Душ"]
-	files = ["Инсталляции"]
+	#files =["Водонагреватели","Чугунные ванны","Биде","Ванны из искусственного камня","Диспоузеры (измельчители)","Душевые боксы","Душевые кабины","Душ", "Инсталляции"]
+	files = ["Кухонные мойки"]
 	files.each do |file|
 		path = Rails.root.to_s + "/public/product_list/#{file}.json" 
 		path_to_file = Rails.root.to_s+"/public/product_links/#{file}.json"
@@ -59,7 +59,7 @@ end
 def product_parser(base_url, file, path_to_file)
 	list = JSON.parse(File.read(file))
 	list.each_with_index do |item, i|
-		if i > 408
+		if i > 326
 			puts i
 			sleep(rand(9.0..13.0)) 
 			page = open_uri(base_url + item["url"]+"?#{rand(10..100000)}")
@@ -73,6 +73,7 @@ end
 def get_product(page, taxon_id)
 	product_name = page.css(".zagl h1").text
 	product_code = page.css(".leftsubcol li").first.css(".property_value").text
+	product_brand = page.css(".leftsubcol li")[1].css(".property_value").text
 	product_price = page.css(".price .newprice").text 
 	product_price = product_price.gsub(" ","").to_i
 	product_properties = page.css(".zebragroup1 .props_group li").map{|a| {:key => a.css(".name").text.strip, :value => a.css(".value").text.strip}}
@@ -89,7 +90,7 @@ def get_product(page, taxon_id)
 	#puts "#{product_imgs}"
 	product = {:name => product_name, :description => product_description, :code => product_code, 
 	:price => product_price, :properties => product_properties, :complect_codes => product_complect_codes,
-	:images => product_imgs, :taxon_id => taxon_id}
+	:images => product_imgs, :taxon_id => taxon_id, :brand => product_brand}
 	return product
 end
 

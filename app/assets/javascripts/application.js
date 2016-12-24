@@ -23,4 +23,5 @@
 //= require electro 
 //= require scrollup.min
 //= require pace.min
+//= require upd_sipp
 

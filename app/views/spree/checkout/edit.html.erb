@@ -10,10 +10,10 @@
     <header class="entry-header"><h1 itemprop="name" class="entry-title"><%= Spree.t(:checkout) %></h1>
     </header>
     <%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
-          <div id="checkout" data-hook>
+          <!-- <div id="checkout" data-hook>
             
-            <div class="row" data-hook="checkout_content">
-              <div class="<%= if @order.state != 'confirm' then 'col-md-9' else 'col-md-12' end %>" data-hook="checkout_form_wrapper">
+            <div class="row" data-hook="checkout_content"> -->
+              <!-- <div class="<%#= if @order.state != 'confirm' then 'col-md-9' else 'col-md-12' end %>" data-hook="checkout_form_wrapper"> -->
                 <%= form_for @order, url: update_checkout_path(@order.state), html: { id: "checkout_form_#{@order.state}" } do |form| %>
                   <% if @order.state == 'address' || !@order.email? %>
                     <div class="panel panel-default">
@@ -28,14 +28,14 @@
                   <%= form.hidden_field :state_lock_version %>
                   <%= render @order.state, form: form %>
                 <% end %>
-              </div>
+              <!-- </div> -->
               <% if @order.state != 'confirm' %>
                 <div id="checkout-summary" data-hook="checkout_summary_box" class="col-md-3">
-                  <%= render partial: 'summary', locals: { order: @order } %>
+                  <%#= render partial: 'summary', locals: { order: @order } %>
                 </div>
               <% end %>
-            </div>
-          </div>
+           <!--  </div>
+          </div> -->
   </div>
 </div>
 <script>
