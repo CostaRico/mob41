@@ -77,6 +77,8 @@
       </li>
     </ul>
     <%= render partial: '/spree/shared/search'%>
-    <%= render partial: "/spree/shared/cart", :locals => {:order => current_order} %>
+    <div class="cart-in-header">
+      <%= render partial: "/spree/shared/cart", :locals => {:order => current_order} %>
+    </div>
   </div>
 </nav>

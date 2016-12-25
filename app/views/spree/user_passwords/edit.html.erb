@@ -1,22 +1,32 @@
-<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @spree_user } %>
-<div class="col-md-6 col-md-offset-3">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">Изменить пароль</h3>
-    </div>
-    <div class="panel-body">
-      <%= form_for @spree_user, :as => :spree_user, :url => spree.update_password_path, :method => :put do |f| %>
-        <p>
-          <%= f.label :password, Spree.t(:password) %><br />
-          <%= f.password_field :password, :class => "form-control" %><br />
-        </p>
-        <p>
-          <%= f.label :password_confirmation, Spree.t(:confirm_password) %><br />
-          <%= f.password_field :password_confirmation, :class => "form-control" %><br />
-        </p>
-        <%= f.hidden_field :reset_password_token %>
-        <%= f.submit Spree.t(:update), :class => 'btn btn-lg btn-success btn-block' %>
-      <% end %>
+<div id="content" class="site-content" tabindex="-1">
+  <div class="container">
+   <nav class="woocommerce-breadcrumb" >
+   </nav>
+    <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @spree_user } %>
+    <div id="primary" class="content-area">
+      <main id="main" class="site-main">
+        <article id="post-8" class="hentry">
+          <div class="entry-content">
+            <div class="woocommerce">
+              <div class="customer-login-form" style="margin-left: 25%; width: 50%;">
+                <h2 class="panel-title">Изменить пароль</h2>
+                <%= form_for @spree_user, :as => :spree_user, :url => spree.update_password_path, :method => :put do |f| %>
+                  <p>
+                    <%= f.label :password, Spree.t(:password) %><br />
+                    <%= f.password_field :password, :class => "input-text" %><br />
+                  </p>
+                  <p>
+                    <%= f.label :password_confirmation, Spree.t(:confirm_password) %><br />
+                    <%= f.password_field :password_confirmation, :class => "input-text" %><br />
+                  </p>
+                  <%= f.hidden_field :reset_password_token %>
+                  <%= f.submit Spree.t(:update), :class => 'button' %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </article>
+      </main>
     </div>
   </div>
 </div>

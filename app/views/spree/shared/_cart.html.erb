@@ -20,17 +20,17 @@ $(document).ready(function(){
         <a href="#" class="nav-link" data-toggle="dropdown" aria-expanded="false">
             <i class="ec ec-shopping-bag"></i>
             <span class="cart-items-count count"><%= order.nil? ? 0 : order.item_count %></span>
-            <span class="cart-items-total-price total-price"><span class="amount"><%= order.nil? ? 0 : order.total%> Руб.</span></span>
+            <span class="cart-items-total-price total-price"><span class="amount"><%= order.nil? ? 0 : order.total %> Руб.</span></span>
         </a>
         <ul class="dropdown-menu dropdown-menu-mini-cart">
             <li>
                 <div class="widget_shopping_cart_content">
 					<ul class="cart_list product_list_widget ">
-            <% if order.nil? %>
-              <li class="empty">No products in the cart.</li>
+            <% if order.nil? or order.line_items.empty? %>
+              <li class="empty"><%= Spree.t(:your_cart_is_empty)%></li>
             <% else %>
 					    <%= render :partial => "/spree/shared/cart_item", :locals => {:items => order.line_items}%>
-                    </ul>
+          </ul>
                     <p class="total"><strong>Subtotal:</strong> <span class="amount"><%= order.nil? ? 0 : order.total %></span></p>
                     <p class="buttons">
                         <a class="button wc-forward" href="/cart">View Cart</a>

@@ -5,17 +5,13 @@
     	<li>
             <%= link_to product_path(product), :title =>product.name do %>
                	<%= small_image(product, :class => "wp-post-image") %>
-                <span class="product-title"><%= product.name%></span>
+                <span class="product-title"><%= product.name %></span>
             <% end %>
-             <span class="electro-price"><span class="amount"><% product.price%></span></span>
-           <!--  <span class="electro-price">
-	            <ins>
-	            	<span class="amount">&#36;1,999.00</span>
-	            </ins> 
-	           	<del>
-	            		<span class="amount">&#36;2,299.00</span>
-	            </del>
-           	</span> -->
+             <span class="electro-price">
+              <span class="amount">
+                <%= display_price(product)%>
+              </span>
+            </span>
         </li>
     	<% end %>
     </ul>

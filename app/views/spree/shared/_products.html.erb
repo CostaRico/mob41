@@ -38,7 +38,7 @@
                     <span class="amount"><%= display_price(product) %></span>
                   </span>
                 </span>
-                <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                <a rel="nofollow" data-link="link_to-<%= product.master.id %>" class="button add_to_cart_button" href="" data-remote="true"><%= Spree.t(:add_to_cart)%></a>
               </div>
               <div class="hover-area">
               </div>

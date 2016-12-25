@@ -1,0 +1,2 @@
+$(".navbar-mini-cart .cart-items-count").text("<%= j(order.nil? ? 0 : order.item_count) %>");
+$(".navbar-mini-cart .amount").text("<%= j(order.nil? ? 0 : order.total) %> Руб.");
