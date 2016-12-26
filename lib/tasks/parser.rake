@@ -59,7 +59,7 @@ end
 def product_parser(base_url, file, path_to_file)
 	list = JSON.parse(File.read(file))
 	list.each_with_index do |item, i|
-		if i > 1117
+		if i > 2180
 			puts i
 			sleep(rand(9.0..13.0)) 
 			page = open_uri(base_url + item["url"]+"?#{rand(10..100000)}")
