@@ -24,8 +24,8 @@
     <td class="product-price" data-hook="cart_item_price">
       <%= line_item.single_money.to_html %>
     </td>
-    <td class="product-quantity" data-hook="cart_item_quantity" valign="center">
-      <div class="quantity buttons_added">
+    <td class="product-quantity cart-item-quantity" data-hook="cart_item_quantity" valign="center">
+      <div class="quantity buttons_added ">
         <!-- <input type="button" class="minus" value="-"> -->
         <%= item_form.number_field :quantity, min: 0, class: "form-control line_item_quantity input-text qty text", size: 5 %>
         <!-- <input type="button" class="plus" value="+"> -->

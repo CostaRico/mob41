@@ -46,6 +46,12 @@
           </div>
         </div>
       </div>
+     
+          <script>
+            $(document).ready(function(){
+              Spree.fetch_recently_viewed_products('<%= @product.try(:id) %>');
+            });
+          </script>
       <div class="woocommerce-tabs wc-tabs-wrapper">
           <ul class="nav nav-tabs electro-nav-tabs tabs wc-tabs" role="tablist">
                   <!-- <li class="nav-item accessories_tab">

@@ -15,5 +15,8 @@ Spree.config do |config|
   # config.track_inventory_levels = false
   # config.currency = 'RUB'
 end
+require "#{Rails.root}/lib/spree/custom_search"
+Spree::Config.searcher_class = Spree::CustomSearch
 Spree::Config[:layout]='spree/layouts/spree_application'
 Spree.user_class = "Spree::User"
+

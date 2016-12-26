@@ -34,10 +34,11 @@ Spree::OrdersController.class_eval do
 
     def remove_line_item
     	if request.xhr?
-	    	order = current_order
+	    	@order = current_order
+	    	quantity = 0
 	    	line_item = params[:item].split("_").last.to_i
-	    	item = current_order.line_items.find(line_item)
-	    	item.destroy if item
+	    	item = {:line_items_attributes => {:id => line_item, :quantity => quantity}}
+	    	@order.contents.update_cart(item)
 	    	respond_to do |format|
 		    	format.js
 		    end

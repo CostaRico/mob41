@@ -33,6 +33,8 @@ gem 'spree', '~> 3.2.0.rc1'
 gem 'spree_auth_devise', '~> 3.2.0.beta'
 gem 'spree_gateway', '~> 3.2.0.beta'
 gem 'spree_i18n', github: 'spree-contrib/spree_i18n'
+gem 'spree_static_content', github: 'spree-contrib/spree_static_content'
+gem 'spree_recently_viewed', github: 'spree-contrib/spree_recently_viewed', branch: 'master'
 gem 'bourbon'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

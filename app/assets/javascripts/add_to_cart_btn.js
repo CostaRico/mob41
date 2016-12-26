@@ -9,4 +9,14 @@ $('document').ready(function(){
 		}
 		);
 	});
+	$('.mini_cart_item').on('click','.remove',function(){
+	    item = $(this).attr('id');
+	    url = '/orders/remove_item';
+	    quantity = 1;
+	    $.post( url, {
+		  	item: item
+		}
+		);
+        $(this).parent().remove();
+	});
 });

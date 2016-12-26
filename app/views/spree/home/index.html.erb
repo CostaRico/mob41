@@ -1,16 +1,108 @@
 <% @body_id = 'home-page' %>
+<div id="content" class="site-content" tabindex="-1">
+    <div class="container">
+    	<div id="primary" class="content-area">
+            <main id="main" class="site-main">
+                <div class="" >
+	                <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
+	                	<div class="item" style="background-image: url(/assets/slide_1.jpg);">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-offset-3 col-md-5">
+                                        <div class="caption vertical-center text-left">
+                                            <!-- <div class="hero-1 fadeInDown-1">
+                                                The New <br> Standard
+                                            </div>
 
+                                            <div class="hero-subtitle fadeInDown-2">
+                                                 under favorable smartwatches
+                                            </div>
+                                            <div class="hero-v2-price fadeInDown-3">
+                                                from <br><span>$749</span>
+                                            </div> -->
+                                                       
+                                            </div><!-- /.caption -->
+                                        </div>
+                                    </div>
+                                </div><!-- /.container -->
+                        </div>
+	                </div>
+	                <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
+	                	<div class="item" style="background-image: url(/assets/slide_1.jpg);">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-offset-3 col-md-5">
+                                        <div class="caption vertical-center text-left">
+                                            <!-- <div class="hero-1 fadeInDown-1">
+                                                The New <br> Standard
+                                            </div>
 
-<div id="primary" class="content-area" data-hook="homepage_products" style="    padding-left: 0.9375rem; width: 75%; left: 25%;">
-	<main class="site-main" id="main">
-		<% cache(cache_key_for_products) do %>
-	    	<%= render partial: 'spree/shared/featured_products', locals: { products: @products } %>
-	  	<% end %>	
-	</main>
-  
+                                            <div class="hero-subtitle fadeInDown-2">
+                                                 under favorable smartwatches
+                                            </div>
+                                            <div class="hero-v2-price fadeInDown-3">
+                                                from <br><span>$749</span>
+                                            </div> -->
+                                                       
+                                            </div><!-- /.caption -->
+                                        </div>
+                                    </div>
+                                </div><!-- /.container -->
+                        </div>
+	                </div>
+
+                </div>
+                <div id="primary" class="content-area" data-hook="homepage_products" style="    padding-left: 0.9375rem; width: 75%; left: 25%;">
+                <div itemprop="mainContentOfPage" class="entry-content">
+                    <div class="vc_row wpb_row vc_row-fluid">
+                        <div class="wpb_column vc_column_container vc_col-sm-12">
+                            <div class="vc_column-inner ">
+                                <div class="wpb_wrapper"><h2 class="vc_custom_heading faq-page-title" style="font-size: 25px;color: #434343;text-align: left;font-family:Open Sans;font-weight:400;font-style:normal">Заголовок</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-content">
+                    	<p>В интернет-магазине <a href="http://41km.ru">41km.ru</a> вы найдете широкий асортимент сантехники как отечественного, так и импортного производства. Вас приятно удивят наши цены на ванны, душевые уголки, мебель для ванной комнаты, санфаянс, смесители, инсталляции</p>
+                    </div>
+                    <div class="vc_row wpb_row vc_row-fluid inner-bottom-xs" style="display: inline-block;">
+                    	<div class="wpb_column vc_column_container vc_col-sm-12 col-sm-12">
+                            <div class="vc_column-inner ">
+                                <div class="wpb_wrapper">
+                                    <div class="wpb_text_column wpb_content_element ">
+                                        <div class="wpb_wrapper">
+                                            <h3 style="text-align: left;" class="faq-title"> Нужна новая ванна, но не знаете как выбрать самостоятельно, с чего начать?</h3>
+                                            <div class="text-content">
+                                                <p>Ванна, как известно, является центральным элементом любой ванной комнаты. Если вы не планируете покупать и менять ванны на регуларной основе, то лучше сразу найту ту единственную, что впишется в ваш интерьер идеальным образом и будет радовать своим присутствием каждый новый день.</p>
+                                                <p>
+                                                	Первое на что следует обратить внимание перед тем как вы приступили к выбору ванны это точный размер вашей ванной комнаты.
+                                                </p>
+                                                <p>Определившись с размером, подумайте сколько денег вы готовы потратить на покупку и в каком ценовом сегменте будете приступать к поиску. Цены сильно варируются в заваисимости от дизайна ванны, ее размера, материала исполнения.</p>
+                                                <p>
+                                                	В наши дни ванная комната - это нечто большее, чем просто место, где можно помыться. Современные ванные комнаты зачастую оснащаются саунами, инфракрасными кабинами, а следовательно являются идеальным местом, чтобы отдохнуть.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                               	</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+					<main class="site-main" id="main">
+						<% cache(cache_key_for_products) do %>
+					    	<%= render partial: 'spree/shared/featured_products', locals: { products: @products } %>
+					  	<% end %>	
+					</main>
+				  
+				</div>
+			  	<div id="sidebar" class="sidebar" role="complementary">
+			  		<%= render partial: "spree/shared/taxonomies"%>
+			  		<%= render partial: "spree/shared/latest_products", :locals => {:products => @feat_products} %>
+			  	</div>
+            </main>
+        </div>
+	  
+		
+	</div>
 </div>
-<%# content_for :sidebar do %>
-  	<div id="sidebar" class="sidebar" role="complementary" style="margin-top: 12px;">
-  		<%= render partial: "spree/shared/latest_products"%>
-  	</div>
-<%#end %>

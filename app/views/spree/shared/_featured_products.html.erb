@@ -1,6 +1,6 @@
  <section class="products-carousel-tabs animate-in-view fadeIn animated sidebar-item" data-animation="fadeIn" data-hook>
     <header>
-        <h2 class="h1">Best Sellers</h2>
+        <h2 class="h1">Лучшая цена</h2>
     </header>
    <!--  <ul class="nav nav-inline">
         <li class="nav-item">
@@ -16,9 +16,9 @@
                 <div class="home-v2-owl-carousel-tabs">
                     <div class="woocommerce columns-3">
                         <div class="products owl-carousel home-v2-carousel-tabs products-carousel columns-3">
-                            <%Spree::Product.last(12).each do |product|%>
-                                <div class="product " itemtype="https://schema.org/Product">
-                                    <div class="product-outer" style="height: 391px;">
+                            <% products.each do |product|%>
+                                <div class="product " id="product_<%= product.id %>" itemtype="https://schema.org/Product">
+                                    <div class="product-outer" >
                                         <div class="product-inner">
                                             <span class="loop-product-categories">
                                                 <%= link_to product.taxons.first.name, seo_url(product.taxons.first)%>   

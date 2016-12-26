@@ -9,6 +9,21 @@ GIT
       routing-filter
       spree_core (>= 3.1.0, < 4.0)
 
+GIT
+  remote: git://github.com/spree-contrib/spree_recently_viewed.git
+  revision: de77ec6bb3e888b659be2f9fae64bb49bf1552bd
+  branch: master
+  specs:
+    spree_recently_viewed (3.2.0.alpha)
+      spree_core (~> 3.2.0.alpha)
+
+GIT
+  remote: git://github.com/spree-contrib/spree_static_content.git
+  revision: 41ea4c079bf97caef83f2f36fb9f683757468a14
+  specs:
+    spree_static_content (3.2.0.alpha)
+      spree_core (>= 3.1.0, < 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -365,6 +380,8 @@ DEPENDENCIES
   spree_auth_devise (~> 3.2.0.beta)
   spree_gateway (~> 3.2.0.beta)
   spree_i18n!
+  spree_recently_viewed!
+  spree_static_content!
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

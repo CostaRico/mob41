@@ -50,4 +50,22 @@ Spree::BaseHelper.class_eval do
       separator = content_tag(:span, content_tag(:i, " ",class: ["fa", "fa-angle-right"]), class: "delimiter")
       content_tag('span', raw(items.join(separator)), class: 'progress-bar', id: "checkout-step-#{@order.state}")
     end
+
+    def display_price(product_or_variant)
+      raw product_or_variant.
+        price_in(current_currency).
+        display_price_including_vat_for(current_price_options).
+        to_html.split(",00").join
+    end
+
+    def taxons_tree(root_taxon, current_taxon, max_level = 1)
+      return '' if max_level < 1 || root_taxon.leaf?
+      content_tag :div, class: 'list-group' do
+        taxons = root_taxon.children.map do |taxon|
+          css_class = (current_taxon && current_taxon.self_and_ancestors.include?(taxon)) ? 'list-group-item active' : 'list-group-item'
+          link_to(taxon.name, seo_url(taxon), class: css_class) + taxons_tree(taxon, current_taxon, max_level - 1)
+        end
+        safe_join(taxons, "\n")
+      end
+    end
 end

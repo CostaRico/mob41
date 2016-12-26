@@ -1,18 +1,20 @@
-<aside class="widget widget_products">
-    <h3 class="widget-title">Latest Products</h3>
-    <ul class="product_list_widget">
-    	<%Spree::Product.first(100).sample(4).each do |product|%>
-    	<li>
-            <%= link_to product_path(product), :title =>product.name do %>
-               	<%= small_image(product, :class => "wp-post-image") %>
-                <span class="product-title"><%= product.name %></span>
-            <% end %>
-             <span class="electro-price">
-              <span class="amount">
-                <%= display_price(product)%>
+<% if cached_recently_viewed_products.any? %>
+  <aside id="recently_viewed" class="widget widget_products">
+      <h3 class="widget-title"><%= Spree.t(:recently_viewed_products) %></h3>
+      <ul class="product_list_widget">
+      	<% cached_recently_viewed_products.each do |product| %>
+      	<li>
+              <%= link_to product_path(product), :title =>product.name do %>
+                 	<%= small_image(product, :class => "wp-post-image") %>
+                  <span class="product-title"><%= product.name %></span>
+              <% end %>
+               <span class="electro-price">
+                <span class="amount">
+                  <%= display_price(product)%>
+                </span>
               </span>
-            </span>
-        </li>
-    	<% end %>
-    </ul>
-</aside>
+          </li>
+      	<% end %>
+      </ul>     
+  </aside>
+<% end %>

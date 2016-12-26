@@ -1,11 +1,49 @@
 <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
-
-<nav id="taxonomies" class="sidebar-item" data-hook>
-  <% @taxonomies.each do |taxonomy| %>
-    <% cache [I18n.locale, taxonomy, max_level, @taxon] do %>
-      <% if taxonomy.root.children.any? %>
-        <%= taxons_tree(taxonomy.root, @taxon, max_level) %>
-      <% end %>
-    <% end %>
-  <% end %>
-</nav>
+<% taxonomy = @taxonomies.first%>
+<% cache [I18n.locale, taxonomy, max_level, @taxon] do %>
+<aside class="widget woocommerce widget_product_categories electro_widget_product_categories">
+    <ul class="product-categories category-single">
+      	<li class="product-cat">
+	      	<% if taxonomy.root.children.any? %>
+	          	<% unless @taxon %>
+	          	 	<%= taxons_tree(taxonomy.root, @taxon, max_level) %>
+	          		<!-- <ul class="show-all-cat">
+	         	 		<li class="product_cat">
+		         	 		<ul>
+				          		<%# taxonomy.root.children.each do |taxon| %>
+				          			<li class="cat-item">
+						                <%#= link_to taxon.name, seo_url(taxon) %>
+						                <span class="count">(<%#= taxon.products.size%>)</span>
+						            </li>
+				          		<%# end %>
+			          		</ul>
+		          		</li>
+		          	</ul> -->
+	          	<% else %>
+	          		<ul class="show-all-cat">
+	         	 		<li class="product_cat">
+			          		<span class="show-all-cat-dropdown">Показать все категории <span class="child-indicator"></span></span>
+			          		<ul style="display:none;">
+				              <% taxonomy.root.children.each do |taxon| %>
+					              	<% if taxon != @taxon%>
+						                <li class="cat-item">
+						                  <%= link_to taxon.name, seo_url(taxon) %>
+						                  <span class="count">(<%= taxon.products.size%>)</span>
+						                </li>
+					                <% end %>
+				              <% end %>
+				            </ul>
+				        </li>
+				    </ul>
+		            <ul>
+			          <li class="cat-item current-cat">
+			            <%= link_to @taxon.name, seo_url(@taxon) %>
+			            <span class="count">(<%= @taxon.products.size%>)</span>
+			          </li>
+			        </ul>
+	          	<% end %>
+        	<% end %>
+      	</li>
+    </ul>
+</aside>
+<% end %>

@@ -1,6 +1,18 @@
 <% if items.empty? or items.nil? %>
   <li class="empty">No products in the cart.</li>
-<% else %>  
+<% else %> 
+<script type="text/javascript">
+  $('.mini_cart_item').on('click','.remove',function(){
+      item = $(this).attr('id');
+      url = '/orders/remove_item';
+      quantity = 1;
+      $.post( url, {
+        item: item
+    }
+    );
+        $(this).parent().remove();
+  });
+</script> 
   <% items.each do |item|%>
     <li class="mini_cart_item">
       <a title="Remove this item" class="remove" href="#" data-remote="true" id="delete_<%=dom_id(item)%>">×</a>
