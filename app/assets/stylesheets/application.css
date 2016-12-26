@@ -10,7 +10,13 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree ./css
+ *= require bootstrap.min
+ *= require bootstrap.min
+ *= require style
+ *= require animate.min
+ *= require font-awesome.min
+ *= require font-electro
+ *= require owl-carousel
  *= require_tree ./colors
  *= require_self
  */
