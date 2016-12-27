@@ -22,7 +22,7 @@
     <div class="shop-control-bar">
       <% if products.respond_to?(:total_pages) %>
         <nav class="woocommerce-pagination" style="float: right;"> 
-          <%= paginate products, window:2, views_prefix: '/spree', :remote => true%>
+          <%= paginate products, window:2, views_prefix: '/spree'%>
         </nav>
       <% end %>
     </div>
@@ -67,7 +67,7 @@
 <div class="shop-control-bar-bottom">
   <% if products.respond_to?(:total_pages) %>
     <nav class="woocommerce-pagination">
-        <%= paginate products, window:2, views_prefix: '/spree', :remote => true%>
+        <%= paginate products, window:2, views_prefix: '/spree'%>
     </nav>
   <% end %>
 </div>

@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap.min
 //= require bootstrap-hover-dropdown.min
@@ -24,4 +23,3 @@
 //= require pace.min
 //= require upd_sipp
 //= require add_to_cart_btn
-//= require turbolinks
