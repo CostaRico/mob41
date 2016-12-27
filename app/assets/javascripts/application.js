@@ -14,17 +14,19 @@
 //= require bootstrap.min
 //= require bootstrap-hover-dropdown.min
 //= require jquery
+
 //= require jquery_ujs
-//= require turbolinks
+
 //= require owl.carousel.min
-//= require jquery.turbolinks
 //= require echo.min
 //= require wow.min
 //= require jquery.easing.min
 //= require jquery.waypoints.min
 //= require electro 
+//= require jquery.turbolinks
 //= require scrollup.min
 //= require pace.min
 //= require upd_sipp
 //= require add_to_cart_btn
 
+//= require turbolinks

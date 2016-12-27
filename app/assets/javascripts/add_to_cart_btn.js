@@ -19,4 +19,25 @@ $('document').ready(function(){
 		);
         $(this).parent().remove();
 	});
+	$( ".departments-menu" ).on( "click",'.nav-item' ,function() {
+	  if ($(this).children(".nav-link").attr("aria-expanded")=='false'){
+	    $(this).addClass(" open");
+	    $(this).children(".nav-link").attr("aria-expanded","true")
+	  }else
+	  { $(this).removeClass("open");
+	    $(this).children(".nav-link").attr("aria-expanded","false")
+	  }
+	});
+	$( ".navbar-mini-cart" ).on( "click", ".nav-item", function() {
+ 	 	if ($(this).children(".nav-link").attr("aria-expanded")=='false')
+ 	 	{
+  			$(this).addClass(" open");
+  			$(this).children(".nav-link").attr("aria-expanded","true")
+  		}
+  		else
+		{ 
+			$(this).removeClass("open");
+  			$(this).children(".nav-link").attr("aria-expanded","false")
+  		}
+	});
 });
