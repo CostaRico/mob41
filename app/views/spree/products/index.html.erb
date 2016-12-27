@@ -1,0 +1,70 @@
+<div id="content" class="site-content" tabindex="-1">
+  	<div class="container">
+		<nav class="woocommerce-breadcrumb"></nav>
+		<div id="primary" class="content-area" data-hook="homepage_products" style="padding-left: 0.9375rem; width: 75%; left: 25%;">
+		  <main class="site-main" id="main">
+		  	<section>
+			  	<% if params[:keywords] %>
+				  	<% if @products.empty? %>
+				  		<header class="page-header">
+				       		<h1 class="page-title"><%= Spree.t(:no_products_found) %></h1>
+				       	</header>
+				    <% else %>
+					    <header class="page-header">
+					      <h1 class="page-title"><%= Spree.t(:search_results, keywords: h(params[:keywords])) %></h1>
+					      <!-- <p class="woocommerce-result-count">Showing 1–15 of 20 results</p> -->
+					    </header>
+					    <div class="tab-content">
+					        <div role="tabpanel" class="tab-pane active" id="grid" area-expanded=true>
+					          <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
+					        </div>
+					    </div>
+				    <% end -%>
+				  
+				<% else %>
+					<div class="tab-content">
+					        <div role="tabpanel" class="tab-pane active" id="grid" area-expanded=true>
+					          	<% cache(cache_key_for_products) do %>
+							      <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
+							    <% end %>
+					        </div>
+					</div>
+				<% end -%>
+			</section>
+		  </main>
+		</div>
+		<% if "spree/products" == params[:controller] && @taxon || @taxonomies.present? %>
+			<div id="sidebar" class="sitebar">
+			  <%= render partial: 'spree/shared/taxonomies', locals: {taxon: @taxon } %>
+			  <% if "spree/products" == params[:controller] && @taxon %>
+				  <aside class="widget widget_electro_products_filter ">
+				    <h3 class="widget-title ssc">Фильтры</h3>
+				    <aside class="widget woocommerce widget_price_filter">
+				      <%= render partial: 'spree/shared/filter', locals: {taxon: @taxon }%>
+				      <h3 class="widget-title">Price</h3>
+				      <form action="#">
+				        <div class="price_slider_wrapper">
+				          <div class="price_slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" style="">
+				            <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div>
+				            <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 0%;"></span>
+				            <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 100%;"></span>
+				          </div>
+				          <div class="price_slider_amount">
+				            <input type="text" id="min_price" name="min_price" value="" data-min="0" placeholder="Min price" style="display: none;">
+				            <input type="text" id="max_price" name="max_price" value="" data-max="150000" placeholder="Max price" style="display: none;">
+				            <button type="submit" class="button">Filter</button>
+				            <div class="price_label" style="">
+				              Price: <span class="from">0</span> — <span class="to">150000</span>
+				            </div>
+				            
+				            <div class="clear"></div>
+				          </div>
+				        </div>
+				      </form>
+				    </aside>
+				<% end -%>
+			  </aside>
+			</div>
+		<% end -%>
+	</div>
+</div>

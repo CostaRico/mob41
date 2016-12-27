@@ -10,12 +10,14 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require turbolinks
+
 //= require bootstrap.min
 //= require bootstrap-hover-dropdown.min
 //= require jquery
 //= require jquery_ujs
+//= require turbolinks
 //= require owl.carousel.min
+//= require jquery.turbolinks
 //= require echo.min
 //= require wow.min
 //= require jquery.easing.min

@@ -1,5 +1,5 @@
 <script type="text/javascript">
-  $(document).ready(function(){
+  // $(document).ready(function(){
     $( ".departments-menu" ).on( "click",'.nav-item' ,function() {
   if ($(this).children(".nav-link").attr("aria-expanded")=='false'){
     $(this).addClass(" open");
@@ -8,10 +8,10 @@
   { $(this).removeClass("open");
     $(this).children(".nav-link").attr("aria-expanded","false")
   }});
-  });
+  // });
   
 </script>
-<%= javascript_include_tag 'application' %>
+<script type="text/javascript" src="/assets/electro.js"></script>
   <div class="top-bar">
     <div class="container">
       <div class="container">

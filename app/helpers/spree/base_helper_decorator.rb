@@ -5,7 +5,7 @@ Spree::BaseHelper.class_eval do
       crumbs = [link_to(content_tag(:span, Spree.t(:home), itemprop: "name"), spree.root_path, itemprop: "url") + separator]
 
       if taxon
-         crumbs << taxon.ancestors.collect { |ancestor| link_to(content_tag(:span, ancestor.name, itemprop: "name"), seo_url(ancestor), itemprop: "url") + separator }
+         # crumbs << taxon.ancestors.collect { |ancestor| link_to(content_tag(:span, ancestor.name, itemprop: "name"), seo_url(ancestor), itemprop: "url") + separator }
          crumbs << link_to(content_tag(:span, taxon.name, itemprop: "name"), seo_url(taxon), itemprop: "url") 
       else
         crumbs << content_tag(:span, Spree.t(:products), itemprop: "item")
