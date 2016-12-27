@@ -29,15 +29,15 @@ $('document').ready(function(){
 	  }
 	});
 	$( ".navbar-mini-cart" ).on( "click", ".nav-item", function() {
- 	 	if ($(this).children(".nav-link").attr("aria-expanded")=='false')
- 	 	{
-  			$(this).addClass(" open");
-  			$(this).children(".nav-link").attr("aria-expanded","true")
-  		}
-  		else
-		{ 
-			$(this).removeClass("open");
-  			$(this).children(".nav-link").attr("aria-expanded","false")
-  		}
-	});
+   	 	if ($(this).children(".nav-link").attr("aria-expanded")=='false')
+   	 	{
+    			$(this).addClass("open");
+    			$(this).children(".nav-link").attr("aria-expanded","true")
+    		}
+    		else
+  		{ 
+  			$(this).removeClass("open");
+    			$(this).children(".nav-link").attr("aria-expanded","false")
+    		}
+  	});
 });

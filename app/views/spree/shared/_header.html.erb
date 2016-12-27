@@ -1,15 +1,15 @@
 <script type="text/javascript">
-  // $(document).ready(function(){
-  $( ".departments-menu" ).on( "click",'.nav-item' ,function() {
-  if ($(this).children(".nav-link").attr("aria-expanded")=='false'){
-    $(this).addClass(" open");
-    $(this).children(".nav-link").attr("aria-expanded","true")
-  }else
-  { $(this).removeClass("open");
-    $(this).children(".nav-link").attr("aria-expanded","false")
-  }});
+  // $(document).on("turbolinks:load", function(){
+    $( ".departments-menu" ).on( "click",'.nav-item' ,function() {
+      if ($(this).children(".nav-link").attr("aria-expanded")=='false'){
+        $(this).addClass(" open");
+        $(this).children(".nav-link").attr("aria-expanded","true")
+      }else
+      { $(this).removeClass("open");
+        $(this).children(".nav-link").attr("aria-expanded","false")
+      }
+    });
   // });
-  
 </script>
 <script type="text/javascript" src="/assets/electro.js"></script>
   <div class="top-bar">
