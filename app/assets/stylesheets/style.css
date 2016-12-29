@@ -1622,7 +1622,9 @@ li.product .added_to_cart, .section-onsale-product .onsale-product .added_to_car
   height: 35px;
   position: relative;
   padding: 0;
-  border-radius: 50%; }
+  border-radius: 50%; 
+  background-color: #fed700 !important;
+}
   li.product .added_to_cart::before, .section-onsale-product .onsale-product .added_to_cart::before, .section-onsale-product-carousel .onsale-product-carousel .onsale-product .onsale-product-content .added_to_cart::before, .products-carousel .owl-item .product .added_to_cart::before, li.product .button::before, .section-onsale-product .onsale-product .button::before, .section-onsale-product-carousel .onsale-product-carousel .onsale-product .onsale-product-content .button::before, .products-carousel .owl-item .product .button::before {
     display: inline-block;
     color: #fff; }
@@ -1690,7 +1692,7 @@ ul.products > .list-view.product {
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
   width: 100%; 
-  background-color: #fed700 !important;
+  
   }
   @media (min-width: 768px) {
     .columns-4 ul.products > li.product.list-view, .columns-4 .section-onsale-product ul.products > .list-view.onsale-product, .section-onsale-product .columns-4 ul.products > .list-view.onsale-product, .columns-4 .section-onsale-product-carousel .onsale-product-carousel .onsale-product ul.products > .list-view.onsale-product-content, .section-onsale-product-carousel .onsale-product-carousel .onsale-product .columns-4 ul.products > .list-view.onsale-product-content, .columns-4 .products-carousel .owl-item ul.products > .list-view.product, .products-carousel .owl-item .columns-4 ul.products > .list-view.product,
@@ -1876,8 +1878,8 @@ ul.products > li.product.list-view-small .price-add-to-cart, .section-onsale-pro
 /*===================================================================================*/
 @font-face {
   font-family: 'star';
-  src: url("/assets/css/star.eot");
-  src: url("/assets/css/star.eot?#iefix") format("embedded-opentype"), url("/assets/css/star.woff") format("woff"), url("/assets/css/star.ttf") format("truetype"), url("/assets/css/star.svg#star") format("svg");
+  src: url("/assets/star.eot");
+  src: url("/assets/star.eot?#iefix") format("embedded-opentype"), url("/assets/star.woff") format("woff"), url("/assets/star.ttf") format("truetype"), url("/assets/star.svg#star") format("svg");
   font-weight: normal;
   font-style: normal; }
 

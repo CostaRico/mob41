@@ -17,35 +17,7 @@
     <%# end %>
   </div>
 <%# end %> -->
-<script type="text/javascript">
-$(document).ready(function(){
-  $('.product-categories .show-all-cat-dropdown').each(function(){
-            if( $(this).siblings('ul').length > 0 ) {
-                var $childIndicator = $('<span class="child-indicator"><i class="fa fa-angle-right"></i></span>');
 
-                $(this).siblings('ul').hide();
-                if($(this).siblings('ul').is(':visible')){
-                    $childIndicator.addClass( 'open' );
-                    $childIndicator.html('<i class="fa fa-angle-up"></i>');
-                }
-
-                $(this).on( 'click', function(){
-                    $(this).siblings('ul').toggle( 'fast', function(){
-                        if($(this).is(':visible')){
-                            $childIndicator.addClass( 'open' );
-                            $childIndicator.html('<i class="fa fa-angle-up"></i>');
-                        }else{
-                            $childIndicator.removeClass( 'open' );
-                            $childIndicator.html('<i class="fa fa-angle-right"></i>');
-                        }
-                    });
-                    return false;
-                });
-                $(this).append($childIndicator);
-            }
-        });
-});
-</script>
 <div id="primary" class="content-area" data-hook="homepage_products" style="padding-left: 0.9375rem; width: 75%; left: 25%;">
   <main class="site-main" id="main">
   <section>
