@@ -1689,7 +1689,9 @@ ul.products > .list-view.product {
   min-height: 1px;
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
-  width: 100%; }
+  width: 100%; 
+  background-color: #fed700 !important;
+  }
   @media (min-width: 768px) {
     .columns-4 ul.products > li.product.list-view, .columns-4 .section-onsale-product ul.products > .list-view.onsale-product, .section-onsale-product .columns-4 ul.products > .list-view.onsale-product, .columns-4 .section-onsale-product-carousel .onsale-product-carousel .onsale-product ul.products > .list-view.onsale-product-content, .section-onsale-product-carousel .onsale-product-carousel .onsale-product .columns-4 ul.products > .list-view.onsale-product-content, .columns-4 .products-carousel .owl-item ul.products > .list-view.product, .products-carousel .owl-item .columns-4 ul.products > .list-view.product,
     .columns-5 ul.products > li.product.list-view,

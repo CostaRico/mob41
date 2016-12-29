@@ -17,9 +17,29 @@
   <% end %>
 </div>
 
-
+<script type="text/javascript">
+  $(".woocommerce-ordering").on("change", function(){
+    val = $(this).find("option:selected").val();
+    url = window.location.pathname;
+    $.get(url+"?order_by="+val);
+  });
+</script>
   <% if products.any? %>
     <div class="shop-control-bar">
+<!--       <ul>
+        <li name="price">Сначала дешевые</li>
+        <li name ="price-desc">Сначала дорогие</li>
+        <li name="name">По алфавиту (А-Я)</li>
+        <li name="">По алфавиту (Я-А)</li>
+      </ul> -->
+     <!--  <form class="woocommerce-ordering" method="get">
+        <select name="orderby" class="orderby">
+          <option value="price" > Сначала дешевые</option>
+          <option value="price-desc" >Сначала дорогие</option>
+          <option value="name" >По алфавиту (А-Я)</option>
+          <option value="name-desc" selected="">По алфавиту (Я-А)</option>
+        </select>
+      </form> -->
       <% if products.respond_to?(:total_pages) %>
         <nav class="woocommerce-pagination" style="float: right;"> 
           <%= paginate products, window:2, views_prefix: '/spree'%>
