@@ -48,8 +48,8 @@ task :run_parser => :environment do
 	 #  	"Теплые полы", "Трапы, душевые лотки", "Уголки, ограждения, поддоны", "Унитазы", "Фильтры под мойку", "products_list" ]
 	#file = "http://santehnika-online.ru//product/mebel_dlya_vannoy_briklaer_lyuchiya_100_belyy_glyanets/"
 	#files =["Водонагреватели","Чугунные ванны","Биде","Ванны из искусственного камня","Диспоузеры (измельчители)","Душевые боксы","Душевые кабины","Душ", "Инсталляции","Кухонные мойки","Люки сантехнические",
-	#"Писсуары", "Полотенцесушители","Раковины"]
-	files = ["Раковины"]
+	#"Писсуары", "Полотенцесушители","Раковины","Сифоны"]
+	files = ["Стальные ванны"]
 	files.each do |file|
 		path = Rails.root.to_s + "/public/product_list/#{file}.json" 
 		path_to_file = Rails.root.to_s+"/public/product_links/#{file}.json"
