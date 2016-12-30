@@ -60,12 +60,16 @@ end
 def product_parser(base_url, file, path_to_file)
 	list = JSON.parse(File.read(file))
 	list.each_with_index do |item, i|
-		if i > 365
+		if i > 366
 			puts i
-			sleep(rand(9.0..13.0)) 
-			page = open_uri(base_url + item["url"]+"?#{rand(10..100000)}")
-			File.open(path_to_file, "a+") do |f|
-				f.write(get_product(page, item["taxon_id"]).to_json)
+			sleep(rand(9.0..13.0))
+			begin 
+				page = open_uri(base_url + item["url"]+"?#{rand(10..100000)}")
+				File.open(path_to_file, "a+") do |f|
+					f.write(get_product(page, item["taxon_id"]).to_json)
+				end
+			rescue => e
+				puts "#{e}"
 			end
 		end
 	end
