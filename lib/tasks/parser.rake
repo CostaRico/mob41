@@ -48,7 +48,7 @@ task :run_parser => :environment do
 	 #  	"Теплые полы", "Трапы, душевые лотки", "Уголки, ограждения, поддоны", "Унитазы", "Фильтры под мойку", "products_list" ]
 	#file = "http://santehnika-online.ru//product/mebel_dlya_vannoy_briklaer_lyuchiya_100_belyy_glyanets/"
 	#files =["Водонагреватели","Чугунные ванны","Биде","Ванны из искусственного камня","Диспоузеры (измельчители)","Душевые боксы","Душевые кабины","Душ", "Инсталляции","Кухонные мойки","Люки сантехнические",
-	#"Писсуары", "Полотенцесушители"]
+	#"Писсуары", "Полотенцесушители","Раковины"]
 	files = ["Раковины"]
 	files.each do |file|
 		path = Rails.root.to_s + "/public/product_list/#{file}.json" 
@@ -60,7 +60,7 @@ end
 def product_parser(base_url, file, path_to_file)
 	list = JSON.parse(File.read(file))
 	list.each_with_index do |item, i|
-		if i > 366
+		# if i > 366
 			puts i
 			sleep(rand(9.0..13.0))
 			begin 
@@ -71,7 +71,7 @@ def product_parser(base_url, file, path_to_file)
 			rescue => e
 				puts "#{e}"
 			end
-		end
+		# end
 	end
 end 
 
