@@ -1,8 +1,8 @@
 <% @body_id = 'product-details' %>
 <% cache cache_key_for_product do %>
   <div id="primary" class="content-area">
-    <main id="main" class="site-main">
-      <div class="product single-product">
+    <main id="main" class="site-main single-product">
+      <div class="product ">
         <div class="single-product-wrapper">
           <div class="product-images-wrapper">
             <!-- <span class="onsale">Sale!</span> -->
@@ -78,7 +78,8 @@
                     <%= render partial: 'properties' %>
                   </div>
                 </div>
-        </div> 
+      </div>
+      <%= render :partial => "spree/shared/latest_products_bottom"%> 
     </main>
   </div>
 <% end %>

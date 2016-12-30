@@ -25,13 +25,13 @@
     <td class="actions" colspan="6">
       <div class="coupon">
                     <%#= order_form.label :coupon_code %>
-        <%= order_form.text_field :coupon_code, class: 'input-text', :placeholder => Spree.t(:coupon_code) %>
-        <input type="submit" value="Принять" name="apply_coupon" class="button">
+        <%= order_form.hidden_field :coupon_code, class: 'input-text', :placeholder => Spree.t(:coupon_code) %>
+        <!-- <input type="submit" value="Принять" name="apply_coupon" class="button"> -->
                     <%#= button_tag Spree.t(:apply), class: 'button' %>
       </div>
-        <%= button_tag class: 'button', id: 'update-button' do %>
-          <%= Spree.t(:update) %>
-        <% end %>
+        <%#= button_tag class: 'button', id: 'update-button' do %>
+          <%#= Spree.t(:update) %>
+        <%# end %>
         <div class="wc-proceed-to-checkout">           
           <%= button_tag class: 'checkout-button button alt wc-forward', id: 'checkout-link', name: 'checkout' do %>
             <%= Spree.t(:checkout) %>

@@ -1,0 +1,37 @@
+<% if cached_recently_viewed_products.any? %>
+  <div class="related products">
+      <h2><%= Spree.t(:recently_viewed_products) %></h2>
+      <ul class="products columns-5">
+
+      	<% cached_recently_viewed_products.last(4).each do |product| %>
+          <li class="product">
+            <div class="product-outer">
+              <div class="product-inner">
+                <span class="loop-product-categories">
+                  <% taxon = product.taxons.first %>
+                  <% if taxon %>
+                    <%= link_to taxon.name, seo_url(taxon), :rel => "tag" %>
+                  <% end %>
+                </span>
+                <%= link_to product_path(product) do %>
+                  <h3><%= product.name %></h3>
+                  <div class="product-thumbnail">
+                    <%= product_image(product) %>
+                  </div>
+                <% end %>
+                <div class="price-add-to-cart">
+                  <span class="price">
+                    <span class="electro-price">
+                      <span class="amount"><%= display_price(product)%></span>
+                    </span>
+                  </span>
+                  <a rel="nofollow" data-link="link_to-<%= product.master.id %>" class="button add_to_cart_button" href="" data-remote="true"><%= Spree.t(:add_to_cart)%></a>
+                </div>
+                <div class="hover-area"></div>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul> 
+  </div>  
+<% end %>

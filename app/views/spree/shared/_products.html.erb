@@ -16,36 +16,20 @@
     </div>
   <% end %>
 </div>
-
-<script type="text/javascript">
-  $(".woocommerce-ordering").on("change", function(){
-    val = $(this).find("option:selected").val();
-    url = window.location.pathname;
-    $.get(url+"?order_by="+val);
-  });
-</script>
   <% if products.any? %>
-    <div class="shop-control-bar">
-<!--       <ul>
-        <li name="price">Сначала дешевые</li>
-        <li name ="price-desc">Сначала дорогие</li>
-        <li name="name">По алфавиту (А-Я)</li>
-        <li name="">По алфавиту (Я-А)</li>
+    <% if products.respond_to?(:total_pages) %>
+      <div class="shop-control-bar">
+      <!-- <ul class="list-inline">
+        <li><%#= link_to_unless (current_sorting?(:ascend_by_updated_at)), "Newest",  :params => {sorting: :ascend_by_updated_at} %></li>
+        <li><%#= link_to_unless current_sorting?(:ascend_by_master_price),"Lowest price",  :params => {sorting: :ascend_by_master_price} %></li>
+        <li><%#= link_to_unless current_sorting?(:descend_by_master_price),"Highest price", :params => {sorting: :descend_by_master_price} %></li>
       </ul> -->
-     <!--  <form class="woocommerce-ordering" method="get">
-        <select name="orderby" class="orderby">
-          <option value="price" > Сначала дешевые</option>
-          <option value="price-desc" >Сначала дорогие</option>
-          <option value="name" >По алфавиту (А-Я)</option>
-          <option value="name-desc" selected="">По алфавиту (Я-А)</option>
-        </select>
-      </form> -->
-      <% if products.respond_to?(:total_pages) %>
         <nav class="woocommerce-pagination" style="float: right;"> 
           <%= paginate products, window:2, views_prefix: '/spree'%>
         </nav>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+    
     <ul class="products columns-3">
       <% products.each do |product| %>
         <% url = spree.product_path(product, taxon_id: @taxon.try(:id)) %>
@@ -91,15 +75,3 @@
     </nav>
   <% end %>
 </div>
-<script type="text/javascript">
-  $('.price-add-to-cart').on('click','.add_to_cart_button',function(){
-      variant_id = $(this).attr('data-link').split('-')[1];
-      url = '/orders/populate';
-      quantity = 1;
-      $.post( url, {
-        variant_id: variant_id,
-        quantity: quantity
-    }
-    );
-  });
-</script>

@@ -14,7 +14,7 @@
  *= require bootstrap.min
  *= require style
  *= require animate.min
- *= require font-awesome.min
+ *= require font-awesome
  *= require font-electro
  *= require owl-carousel
  *= require_tree ./colors
