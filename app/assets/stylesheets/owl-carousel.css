@@ -41,7 +41,7 @@
 	.owl-item img {
 		-webkit-transform-style: preserve-3d;
 		display: block;
-		width: 100%;
+		/*width: 100%;*/
 		height: auto;
 	}
 
