@@ -17,10 +17,11 @@
       <div class="container">
         <nav>
           <ul id="menu-top-bar-left" class="nav nav-inline pull-left animate-dropdown flip">
-                <li class="menu-item"><a title="Features" href="/">Home</a></li>
-                <li class="menu-item"><a title="Contact Us" href="/about">About</a></li>
-                <li class="menu-item"><a title="Features" href="#">Features</a></li>
-                <li class="menu-item"><a title="Contact Us" href="#">Contact Us</a></li>
+                
+                <li class="menu-item"><a title="Contact Us" href="/about">О компании</a></li>
+                <li class="menu-item"><a title="Features" href="#"><%= Spree.t(:delivery)%></a></li>
+                <li class="menu-item"><a title="Contact Us" href="#">Оплата</a></li>
+                <li class="menu-item"><a title="Features" href="/">Контакты</a></li>
           </ul>
         </nav>
         <nav>
@@ -36,10 +37,10 @@
     <div class="row">
       <div class="header-logo">
         <a href="/" class="header-logo-link">
-          <img src="/assets/logo.png">
+          <img src="/assets/logo_h.png">
         </a>
       </div>
-       <div class="primary-nav animate-dropdown" style="text-align: center; padding: .7em .9375rem;">
+       <div class="primary-nav animate-dropdown" style=" padding: .7em .9375rem; padding-top: .1em; padding-left: 2em;">
           <div class="clearfix">
               <button class="navbar-toggler hidden-sm-up pull-right flip" type="button" data-toggle="collapse" data-target="#default-header">
                 &#9776;
@@ -48,28 +49,46 @@
           <div class="collapse navbar-toggleable-xs" id="default-header">
             <nav>
               <ul id="menu-main-menu" class="nav nav-inline yamm" style="font-size: 2em;">
-                <li class="menu-item"><a title="Features">+7-33435-345</a></li>
-                <li class="menu-item"><a title="Features">+7-33435-345</a></li>
+                <li class="menu-item">
+                  <ul class="call">
+                    <li><a ><i class="fa fa-phone color-gray" aria-hidden="true"></i>  +7 (495) <span class="color-blue">212-13-66</span></a></li>
+                    <li><span class="color-gray call-text"><a>заказать обратный звонок</a> </span></li>
+                  </ul>
+                </li>
+                <li class="menu-item">
+                  <ul class="call">
+                    <li><a><i class="fa fa-phone color-gray" aria-hidden="true"></i>  8 (800) <span class="color-red">744-44-22</span> </a></li>
+                    <li><span class="color-gray call-text"><a>бесплатный звонок по РФ</a> </span></li>
+                  </ul>
+                </li>
+
+                <li class="menu-item" style="float: right">
+                <ul>
+                  <li> <a><i class="fa fa-clock-o color-gray" aria-hidden="true"></i> <span>  9:00-21:00</span>  </a></li>
+                  <li><span class="color-gray call-text" style="padding-left: 2.4em;"> без выходных</span></li>
+                </ul>
+               </li>
               </ul>
             </nav>
           </div>
-    </div>
+    </div><!-- 
     <div class="header-support-info">
       <div class="media">
-        <span class="media-left support-icon media-middle"><i class="ec ec-support"></i></span>
+        <span class="media-left support-icon media-middle"><i class="fa fa-clock-o" aria-hidden="true"></i> </span>
         <div class="media-body">
-          <span class="support-number"><strong>Часы работы:</strong> 8:00-20:00</span><br/>
-          <span class="support-email">Выходной: воскресенье</span>
-        </div>
+
+          <span class="support-number">9:00-21:00</span><br/>
+          <span class="support-email">Без выходных</span>
+        </div>    
       </div>
     </div>
-  </div> 
+  </div> --> 
 </header>
 <nav class="navbar navbar-primary navbar-full">
   <div class="container">
     <ul class="nav navbar-nav departments-menu animate-dropdown">
       <li class="nav-item dropdown " >
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="departments-menu-toggle" aria-expanded="false">Каталог</a>
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="departments-menu-toggle" aria-expanded="false">Каталог товаров</a>
         <ul id="menu-vertical-menu" class="dropdown-menu yamm departments-menu-dropdown">
           <% Spree::Taxonomy.first.root.children.each do |taxon|%>
             <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown menu-item-2584 dropdown"><%= link_to taxon.name, seo_url(taxon), :title => taxon.name%></li>

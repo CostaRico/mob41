@@ -2,7 +2,7 @@
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
 /*
- *= require_tree .		
+ *= require_tree .	
  *= require_self
  */
 .complete_br{
@@ -23,4 +23,107 @@
     position: relative;
     border-bottom: 1px solid #dadada;
 }
+.color-blue{
+	color: #06c;
+}
+.color-red{
+	color: #cb0232;
+}
+.color-gray{
+	color: #999;
+}
+.primary-nav .nav-inline > .menu-item > a{
+	color: #333;
+	font-family: Arial;
+	font-weight: normal;
+}
+.call-text{
+	font-size: .5em;
+	padding-left: 2.2em;
+	font-weight: 600;
+}
+#menu-main-menu .menu-item .call:hover, 
+#menu-main-menu .menu-item .call:focus{
+	cursor: pointer;
+}
+#menu-main-menu .menu-item .call:hover .call-text {color: #333 !important;}
+#menu-main-menu .menu-item .call:focus .call-text {color: #333 !important;}
+.menu-item ul li{
+	list-style: none;
+}
+.menu-item ul {
+	padding-left: 0;
+}
+
  
+.navbar-primary,
+.footer-newsletter,
+.button:hover::before,
+li.product:hover .button::before,
+li.product:hover .button,
+li.product:hover .added_to_cart::before,
+.owl-item .product:hover .button::before,
+.owl-item .product:hover .button,
+.owl-item .product:hover .added_to_cart::before,
+.widget_price_filter .ui-slider .ui-slider-handle,
+.woocommerce-pagination ul.page-numbers > li a.current,
+.woocommerce-pagination ul.page-numbers > li span.current,
+.pagination ul.page-numbers > li a.current,
+.pagination ul.page-numbers > li span.current,
+.owl-dots .owl-dot.active,
+.products-carousel-tabs .nav-link.active::before,
+.deal-progress .progress-bar,
+.products-2-1-2 .nav-link.active::before,
+.ad .ad-action > a::after,
+.header-v1 .navbar-search .input-group .btn,
+.header-v3 .navbar-search .input-group .btn,
+.vertical-menu > li:first-child,
+.widget.widget_tag_cloud .tagcloud a:hover,
+.widget.widget_tag_cloud .tagcloud a:focus,
+.navbar-mini-cart .cart-items-count,
+.wc-tabs > li.active a::before,
+.ec-tabs > li.active a::before,
+.electro-nav-tabs > li.nav-item a.active::before,
+.woocommerce-info,
+.woocommerce-noreviews,
+p.no-comments,
+.products-2-1-2 .nav-link:hover::before,
+.single_add_to_cart_button,
+.wpb-accordion .vc_tta.vc_general .vc_tta-panel .vc_tta-panel-heading .vc_tta-panel-title > a:not(.collapsed):before,
+ul.products > li.product.list-view:not(.list-view-small) .button:hover,
+ul.products > li.product.list-view:not(.list-view-small) .button:focus,
+ul.products > li.product.list-view:not(.list-view-small) .button:active,
+ul.products > li.product.list-view.list-view-small .button:hover::after,
+ul.products > li.product.list-view.list-view-small .button:focus::after,
+ul.products > li.product.list-view.list-view-small .button:active::after,
+.widget_electro_products_carousel_widget .section-products-carousel .owl-nav .owl-prev:hover,
+.widget_electro_products_carousel_widget .section-products-carousel .owl-nav .owl-next:hover,
+.full-color-background .header-v3,
+.full-color-background .top-bar,
+.pace .pace-progress {
+  background-color: #00abc5; }
+
+.hero-action-btn:hover {
+  background-color: #0099b1 !important; }
+
+.hero-action-btn {
+  background-color: #00abc5 !important; }
+.button {
+	cursor: pointer;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #00abc5;
+    color: #333;
+}
+.list-group-item.active, .list-group-item:focus, .list-group-item:hover{
+	z-index: 2;
+    color: #fff;
+    text-decoration: none;
+    background-color: #00abc5;
+    border-color: #00abc5;
+}

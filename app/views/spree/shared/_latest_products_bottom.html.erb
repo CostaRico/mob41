@@ -1,6 +1,6 @@
 <% if cached_recently_viewed_products.any? %>
   <div class="related products">
-      <h2><%= Spree.t(:recently_viewed_products) %></h2>
+      <h2>Вы недавно смотрели</h2>
       <ul class="products columns-5">
 
       	<% cached_recently_viewed_products.last(4).each do |product| %>

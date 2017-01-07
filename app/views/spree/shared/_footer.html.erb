@@ -10,7 +10,23 @@
                  <div class="footer-newsletter">
                     <div class="container">
                         <div class="row">
-                            
+                            <div id="owl-brands" class="owl-brands owl-carousel unicase-owl-carousel owl-outer-nav">
+                                <% imgs =["brand_appollo.png","brand_cezares.png", "brand_grohe.png", "brand_laufen.png", "brand_vb.png"] %>
+                                <% imgs.each do |img|%>
+                                    <div class="item">
+                                        <a href="#">
+                                            <figure>
+                                                <figcaption class="text-overlay">
+                                                    <div class="info">
+                                                        <h4></h4>
+                                                    </div>
+                                                </figcaption>
+                                                <img src="/assets/<%= img%>" class="img-responsive" alt="">
+                                            </figure>
+                                        </a>
+                                    </div>
+                                <% end %>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -20,20 +36,37 @@
                             <div class="footer-bottom-widgets">
                                 <div class="container">
                                     <div class="row">
+                                        <div class="footer-contact col-xs-12 col-sm-12 col-md-5 col-md-pull-7">
+                                            <div class="footer-logo">
+                                                <img src="/assets/logo_h.png">
+                                            </div>
+                                        
+                                            <div class="footer-call-us">
+                                                <div class="media">
+                                                <span class="media-left call-us-icon media-middle"></span>
+                                                    <div class="media-body">
+                                                        <span class="call-us-number" style="margin-left: 1.4em;">+7 (495) 212-13-66</span>
+                                                        <span class="call-us-number">8 (800) 333-44-22</span>
+                                                        <br />
+                                                        <span class="call-us-text">Мы работаем ежедневно <br /> с 9:00 до 21:00</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="col-xs-12 col-sm-12 col-md-7 col-md-push-5">
                                             <div class="columns">
                                                 <aside id="nav_menu-2" class="widget clearfix widget_nav_menu">
                                                     <div class="body">
-                                                        <h4 class="widget-title">Find It Fast</h4>
+                                                        <h4 class="widget-title">о компании</h4>
                                                         <div class="menu-footer-menu-1-container">
                                                             <ul id="menu-footer-menu-1" class="menu">
-                                                                <li class="menu-item"><a href="single-product.html">Пользовательское солашение</a></li>
-                                                                <li class="menu-item"><a href="single-product.html">Гарантии</a></li>
-                                                                <li class="menu-item"><a href="single-product.html">Smart Phones &#038; Tablets</a></li>
-                                                                <li class="menu-item"><a href="single-product.html">Video Games &#038; Consoles</a></li>
-                                                                <li class="menu-item"><a href="single-product.html">TV &#038; Audio</a></li>
-                                                                <li class="menu-item"><a href="single-product.html">Gadgets</a></li>
-                                                                <li class="menu-item "><a href="single-product.html">Car Electronic &#038; GPS</a></li>
+                                                                <li class="menu-item"><a href="#">О нас</a></li>
+                                                                <li class="menu-item"><a href="#">Бренды</a></li>
+                                                                <li class="menu-item"><a href="#">Акции и скидки</a></li>
+                                                                <li class="menu-item"><a href="#">Вакансии</a></li>
+                                                                <li class="menu-item"><a href="#">Реквизиты</a></li>
+                                                                <li class="menu-item"><a href="#">Сотрудничество</a></li>
+                                                                <li class="menu-item "><a href="#">Контакты</a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -42,36 +75,37 @@
                                             <div class="columns">
                                                 <aside id="nav_menu-4" class="widget clearfix widget_nav_menu">
                                                     <div class="body">
-                                                        <h4 class="widget-title">Customer Care</h4>
+                                                        <h4 class="widget-title">Помощь</h4>
                                                         <div class="menu-footer-menu-3-container">
                                                             <ul id="menu-footer-menu-3" class="menu">
-                                                                <li class="menu-item"><a href="single-product.html">My Account</a></li>
-                                                                <li class="menu-item"><a href="single-product.html">Track your Order</a></li>
-                                                                <li class="menu-item"><a href="single-product.html">Wishlist</a></li>
-                                                                <li class="menu-item"><a href="single-product.html">Customer Service</a></li>
-                                                                <li class="menu-item"><a href="single-product.html">Returns/Exchange</a></li>
-                                                                <li class="menu-item"><a href="single-product.html">FAQs</a></li>
-                                                                <li class="menu-item"><a href="hsingle-product.html">Product Support</a></li>
+                                                                <li class="menu-item"><a href="#">Как сделать заказ</a></li>
+                                                                <li class="menu-item"><a href="#">Доставка</a></li>
+                                                                <li class="menu-item"><a href="#">Способы оплаты</a></li>
+                                                                <li class="menu-item"><a href="#">Возврат товара</a></li>
+                                                                <li class="menu-item"><a href="#">Вопрос-ответ</a></li>
+                                                                <li class="menu-item"><a href="#">Публичная оферта</a></li>
+                                                                <li class="menu-item"><a href="#">Правила продажи</a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
                                                 </aside>
                                             </div>
-                                        </div>
-                                        <div class="footer-contact col-xs-12 col-sm-12 col-md-5 col-md-pull-7">
-                                            <div class="footer-logo">
-                                                <img src="/assets/logo.png">
+                                            <div class="columns">
+                                                <aside class="widget clearfix widget_nav_menu">
+                                                    <div class="body">
+                                                        <h4 class="widget-title">Мы в социальных сетях</h4>
+                                                        <div class="menu-footer-menu-3-container">
+                                                        <%(1..7).each do |i|%>
+                                                        <span >
+                                                            <img src="/assets/social/social<%= i %>.png" style="display: inline;">
+                                                        </span>
+                                                        <% end %>
+                                                        </div>
+                                                    </div>
+                                                </aside>
                                             </div>
                                         </div>
-                                        <div class="footer-call-us">
-                                            <div class="media">
-                                                <span class="media-left call-us-icon media-middle"><i class="ec ec-support"></i></span>
-                                                <div class="media-body">
-                                                    <span class="call-us-text">Часы работы: 8:00-20:00, выходной: воскресенье</span>
-                                                    <span class="call-us-number">(800) 8001-8588, +7-33435-345</span>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -80,15 +114,13 @@
                 </div>
                 <div class="copyright-bar">
                     <div class="container">
-                        <div class="pull-left flip copyright">&copy; <a href="http://demo2.transvelo.in/html/electro/">Electro</a> - All Rights Reserved</div>
+                        <div class="pull-left flip copyright"> 2017 &copy;  41km.ru</div>
                         <div class="pull-right flip payment">
                             <div class="footer-payment-logo">
                                 <ul class="cash-card card-inline">
-                                    <li class="card-item"><img src="/assets/1.png" alt="" width="52"></li>
-                                    <li class="card-item"><img src="/assets/1.png" alt="" width="52"></li>
-                                    <li class="card-item"><img src="/assets/1.png" alt="" width="52"></li>
-                                    <li class="card-item"><img src="/assets/1.png" alt="" width="52"></li>
-                                    <li class="card-item"><img src="/assets/1.png" alt="" width="52"></li>
+                                    <% (2..8).each do |i|%>
+                                        <li class="card-item"><img src="/assets/payment<%= i %>.png" alt="" ></li>
+                                    <% end %>
                                 </ul>
                             </div><!-- /.payment-methods -->
                         </div>
