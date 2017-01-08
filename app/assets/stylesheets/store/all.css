@@ -2,9 +2,12 @@
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
 /*
- *= require_tree .	
+ *= require_tree .
  *= require_self
  */
+ .latest_products_mt_def{
+ 	margin-top: 37px;
+ }
 .complete_br{
  	padding: 0.465em 0.929em; 
  	background-color: #f5f5f5; 
@@ -37,25 +40,33 @@
 	font-family: Arial;
 	font-weight: normal;
 }
-.call-text{
+.call-text-active, .call-text-passive, .call-text{
 	font-size: .5em;
 	padding-left: 2.2em;
 	font-weight: 600;
-}
-#menu-main-menu .menu-item .call:hover, 
-#menu-main-menu .menu-item .call:focus{
 	cursor: pointer;
+	
 }
-#menu-main-menu .menu-item .call:hover .call-text {color: #333 !important;}
-#menu-main-menu .menu-item .call:focus .call-text {color: #333 !important;}
+.call-text-active{
+	color: #333;
+	text-decoration: underline;
+}
+/*#menu-main-menu .menu-item .call:hover .call-text {color: #333 !important;}
+#menu-main-menu .menu-item .call:focus .call-text {color: #333 !important;}*/
 .menu-item ul li{
 	list-style: none;
 }
 .menu-item ul {
 	padding-left: 0;
 }
-
- 
+.footer-newsletter .owl-brands .owl-nav .owl-prev,
+.footer-newsletter .owl-brands .owl-nav .owl-next{
+	font-size: 30px;
+	top: -1.7em;
+}
+.footer-newsletter .owl-carousel .owl-item img {
+	height: 50px !important;
+}
 .navbar-primary,
 .footer-newsletter,
 .button:hover::before,

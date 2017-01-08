@@ -66,8 +66,8 @@
   </main>
 </div>
 <div id="sidebar" class="sitebar">
-  <%= render partial: 'spree/shared/taxonomies', locals: {taxon: @taxon } %>
-  <aside class="widget widget_electro_products_filter ">
+  <%#= render partial: 'spree/shared/taxonomies', locals: {taxon: @taxon } %>
+  <aside class="widget widget_electro_products_filter " style="margin-top: 13px;">
     <h3 class="widget-title ssc">Фильтры</h3>
     <aside class="widget woocommerce widget_price_filter">
       <%= render partial: 'spree/shared/filter', locals: {taxon: @taxon }%>

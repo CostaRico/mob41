@@ -22,5 +22,5 @@
 //= require scrollup.min
 //= require pace.min
 //= require upd_sipp
-//= require add_to_cart_btn
 //= require electro
+//= require add_to_cart_btn

@@ -14,7 +14,7 @@
 
 <div class="top-bar">
     <div class="container">
-      <div class="container">
+      <div class="container" style="padding-left: 0px;">
         <nav>
           <ul id="menu-top-bar-left" class="nav nav-inline pull-left animate-dropdown flip">
                 
@@ -37,7 +37,7 @@
     <div class="row">
       <div class="header-logo">
         <a href="/" class="header-logo-link">
-          <img src="/assets/logo_h.png">
+          <img src="<%= asset_path('logo_h.png') %>">
         </a>
       </div>
        <div class="primary-nav animate-dropdown" style=" padding: .7em .9375rem; padding-top: .1em; padding-left: 2em;">
@@ -52,13 +52,13 @@
                 <li class="menu-item">
                   <ul class="call">
                     <li><a ><i class="fa fa-phone color-gray" aria-hidden="true"></i>  +7 (495) <span class="color-blue">212-13-66</span></a></li>
-                    <li><span class="color-gray call-text"><a>заказать обратный звонок</a> </span></li>
+                    <li><span class="color-gray call-text-active"><a>заказать обратный звонок</a> </span></li>
                   </ul>
                 </li>
                 <li class="menu-item">
                   <ul class="call">
                     <li><a><i class="fa fa-phone color-gray" aria-hidden="true"></i>  8 (800) <span class="color-red">744-44-22</span> </a></li>
-                    <li><span class="color-gray call-text"><a>бесплатный звонок по РФ</a> </span></li>
+                    <li><span class="color-gray call-text-passive"><a>бесплатный звонок по РФ</a> </span></li>
                   </ul>
                 </li>
 
@@ -89,10 +89,14 @@
     <ul class="nav navbar-nav departments-menu animate-dropdown">
       <li class="nav-item dropdown " >
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="departments-menu-toggle" aria-expanded="false">Каталог товаров</a>
-        <ul id="menu-vertical-menu" class="dropdown-menu yamm departments-menu-dropdown">
+        <ul id="menu-vertical-menu" class="dropdown-menu yamm departments-menu-dropdown" style="border-bottom-right-radius: 0.625rem;">
           <% Spree::Taxonomy.first.root.children.each do |taxon|%>
             <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown menu-item-2584 dropdown"><%= link_to taxon.name, seo_url(taxon), :title => taxon.name%></li>
           <% end %>
+        </ul>
+        <ul class="dropdown-menu yamm departments-menu-dropdown" style=" top: 1060px; border: 2px solid #c50000; border-top-color: #c50000; border-radius: 0.625rem;">
+          <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown menu-item-2584 dropdown"> 
+          <a href="#" style="color: #c50000;">% Акции и бонусы</a></li>
         </ul>
       </li>
     </ul>
