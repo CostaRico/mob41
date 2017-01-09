@@ -55,4 +55,5 @@ $('document').ready(function(){
        $(".departments-menu .nav-item.dropdown").addClass(" open");
        $(".departments-menu .nav-link.dropdown-toggle").attr("aria-expanded", true);
     };
+    $('.dropdown-toggle').dropdownHover();
 });

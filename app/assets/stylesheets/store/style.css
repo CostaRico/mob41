@@ -228,8 +228,8 @@ input[type="submit"] {
   input[type="reset"]:hover,
   input[type="submit"]:hover {
     color: #fff;
-    background-color: black;
-    border-color: black; }
+    background-color: #004049;
+    border-color: #004049; }
   .btn:focus, .hero-action-btn:focus, .btn.focus, .focus.hero-action-btn,
   .button:focus,
   .button.focus,
@@ -242,8 +242,8 @@ input[type="submit"] {
   input[type="submit"]:focus,
   input[type="submit"].focus {
     color: #fff;
-    background-color: black;
-    border-color: black; }
+    background-color: #004049;
+    border-color: #004049; }
   .btn:active, .hero-action-btn:active, .btn.active, .active.hero-action-btn,
   .open > .btn.dropdown-toggle,
   .open > .dropdown-toggle.hero-action-btn,
@@ -268,8 +268,8 @@ input[type="submit"] {
   .open >
   input[type="submit"].dropdown-toggle {
     color: #333e48;
-    background-color: black;
-    border-color: black;
+    background-color: #004049;
+    border-color: #004049;
     background-image: none; }
     .btn:active:hover, .hero-action-btn:active:hover, .btn:active:focus, .hero-action-btn:active:focus, .btn:active.focus, .hero-action-btn:active.focus, .btn.active:hover, .active.hero-action-btn:hover, .btn.active:focus, .active.hero-action-btn:focus, .btn.active.focus, .active.focus.hero-action-btn,
     .open > .btn.dropdown-toggle:hover,
@@ -992,7 +992,7 @@ img.desaturate {
   padding: 0; }
 
 .departments-menu .departments-menu-dropdown {
-  top: 115%;
+  top: 113%;
   border-top-width: 0;
   border-top-left-radius: 0;
   border-top-right-radius: 0; }
@@ -1010,7 +1010,7 @@ img.desaturate {
   background: none;
   border: 0;
   color: #333e48;
-  padding: 9px 0 9px 8px;
+  padding: 9px 0 9px 22px;
   white-space: normal; }
   .departments-menu .dropdown-menu > .menu-item > a:focus, .departments-menu .dropdown-menu > .menu-item > a:hover {
     color: #fff;
@@ -1529,7 +1529,7 @@ li.product a, .section-onsale-product .onsale-product a, .section-onsale-product
 li.product h3, .section-onsale-product .onsale-product h3, .section-onsale-product-carousel .onsale-product-carousel .onsale-product .onsale-product-content h3, .products-carousel .owl-item .product h3 {
   font-size: 1.071em;
   line-height: 1.286em;
-  font-weight: bold;
+  font-weight: 600;
   height: 2.572em;
   overflow: hidden; }
 
@@ -2060,15 +2060,18 @@ p.stars {
 .owl-dots {
   text-align: center; }
   .owl-dots .owl-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #bcbcbc;
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
     display: inline-block;
-    border-radius: 50%; }
+    border-radius: 50%;
+    border-color: #ccc;
+    border-style: solid; }
     .owl-dots .owl-dot.active {
-      width: 30px;
-      height: 8px;
-      border-radius: 3px; }
+      width: 15px;
+      height: 15px;
+      border-radius: 7px;
+      border-color: #00abc5; }
     .owl-dots .owl-dot + .owl-dot {
       margin-left: 1em; }
 
@@ -3142,13 +3145,13 @@ div.quantity.buttons_added {
     bottom: 0; }
 
 .yamm h1, .yamm h2, .yamm h3, .yamm h4, .yamm h5, .yamm h6, .yamm .nav-title {
-  font-weight: bold;
+  font-weight: 66;
   font-size: 1.071em;
   padding: 0.571em 0;
   min-height: 2.667em; }
   .yamm h1 a, .yamm h1 > a, .yamm h2 a, .yamm h2 > a, .yamm h3 a, .yamm h3 > a, .yamm h4 a, .yamm h4 > a, .yamm h5 a, .yamm h5 > a, .yamm h6 a, .yamm h6 > a, .yamm .nav-title a, .yamm .nav-title > a {
     padding: 0;
-    font-weight: bold; }
+    font-weight: 600; }
 
 .yamm .nav-divider {
   height: 1px;
@@ -6207,12 +6210,12 @@ section.section-posts-carousel .post-carousel .owl-nav, section.section-posts-ca
 
 .footer-bottom-widgets {
   background-color: #f1f1f1;
-  padding: 4.143em 0 5.714em 0; }
+  padding: 1.143em 0 1.714em 0; }
   .footer-bottom-widgets .widget-title {
     font-size: 1.143em;
     line-height: 1.125em;
     margin-bottom: 2.5em;
-    font-weight: bold; }
+    font-weight: 600; }
   .footer-bottom-widgets ul {
     list-style: none;
     padding-left: 0;
@@ -6223,7 +6226,8 @@ section.section-posts-carousel .post-carousel .owl-nav, section.section-posts-ca
       cursor: pointer;
       text-decoration: underline; }
       .footer-bottom-widgets ul > li > a:hover, .footer-bottom-widgets ul > li > a:focus {
-        color: #333e48; }
+        color: #333e48;
+        text-decoration: none; }
     .footer-bottom-widgets ul > li + li {
       margin-top: 1em; }
   .footer-bottom-widgets ul.children {
@@ -6291,7 +6295,7 @@ section.section-posts-carousel .post-carousel .owl-nav, section.section-posts-ca
     .copyright-bar a:hover, .copyright-bar a:focus {
       color: #333e48; }
   .copyright-bar .copyright {
-    line-height: 3em; }
+    line-height: 3.5em; }
 
 .footer-payment-logo .cash-card {
   padding-left: 0;
@@ -6302,11 +6306,11 @@ section.section-posts-carousel .post-carousel .owl-nav, section.section-posts-ca
   float: left; }
 
 .footer-payment-logo .card-inline .card-item + .card-item {
-  margin-left: 1.143em; }
+  margin-left: 1.543em; }
 
 .footer-payment-logo .card-item > img {
   height: auto;
-  max-width: 65%; }
+ }
 
 /*===================================================================================*/
 /*  Comments
@@ -8557,7 +8561,8 @@ h3.faq-title {
     .primary-nav .nav-inline > .menu-item.dropdown + .menu-item {
       margin-left: 0; }
     .primary-nav .nav-inline > .menu-item + .menu-item {
-      margin-left: 0; }
+      margin-left: 0; 
+      float: none !important;}
     .primary-nav .nav-inline > .menu-item > a {
       display: block;
       padding: 0.6em 0.800em; }
@@ -9350,7 +9355,9 @@ h3.faq-title {
           width: 100%; }
       .navbar-search > .input-group .input-group-btn > .btn, .navbar-search > .input-group .input-group-btn > .hero-action-btn {
         padding: 1.036em 2.2em;
-        border-top-right-radius: 0; }
+        border-top-right-radius: 0;
+        width: 100%;
+        border-bottom-left-radius: 1.571em; }
       .navbar-search > .input-group .twitter-typeahead {
         display: block !important; }
     .navbar-search .form-control, .navbar-search table.cart .coupon .input-text, table.cart .coupon .navbar-search .input-text {

@@ -5,6 +5,29 @@
  *= require_tree .
  *= require_self
  */
+.departments-menu .nav-item:hover #menu-vertical-menu {
+    visibility: visible !important;
+}
+.nav-link.dropdown-toggle:hover #menu-vertical-menu {
+    display: block;
+}
+ .sales-menu{
+ 	padding: 0.5rem 0 !important;
+ 	top: 1060px !important; 
+ 	border: 2px solid #c50000 !important; 
+ 	border-top-color: #c50000 !important; 
+ 	border-radius: 0.625rem !important;
+ }
+ .sales-menu li a:hover{
+ 	background-color: #c50000 !important;
+ 	color: #eee !important;
+ }
+ .btn-secondary:hover{
+ 	background-color:  #004049 !important;
+ }
+ #owl-brands figure {
+    margin: 0 0 0rem;
+}
  .latest_products_mt_def{
  	margin-top: 37px;
  }
@@ -44,10 +67,9 @@
 	font-size: .5em;
 	padding-left: 2.2em;
 	font-weight: 600;
-	cursor: pointer;
-	
 }
 .call-text-active{
+	cursor: pointer;
 	color: #333;
 	text-decoration: underline;
 }
@@ -65,7 +87,7 @@
 	top: -1.7em;
 }
 .footer-newsletter .owl-carousel .owl-item img {
-	height: 50px !important;
+	height: 70px !important;
 }
 .navbar-primary,
 .footer-newsletter,
