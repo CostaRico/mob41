@@ -55,7 +55,7 @@ Spree::BaseHelper.class_eval do
       raw product_or_variant.
         price_in(current_currency).
         display_price_including_vat_for(current_price_options).
-        to_html.split(",00").join
+        to_html.split(",00").first+" руб."
     end
 
     def taxons_tree(root_taxon, current_taxon, max_level = 1)

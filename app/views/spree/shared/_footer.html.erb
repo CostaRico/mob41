@@ -52,7 +52,7 @@
                                             <div class="columns">
                                                 <aside id="nav_menu-2" class="widget clearfix widget_nav_menu">
                                                     <div class="body">
-                                                        <h4 class="widget-title">о компании</h4>
+                                                        <h4 class="widget-title">О компании</h4>
                                                         <div class="menu-footer-menu-1-container">
                                                             <ul id="menu-footer-menu-1" class="menu">
                                                                 <li class="menu-item"><a href="#">О нас</a></li>
@@ -90,11 +90,12 @@
                                                     <div class="body">
                                                         <h4 class="widget-title">Мы в социальных сетях</h4>
                                                         <div class="menu-footer-menu-3-container">
-                                                        <%(1..7).each do |i|%>
-                                                        <span >
-                                                            <img src="<%= asset_path('social/social' + i.to_s + '.png') %>" style="display: inline;">
-                                                        </span>
-                                                        <% end %>
+                                                            <ul class="social-icons list-unstyled">
+                                                                <%(1..7).each do |i|%>
+                                                                    <li style="display: inline-block; margin-right: 10px;"><img src="<%= asset_path('social/social' + i.to_s + '.png') %>" ></li>
+                                                                    <%if i== 4 %> <br /><% end -%>
+                                                                <% end %>
+                                                            </ul>
                                                         </div>
                                                     </div>
                                                 </aside>
@@ -113,7 +114,7 @@
                         <div class="pull-right flip payment">
                             <div class="footer-payment-logo">
                                 <ul class="cash-card card-inline">
-                                    <% (2..8).each do |i|%>
+                                    <% (1..8).each do |i|%>
                                         <li class="card-item"><img src="<%= asset_path('brands/payment' + i.to_s + '.png') %>" alt="" ></li>
                                     <% end %>
                                 </ul>

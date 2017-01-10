@@ -3914,7 +3914,7 @@ div.quantity.buttons_added {
   font-weight: 100; }
 
 .home-v2-slider {
-  left: 33.33%; }
+  left: 49%; }
 
 .hero-1 {
   font-size: 4.125em;
@@ -3983,8 +3983,8 @@ div.quantity.buttons_added {
     width: 100%; }
   #owl-main .item .caption {
     padding-top: 85px;
-    display: table-cell; }
-
+    /*display: table-cell; }*/
+  }
 /*===================================================================================*/
 /*  Home Full Width Slider
 /*===================================================================================*/
@@ -5693,7 +5693,7 @@ section.section-posts-carousel .post-carousel .owl-nav, section.section-posts-ca
       top: -30px;
       line-height: 14px; }
       .owl-brands .owl-nav [class*='owl-']:hover {
-        color: #869791;
+        color: #eceeef;
         text-decoration: none; }
     .owl-brands .owl-nav .owl-prev {
       left: 0; }
@@ -6214,7 +6214,7 @@ section.section-posts-carousel .post-carousel .owl-nav, section.section-posts-ca
   .footer-bottom-widgets .widget-title {
     font-size: 1.143em;
     line-height: 1.125em;
-    margin-bottom: 2.5em;
+    margin-bottom: 1.5em;
     font-weight: 600; }
   .footer-bottom-widgets ul {
     list-style: none;
@@ -6229,7 +6229,7 @@ section.section-posts-carousel .post-carousel .owl-nav, section.section-posts-ca
         color: #333e48;
         text-decoration: none; }
     .footer-bottom-widgets ul > li + li {
-      margin-top: 1em; }
+      margin-top: .5em; }
   .footer-bottom-widgets ul.children {
     margin-top: 1em; }
   .footer-bottom-widgets .columns {
@@ -6257,7 +6257,7 @@ section.section-posts-carousel .post-carousel .owl-nav, section.section-posts-ca
     font-size: 1.1em;
     display: block;
     line-height: 1.429em;
-    margin-left: 3.5em;}
+    margin-left: 3em;}
   .footer-call-us .call-us-number {
     font-size: 1.571em;
     display: block;
@@ -8672,7 +8672,7 @@ h3.faq-title {
       font-size: 10px;
       height: 300px; }
   #owl-main .item .caption {
-    padding-top: 20px; }
+    padding-top: 85px; }
   /*........Shop Page........*/
   ul.products > li.product.list-view, .section-onsale-product ul.products > .list-view.onsale-product, .section-onsale-product-carousel .onsale-product-carousel .onsale-product ul.products > .list-view.onsale-product-content, .products-carousel .owl-item ul.products > .list-view.product {
     padding: 0; }

@@ -146,8 +146,8 @@ input[type="submit"] {
   .btn-primary:hover,
   input[type="submit"]:hover {
     color: #fff;
-    background-color: black;
-    border-color: black; }
+    background-color: #004049;
+    border-color: #004049; }
   .widget_price_filter .price_slider_amount .button:focus, .widget_price_filter .price_slider_amount .button.focus,
   .dropdown-menu-mini-cart .wc-forward.checkout:focus,
   .dropdown-menu-mini-cart .wc-forward.checkout.focus,
@@ -160,8 +160,8 @@ input[type="submit"] {
   input[type="submit"]:focus,
   input[type="submit"].focus {
     color: #fff;
-    background-color: black;
-    border-color: black; }
+    background-color: #004049;
+    border-color: #004049; }
   .widget_price_filter .price_slider_amount .button:active, .widget_price_filter .price_slider_amount .button.active,
   .open > .widget_price_filter .price_slider_amount .button.dropdown-toggle,
   .dropdown-menu-mini-cart .wc-forward.checkout:active,
@@ -185,8 +185,8 @@ input[type="submit"] {
   .open >
   input[type="submit"].dropdown-toggle {
     color: #333e48;
-    background-color: black;
-    border-color: black;
+    background-color: #004049;
+    border-color: #004049;
     background-image: none; }
     .widget_price_filter .price_slider_amount .button:active:hover, .widget_price_filter .price_slider_amount .button:active:focus, .widget_price_filter .price_slider_amount .button:active.focus, .widget_price_filter .price_slider_amount .button.active:hover, .widget_price_filter .price_slider_amount .button.active:focus, .widget_price_filter .price_slider_amount .button.active.focus,
     .open > .widget_price_filter .price_slider_amount .button.dropdown-toggle:hover,

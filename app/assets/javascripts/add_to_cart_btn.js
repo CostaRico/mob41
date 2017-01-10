@@ -51,9 +51,9 @@ $('document').ready(function(){
 	  $(this).parent().children(".qty").val(--v);
 
 	});
-	if($('#content-home').hasClass('home-page')){ 
-       $(".departments-menu .nav-item.dropdown").addClass(" open");
-       $(".departments-menu .nav-link.dropdown-toggle").attr("aria-expanded", true);
-    };
-    $('.dropdown-toggle').dropdownHover();
+	// if($('#content-home').hasClass('home-page')){ 
+    $(".departments-menu .nav-item.dropdown").addClass(" open");
+    $(".departments-menu .nav-link.dropdown-toggle").attr("aria-expanded", true);
+    $('.navbar-mini-cart .nav-link').dropdownHover();
+    // };
 });

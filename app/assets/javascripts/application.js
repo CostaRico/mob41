@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
-//= require bootstrap-hover-dropdown.min
 //= require owl.carousel.min
+//= require bootstrap-hover-dropdown.min
 //= require echo.min
 //= require wow.min
 //= require jquery.easing.min
@@ -24,3 +24,4 @@
 //= require upd_sipp
 //= require electro
 //= require add_to_cart_btn
+

@@ -380,10 +380,10 @@
                     "items":3
                 },
                 "768":{
-                    "items":2
+                    "items":4
                 },
                 "992":{
-                    "items":3
+                    "items":4
                 },
                 "1200":{
                     "items":4
@@ -443,7 +443,9 @@
             "slideSpeed":300,
             "dots":true,
             "rtl":false,
-            "paginationSpeed":400,
+            "autoplay":true,
+            "loop":true,
+            "paginationSpeed":500,
             "navText":["",""],
             "margin":0,
             "touchDrag":true,
@@ -579,8 +581,10 @@
             "items":5,
             "navRewind":true,
             "autoplayHoverPause":true,
+            "autoplay":true,
             "nav":true,"stagePadding":1,
             "dots":false,
+            "loop":true,
             "rtl":false,
             "navText":["<i class=\"fa fa-chevron-left\"><\/i>",
             "<i class=\"fa fa-chevron-right\"><\/i>"],
@@ -590,13 +594,13 @@
                     "items":1
                 },
                 "480":{
-                    "items":1
-                },
-                "768":{
                     "items":2
                 },
-                "992":{
+                "768":{
                     "items":3
+                },
+                "992":{
+                    "items":4
                 },
                 "1200":{
                     "items":5

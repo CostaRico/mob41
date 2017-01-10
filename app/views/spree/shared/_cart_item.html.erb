@@ -20,7 +20,7 @@
         <%= small_image(item.product, itemprop: "image", :class =>"attachment-shop_thumbnail size-shop_thumbnail wp-post-image") %><%= item.product.name %>&nbsp;
         
       </a>
-      <span class="quantity"><%= item.quantity %> × <span class="amount"><%=  item.single_money.to_html%></span></span>
+      <span class="quantity"><%= item.quantity %> × <span class="amount"><%=  item.price%> руб.</span></span>
     </li>
   <% end %>
 <% end %>
