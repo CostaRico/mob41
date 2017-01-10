@@ -5,11 +5,7 @@
  *= require_tree .
  *= require_self
  */
- @media (max-width: 767px)
-.primary-nav .nav-inline > .menu-item
-.departments-menu .nav-item:hover #menu-vertical-menu {
-    visibility: visible !important;
-}
+
 .nav-link.dropdown-toggle:hover #menu-vertical-menu {
     display: block;
 }
