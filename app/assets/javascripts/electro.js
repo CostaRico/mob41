@@ -178,8 +178,8 @@
         $(owlElementID).owlCarousel({
 
             animateOut: 'fadeOut',
-            autoplay: true,
-            autoplayTimeout: 5000,
+            autoplay: false,
+            autoplayTimeout: 6000,
             autoplayHoverPause: false,
             stopOnHover: true,
             loop: true,

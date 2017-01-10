@@ -3895,11 +3895,11 @@ div.quantity.buttons_added {
   margin-left: -50vw;
   left: 50%;
   margin-bottom: 3em;
-  height: 485px; }
+  height: 365px; }
   .home-v1-slider .item,
   .home-v2-slider .item,
   .home-v3-slider .item {
-    height: 485px; }
+    height: 365px; }
   .home-v1-slider .owl-dots,
   .home-v2-slider .owl-dots,
   .home-v3-slider .owl-dots {
@@ -3961,7 +3961,7 @@ div.quantity.buttons_added {
   position: absolute;
   right: 0;
   overflow: hidden;
-  height: 485px; }
+  height: 365px; }
 
 .hero-v2-price {
   font-weight: 300;
@@ -3975,14 +3975,14 @@ div.quantity.buttons_added {
 #owl-main .item {
   background-position: center 55%;
   background-size: cover;
-  height: 485px;
+  height: 365px;
   width: 100%; }
   #owl-main .item .container {
     display: table;
     height: inherit;
     width: 100%; }
   #owl-main .item .caption {
-    padding-top: 85px;
+    /*padding-top: 85px;*/
     /*display: table-cell; }*/
   }
 /*===================================================================================*/

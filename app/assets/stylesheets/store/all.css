@@ -5,7 +5,9 @@
  *= require_tree .
  *= require_self
  */
-
+.second-slide img{
+	margin-left: 5em !important;
+}
 .nav-link.dropdown-toggle:hover #menu-vertical-menu {
     display: block;
 }
