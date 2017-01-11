@@ -2,5 +2,5 @@
 	$(".cart-in-header").empty().append("<%= j(render partial: '/spree/shared/cart', :locals => {:order => current_order}) %>")
 <% else %>
 	$(".navbar-mini-cart .cart-items-count").text("<%= j(current_order.nil? ? 0 : current_order.item_count.to_s) %>");
-	$(".navbar-mini-cart .amount").text("<%= j(current_order.nil? ? 0 : current_order.total.to_s) %> Руб.");
+	$(".navbar-mini-cart .cart-items-total-price .amount").text("<%= j(current_order.nil? ? 0 : display_hum_price(current_order.total)) %> Руб.");
 <% end %>		 
