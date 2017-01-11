@@ -30,7 +30,7 @@
                   <tbody>
                     <tr class="cart-subtotal">
                       <th><%= Spree.t(:total) %></th>
-                      <td data-title="Subtotal"><span class="amount"><%= @order.display_total%></span></td>
+                      <td data-title="Subtotal"><span class="amount"><%= display_hum_price(@order.total)%> руб.</span></td>
                     </tr>
                   </tbody>
                 </table>

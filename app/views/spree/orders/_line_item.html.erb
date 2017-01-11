@@ -22,7 +22,7 @@
       <% end %>
     </td>
     <td class="product-price" data-hook="cart_item_price">
-      <%= line_item.single_money.to_html %>
+      <%= display_hum_price(line_item.price) %> руб.
     </td>
     <td class="product-quantity cart-item-quantity" data-hook="cart_item_quantity" valign="center">
       <div class="quantity buttons_added ">
@@ -32,7 +32,7 @@
       </div>
     </td>
     <td class="product-subtotal" data-hook="cart_item_total ">
-      <span class="amount"><%= line_item.display_amount.to_html unless line_item.quantity.nil? %></span> 
+      <span class="amount"><%= display_hum_price(line_item.amount) + ' руб.' unless line_item.quantity.nil? %></span> 
     </td>
   </tr>
 <% end %>

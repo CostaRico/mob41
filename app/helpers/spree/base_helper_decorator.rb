@@ -79,4 +79,7 @@ Spree::BaseHelper.class_eval do
       sorting = params[:sorting]
       "#{I18n.locale}/#{current_currency}/spree/products/all-#{params[:page]}-#{first_id}-#{sorting}-#{count}"
     end
+    def display_hum_price(price)
+      ActionController::Base.helpers.number_with_delimiter(price.to_i, delimiter: " ")
+    end
 end

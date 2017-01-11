@@ -5,6 +5,9 @@
  *= require_tree .
  *= require_self
  */
+ .s-bold{
+ 	font-weight: 600;
+ }
 .second-slide img{
 	margin-left: 5em !important;
 }

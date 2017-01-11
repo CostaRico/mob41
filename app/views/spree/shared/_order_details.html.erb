@@ -63,20 +63,20 @@
           <%= item.name %>
           <%= "(" + item.variant.options_text + ")" unless item.variant.option_values.empty? %>
         </td>
-        <td data-hook="order_item_price" class="product-price"><%= item.single_money.to_html %></td>
+        <td data-hook="order_item_price" class="product-price"><%= display_hum_price(item.price) %> руб.</td>
         <td data-hook="order_item_qty" class="product-quantity"><%= item.quantity %></td>
-        <td data-hook="order_item_total" class="product-subtotal"><%= item.display_amount.to_html %></td>
+        <td data-hook="order_item_total" class="product-subtotal"><%= display_hum_price(item.amout) руб.%></td>
       </tr>
     <% end %>
     </tbody>
     <tfoot id="order-total" data-hook="order_details_total">
       <tr class="warning total">
         <th> <%= Spree.t(:order_total) %>: </th> 
-        <td class="total"><span id="order_total" class="amount"><%= order.display_total.to_html %></span></td>
+        <td class="total"><span id="order_total" class="amount"><%= display_hum_price(order.total)%> руб.</span></td>
       </tr>
       <tr class="order-total" id="subtotal-row">
         <td><%= Spree.t(:subtotal) %>:</td>
-        <td class="total"><span class="amount"><%= order.display_item_total.to_html %></span></td>
+        <td class="total"><span class="amount"><%= display_hum_price(order.item_total) %> руб.</span></td>
       </tr>
     
       <% if order.line_item_adjustments.exists? %>

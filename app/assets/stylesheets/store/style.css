@@ -557,7 +557,7 @@ fieldset {
     max-width: 1200px; } }
 
 #content {
-  margin-bottom: 10.714em; }
+  margin-bottom: 4.714em; }
   #content #primary {
     position: relative;
     float: left;
@@ -1246,7 +1246,9 @@ img.desaturate {
   margin-right: 1.071em; }
 
 .navbar-mini-cart .nav-link {
-  position: relative; }
+  position: relative; 
+  width: 8.5em;
+  }
 
 .navbar-mini-cart .cart-items-count {
   font-size: 0.750em;
@@ -1281,8 +1283,8 @@ img.desaturate {
     text-align: center;
     margin-bottom: 0; }
   .dropdown-menu-mini-cart .wc-forward {
-    padding: 0.75em 2.07em;
-    margin: 0 0.5em; }
+    padding: 0.75em 1.3em;
+    margin: 0 0.2em; }
     .dropdown-menu-mini-cart .wc-forward::after {
       content: none; }
 
@@ -5685,7 +5687,7 @@ section.section-posts-carousel .post-carousel .owl-nav, section.section-posts-ca
     -webkit-tap-highlight-color: transparent;
     position: relative; }
     .owl-brands .owl-nav [class*='owl-'] {
-      color: #D6D6D6;
+      color: #fff;
       font-size: 14px;
       display: inline-block;
       cursor: pointer;
@@ -5693,7 +5695,7 @@ section.section-posts-carousel .post-carousel .owl-nav, section.section-posts-ca
       top: -30px;
       line-height: 14px; }
       .owl-brands .owl-nav [class*='owl-']:hover {
-        color: #eceeef;
+        color: #fff;
         text-decoration: none; }
     .owl-brands .owl-nav .owl-prev {
       left: 0; }
@@ -5857,13 +5859,13 @@ section.section-posts-carousel .post-carousel .owl-nav, section.section-posts-ca
       margin-bottom: 0; }
   .product_list_widget .product-title {
     color: #0062bd;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 1em;
     display: block;
     line-height: 1.2em; }
   .product_list_widget a {
     color: #0062bd;
-    font-weight: bold; }
+    font-weight: 600; }
   .product_list_widget .wp-post-image {
     /*width: 75px;*/
     height: 75px;
@@ -6257,7 +6259,7 @@ section.section-posts-carousel .post-carousel .owl-nav, section.section-posts-ca
     font-size: 1.1em;
     display: block;
     line-height: 1.429em;
-    margin-left: 3em;}
+    margin-left: 2.85em;}
   .footer-call-us .call-us-number {
     font-size: 1.571em;
     display: block;
@@ -9630,7 +9632,8 @@ h3.faq-title {
     .primary-nav .nav-inline > .menu-item.dropdown + .menu-item {
       margin-left: 0; }
     .primary-nav .nav-inline > .menu-item + .menu-item {
-      margin-left: 0; }
+      margin-left: 0; 
+      float: none !important; }
     .primary-nav .nav-inline > .menu-item > a {
       display: block;
       padding: 0.6em 0.800em; }
