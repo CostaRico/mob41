@@ -1,6 +1,6 @@
 <% @body_id = 'product-details' %>
 <% cache cache_key_for_product do %>
-  <div id="primary" class="content-area">
+  <div id="primary" class="content-area single-product">
     <main id="main" class="site-main single-product">
       <div class="product ">
         <div class="single-product-wrapper">
@@ -45,14 +45,7 @@
             </div>
           </div>
         </div>
-      </div>
-     
-          <script>
-            $(document).ready(function(){
-              Spree.fetch_recently_viewed_products('<%= @product.try(:id) %>');
-            });
-          </script>
-      <div class="woocommerce-tabs wc-tabs-wrapper">
+        <div class="woocommerce-tabs wc-tabs-wrapper">
           <ul class="nav nav-tabs electro-nav-tabs tabs wc-tabs" role="tablist">
                   <!-- <li class="nav-item accessories_tab">
                     <a href="#tab-accessories" data-toggle="tab">Complectation</a>
@@ -80,7 +73,19 @@
                 </div>
       </div>
       <%= render :partial => "spree/shared/latest_products_bottom"%> 
+      </div>
+      
+          <script>
+            $(document).ready(function(){
+              Spree.fetch_recently_viewed_products('<%= @product.try(:id) %>');
+            });
+
+          </script>
+      
+      
     </main>
+  </div>
+  <div id="sidebar" class="sidebar" role="complementary">
   </div>
 <% end %>
 

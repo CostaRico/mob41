@@ -15,7 +15,7 @@
 <div class="top-bar">
     <div class="container">
       <div class="container" style="padding-left: 0px;">
-        <nav>
+        <nav> 
           <ul id="menu-top-bar-left" class="nav nav-inline pull-left animate-dropdown flip">
                 
                 <li class="menu-item"><a title="Contact Us" href="/about">О компании</a></li>
@@ -88,7 +88,7 @@
   <div class="container">
     <ul class="nav navbar-nav departments-menu animate-dropdown">
       <li class="nav-item dropdown " >
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="departments-menu-toggle" aria-expanded="false">Каталог товаров</a>
+        <a class="nav-link dropdown-toggle" href="#" id="departments-menu-toggle" aria-expanded="false">Каталог товаров</a>
         <ul id="menu-vertical-menu" class="dropdown-menu yamm departments-menu-dropdown" style="border-bottom-right-radius: 0.625rem;">
           <% Spree::Taxonomy.first.root.children.each do |taxon|%>
             <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown menu-item-2584 dropdown"><%= link_to taxon.name, seo_url(taxon), :title => taxon.name%></li>

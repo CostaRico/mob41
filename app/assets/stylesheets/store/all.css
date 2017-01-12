@@ -5,6 +5,9 @@
  *= require_tree .
  *= require_self
  */
+ .related.products .product-inner img{
+ 	max-height: 200px;
+ }
  .s-bold{
  	font-weight: 600;
  }

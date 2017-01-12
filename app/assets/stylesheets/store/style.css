@@ -598,8 +598,13 @@ fieldset {
     .page-template-default #content #primary,
     .full-width #content #primary {
       width: 100%;
-      left: auto; } }
-
+      left: auto; }  
+    .page-template-default #content #primary.single-product{
+      padding-left: 0.9375rem;
+      width: 75%;
+      left: 25%;
+    }
+  }
 .right-sidebar #content #primary {
   padding-left: 0;
   padding-right: 0; }
@@ -3735,7 +3740,7 @@ div.quantity.buttons_added {
   .navbar-primary .navbar-nav > .menu-item:last-child > a {
     border-right: 0; }
   .navbar-primary .navbar-mini-cart .dropdown-menu-mini-cart {
-    top: 108% !important;
+    top: 114% !important;
     right: -25px;
     box-shadow: none;
     padding: 2.2em 2.1em 1.2em 2.1em;
@@ -9879,3 +9884,9 @@ h3.faq-title {
   .section-onsale-product-carousel .onsale-product-carousel .onsale-product .onsale-product-content .button,
   .products-carousel .owl-item .product .button {
     position: relative; } }
+/*......custom.......*/
+ @media (min-width: 768px){
+  .related.products .product-inner img{
+    max-height: 90px;
+   }
+ }

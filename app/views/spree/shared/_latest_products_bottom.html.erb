@@ -5,7 +5,7 @@
 
       	<% cached_recently_viewed_products.last(4).each do |product| %>
           <li class="product">
-            <div class="product-outer">
+            <div class="product-outer" >
               <div class="product-inner">
                 <span class="loop-product-categories">
                   <% taxon = product.taxons.first %>
@@ -15,7 +15,7 @@
                 </span>
                 <%= link_to product_path(product) do %>
                   <h3><%= product.name %></h3>
-                  <div class="product-thumbnail">
+                  <div class="product-thumbnail" >
                     <%= product_image(product) %>
                   </div>
                 <% end %>
