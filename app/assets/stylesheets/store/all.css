@@ -5,8 +5,14 @@
  *= require_tree .
  *= require_self
  */
+ #breadcrumbs{
+ 	margin-left: 25%;
+ }
+ .thumbnails-all{
+ 	margin-top: 10px;
+ }
  .related.products .product-inner img{
- 	max-height: 200px;
+ 	max-height: 180px;
  }
  .s-bold{
  	font-weight: 600;
@@ -44,7 +50,7 @@
  }
 .current_br{
 	padding: 0.465em 0.929em;
-	background-color: #fed700;
+	background-color: #00abc5;
 	border-radius: 0.357em;
 }
 .ssc{

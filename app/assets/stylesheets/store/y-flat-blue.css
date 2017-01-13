@@ -127,7 +127,9 @@ section.section-onsale-product-carousel .onsale-product-carousel,
 #reviews:not(.electro-advanced-reviews) #comments > h2::after,
 .widget_electro_products_carousel_widget .section-products-carousel .owl-nav .owl-prev:hover,
 .widget_electro_products_carousel_widget .section-products-carousel .owl-nav .owl-next:hover,
-.wpb-accordion .vc_tta.vc_general .vc_tta-panel .vc_tta-panel-heading .vc_tta-panel-title > a:not(.collapsed):before {
+.wpb-accordion .vc_tta.vc_general .vc_tta-panel .vc_tta-panel-heading .vc_tta-panel-title > a:not(.collapsed):before,
+.single-product .product-section-title::after,
+.entry-header-cart h1::after{
   border-color: #00abc5; }
 
 .widget_price_filter .price_slider_amount .button,

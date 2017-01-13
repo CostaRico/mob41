@@ -823,17 +823,18 @@ dl.variation {
 /*===================================================================================*/
 section {
   margin-bottom: 3.571em; }
-  section header {
+  section header, .entry-header-cart {
     margin-bottom: 2.857em;
     border-bottom: 1px solid #dadada; }
-    section header h1, section header .h1 {
+    section header h1, section header .h1,
+    .entry-header-cart h1 {
       font-size: 1.786em;
       line-height: 1.6em;
       display: inline-block;
       padding-bottom: 0.400em;
       position: relative;
       margin-bottom: 0; }
-      section header h1:after, section header .h1:after {
+      section header h1:after, section header .h1:after, .entry-header-cart h1::after {
         content: ' ';
         border-bottom: 2px solid transparent;
         display: block;
@@ -997,7 +998,7 @@ img.desaturate {
   padding: 0; }
 
 .departments-menu .departments-menu-dropdown {
-  top: 113%;
+  top: 117%;
   border-top-width: 0;
   border-top-left-radius: 0;
   border-top-right-radius: 0; }
@@ -2388,14 +2389,17 @@ table.cart {
     table.cart .product-name a:focus, table.cart .product-name a:hover {
       color: #000;
       text-decoration: none; }
-  table.cart .product-quantity .quantity {
+  table.cart .product-quantity .quantity,
+  .single-product .quantity {
     width: 5em; }
     table.cart .product-quantity .quantity.buttons_added {
       width: 8em;
       font-size: 0.824em; }
+      .single-product .quantity.buttons_added .minus, .single-product .quantity.buttons_added .plus
       table.cart .product-quantity .quantity.buttons_added .minus, table.cart .product-quantity .quantity.buttons_added .plus {
         bottom: 0.5em; }
-  table.cart .product-quantity .input-text {
+  table.cart .product-quantity .input-text,
+  .single-product .quantity .input-text {
     padding: 0.5em 1em;
     border-radius: 1em; }
   table.cart .actions {
@@ -7634,7 +7638,8 @@ div.quantity > label {
   margin-bottom: 4.857em; }
   .single-product .woocommerce-tabs ~ div.products {
     margin-bottom: 4.857em; }
-    .single-product .woocommerce-tabs ~ div.products > h2 {
+    .single-product .woocommerce-tabs ~ div.products > h2,
+    .single-product .product-section-title  {
       font-size: 1.786em;
       line-height: 1.6em;
       display: block;
@@ -7642,7 +7647,8 @@ div.quantity > label {
       padding-bottom: 0.400em;
       border-bottom: 1px solid #dadada;
       margin-bottom: 1.360em; }
-      .single-product .woocommerce-tabs ~ div.products > h2::after {
+      .single-product .woocommerce-tabs ~ div.products > h2::after,
+      .single-product .product-section-title::after {
         content: ' ';
         border-bottom: 2px solid transparent;
         display: block;

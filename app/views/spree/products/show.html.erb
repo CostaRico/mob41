@@ -31,12 +31,14 @@
               <%= link_to @taxon.name, seo_url(@taxon), :rel=>"tag"%>
             </span>
             <h1 itemprop="name" class="product_title entry-title"><%= @product.name %></h1>
-            <div class="availability in-stock">Availablity: <span>In stock</span></div>
+            <div class="availability in-stock"><p><strong>Код товара</strong>: <%= @product.code%></p></div>
             <hr class="single-product-title-divider" />
-            <p><strong>SKU</strong>: <%= @product.code%></p>
+            
             <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-              <p class="price"><span class="electro-price">
+              <p class="price">
+              <span class="electro-price">
                 <span class="amount"><%= display_price(@product) %></span>
+                </span>
               </p>
               <meta itemprop="price" content="1215" />
               <meta itemprop="priceCurrency" content="rub" />
@@ -45,47 +47,19 @@
             </div>
           </div>
         </div>
-        <div class="woocommerce-tabs wc-tabs-wrapper">
-          <ul class="nav nav-tabs electro-nav-tabs tabs wc-tabs" role="tablist">
-                  <!-- <li class="nav-item accessories_tab">
-                    <a href="#tab-accessories" data-toggle="tab">Complectation</a>
-                  </li> -->
-                  <li class="nav-item description_tab">
-                    <a href="#tab-description" class="active" data-toggle="tab">Description</a>
-                  </li>
-                  <li class="nav-item specification_tab">
-                    <a href="#tab-specification" data-toggle="tab">Specification</a>
-                  </li>
-                </ul>
-                <div class="tab-content">
-                  <div class="tab-pane panel entry-content wc-tab" id="tab-accessories">
-                    <div class="accessories">
-                    </div>
-                  </div>
-                  <div class="tab-pane active in panel entry-content wc-tab" id="tab-description">
-                    <div class="electro-description">
-                      <p><%= @product.description%></p>
-                    </div>
-                  </div>
-                  <div class="tab-pane panel entry-content wc-tab" id="tab-specification">
-                    <%= render partial: 'properties' %>
-                  </div>
-                </div>
+        <div class="product-props woocommerce-tabs">
+          <%= render partial: 'properties' %>
+        </div>
+        <%= render :partial => "spree/shared/latest_products_bottom"%> 
       </div>
-      <%= render :partial => "spree/shared/latest_products_bottom"%> 
-      </div>
-      
           <script>
             $(document).ready(function(){
               Spree.fetch_recently_viewed_products('<%= @product.try(:id) %>');
             });
 
           </script>
-      
-      
     </main>
   </div>
-  <div id="sidebar" class="sidebar" role="complementary">
+  <div id="sidebar" class="sidebar" role="complementary"> 
   </div>
 <% end %>
-

@@ -1,5 +1,5 @@
 <% @body_id = 'checkout-page' %>
-<div id="content" class="site-content" tabindex="-1">
+<div id="content-order" class="site-content order-id" tabindex="-1">
   <div class="container">
     <% content_for :google_analytics do %>
       <%= render partial: 'spree/shared/google_checkout.js', locals: { order: @order, step_number: (@order.checkout_steps.index(@order.state) + 1) } %>
@@ -7,7 +7,7 @@
     <nav class="woocommerce-breadcrumb">
       <%= checkout_progress %>
     </nav>
-    <header class="entry-header"><h1 itemprop="name" class="entry-title"><%= Spree.t(:checkout) %></h1>
+    <header class="entry-header-cart"><h1 itemprop="name" ><%= Spree.t(:checkout) %></h1>
     </header>
     <%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
           <!-- <div id="checkout" data-hook>

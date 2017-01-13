@@ -16,6 +16,7 @@
       <div id="content" class="site-content" tabindex="-1">
         <div class="container">
           <%= breadcrumbs(@taxon, @product) %>
+          
           <%= render partial: 'spree/shared/sidebar' if content_for? :sidebar %>
 
           <div id="content" class="<%= !content_for?(:sidebar) ? "col-sm-12" : "col-sm-8 col-md-9" %>" data-hook>

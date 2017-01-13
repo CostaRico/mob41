@@ -35,12 +35,15 @@
       <div class="single_variation_wrap">
         <div class="woocommerce-variation single_variation"></div>
         <div class="woocommerce-variation-add-to-cart variations_button">
-          <div class="quantity">
-            <%= number_field_tag :quantity, 1, class: 'input-text qty text', min: 1 %>
+          <div class="quantity buttons_added ">
+            <input type="button" class="plus" value="+">
+              <%= number_field_tag :quantity, 1,min: 0, class: "form-control line_item_quantity input-text qty text", size: 5 %>
+            <input type="button" class="minus" value="-">
           </div>
           <%= button_tag class: 'single_add_to_cart_button button', id: 'add-to-cart-button', type: :submit do %>
                   <%= Spree.t(:add_to_cart) %>
-          <% end %>                           
+          <% end %> 
+        </div>                          
         <% end %>
       </div>
     <% else %>
