@@ -4,7 +4,7 @@
     <tbody>
       <% @product_properties.each do |product_property| %>
         <tr>
-          <td><strong><%= product_property.property.presentation %></strong></td>
+          <td class="bolder"><%= product_property.property.presentation %></td>
           <td><%= product_property.value %></td>
         </tr>
       <% end %>

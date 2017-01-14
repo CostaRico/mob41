@@ -5,11 +5,14 @@
  *= require_tree .
  *= require_self
  */
+.bolder{
+ 	font-weight: 600;
+ }
  .navbar-primary .navbar-mini-cart .dropdown-menu-mini-cart{
-     top: 119% !important;
+    top: 114% !important;
  }
  .departments-menu #menu-vertical-menu{
- 	top: 120% !important;
+ 	top: 118% !important;
  }
  #breadcrumbs{	
  	margin-left: 27.7%;
