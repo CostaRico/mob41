@@ -1,7 +1,7 @@
 <% @body_id = 'product-details' %>
 <% cache cache_key_for_product do %>
   <div id="primary" class="content-area single-product">
-    <main id="main" class="site-main single-product">
+    <main id="main" class="site-main single-product" style="padding-left: 0.9375rem;" >
       <div class="product ">
         <div class="single-product-wrapper">
           <div class="product-images-wrapper">
@@ -31,7 +31,7 @@
               <%= link_to @taxon.name, seo_url(@taxon), :rel=>"tag"%>
             </span>
             <h1 itemprop="name" class="product_title entry-title"><%= @product.name %></h1>
-            <div class="availability in-stock"><p><strong>Код товара</strong>: <%= @product.code%></p></div>
+            <div class="availability in-stock"><strong>Код товара</strong>: <span style="color:"><%= @product.code%></span></div>
             <hr class="single-product-title-divider" />
             
             <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">

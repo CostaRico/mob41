@@ -998,7 +998,7 @@ img.desaturate {
   padding: 0; }
 
 .departments-menu .departments-menu-dropdown {
-  top: 117%;
+  top: 119%;
   border-top-width: 0;
   border-top-left-radius: 0;
   border-top-right-radius: 0; }
@@ -2395,7 +2395,7 @@ table.cart {
     table.cart .product-quantity .quantity.buttons_added {
       width: 8em;
       font-size: 0.824em; }
-      .single-product .quantity.buttons_added .minus, .single-product .quantity.buttons_added .plus
+      .single-product .quantity.buttons_added .minus, .single-product .quantity.buttons_added .plus,
       table.cart .product-quantity .quantity.buttons_added .minus, table.cart .product-quantity .quantity.buttons_added .plus {
         bottom: 0.5em; }
   table.cart .product-quantity .input-text,
@@ -3108,7 +3108,8 @@ div.quantity.buttons_added {
     right: 0.536em;
     display: inline-block; }
     div.quantity.buttons_added .minus:hover, div.quantity.buttons_added .plus:hover {
-      color: #fff; }
+      background-color: #efecec;
+      cursor: pointer; }
   div.quantity.buttons_added input[type="number"] {
     -moz-appearance: textfield; }
   div.quantity.buttons_added input[type=number]::-webkit-inner-spin-button,
@@ -3116,7 +3117,7 @@ div.quantity.buttons_added {
     -webkit-appearance: none;
     margin: 0;
     /* Removes leftover margin */ }
-  div.quantity.buttons_added .plus {
+  div.quantity.buttons_added .minus {
     right: 1.965em;
     margin-right: 0.357em; }
 
@@ -3744,7 +3745,7 @@ div.quantity.buttons_added {
   .navbar-primary .navbar-nav > .menu-item:last-child > a {
     border-right: 0; }
   .navbar-primary .navbar-mini-cart .dropdown-menu-mini-cart {
-    top: 114% !important;
+    top: 116% !important;
     right: -25px;
     box-shadow: none;
     padding: 2.2em 2.1em 1.2em 2.1em;
@@ -9896,3 +9897,9 @@ h3.faq-title {
     max-height: 90px;
    }
  }
+#product-properties{
+  margin-top: 4em;}
+  .table td {
+    padding: 0.5rem 0;
+  }
+}

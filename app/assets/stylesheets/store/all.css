@@ -5,8 +5,14 @@
  *= require_tree .
  *= require_self
  */
- #breadcrumbs{
- 	margin-left: 25%;
+ .navbar-primary .navbar-mini-cart .dropdown-menu-mini-cart{
+     top: 119% !important;
+ }
+ .departments-menu #menu-vertical-menu{
+ 	top: 120% !important;
+ }
+ #breadcrumbs{	
+ 	margin-left: 27.7%;
  }
  .thumbnails-all{
  	margin-top: 10px;
@@ -49,6 +55,7 @@
  	border-radius: 0.357em;
  }
 .current_br{
+	color: #fff;
 	padding: 0.465em 0.929em;
 	background-color: #00abc5;
 	border-radius: 0.357em;

@@ -1,2 +1,3 @@
 $('.cart-in-header').empty().append(" <%= j(render :partial => 'spree/shared/cart', :locals => {:order => current_order}) %>");
-
+$(".nav-item").addClass("open");
+$(".nav-item .nav-links").attr("aria-expanded","true");

@@ -48,8 +48,9 @@ $('document').ready(function(){
 	});
 	$(".quantity.buttons_added").on("click", ".minus", function(){
 	  v = $(this).parent().children(".qty").val();
-	  $(this).parent().children(".qty").val(--v);
-
+	  	if (v > 1){
+	 	 	$(this).parent().children(".qty").val(--v);
+	  	}
 	});
 	if ( !$('#content-order').hasClass('order-id')){ 
     $(".departments-menu .nav-item.dropdown").addClass(" open");
