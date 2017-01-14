@@ -5,6 +5,19 @@
  *= require_tree .
  *= require_self
  */
+.single-product .cart .quantity{
+	width: 7em;
+}
+.quantity.buttons_added #quantity{
+	padding: 1em 1em;
+    border-radius: 2em;
+    /*width: 80%;*/
+ } 
+
+.single-product .quantity.buttons_added .minus,
+.single-product .quantity.buttons_added .plus{
+	bottom: 1em;
+}
 .bolder{
  	font-weight: 600;
  }
