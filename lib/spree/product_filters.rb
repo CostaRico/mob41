@@ -2,41 +2,46 @@
 module Spree
   module Core
    module ProductFilters
-      @@taxon = nil
       Spree::Product.add_search_scope :country_any do |*opts|
-        filter = ProductFilters.country_filter(@@taxon)
-        conds = opts.map {|o| filter[:conds][o]}.reject { |c| c.nil? }
-        scope = conds.shift
-        conds.each do |new_scope|
-          scope = scope.or(new_scope)
+          conds = opts.map {|o| ProductFilters.country_filter[:conds][o]}.reject { |c| c.nil? }
+          scope = conds.shift
+          conds.each do |new_scope|
+            scope = scope.or(new_scope)
+          end
+          Spree::Product.with_property('Страна').where(scope)
         end
-        Spree::Product.with_property('Страна').where(scope)
+
+      def ProductFilters.country_filter
+          brand_property = Spree::Property.find_by(name: 'Страна')
+          brands = brand_property ? Spree::ProductProperty.where(property_id: brand_property.id).pluck(:value).uniq.map(&:to_s) : []
+          pp = Spree::ProductProperty.arel_table
+          conds = Hash[*brands.map { |b| [b, pp[:value].eq(b)] }.flatten]
+          {
+            name:   'Страна',
+            scope:  :brand_any,
+            conds:  conds,
+            labels: (brands.sort).map { |k| [k, k] }
+          }
       end
 
+      Spree::Product.add_search_scope :select_country_any do |*opts|
+        Spree::Product.country_any(*opts)
+      end
 
-      def ProductFilters.country_filter(taxon = nil)
+      def ProductFilters.select_country_any(taxon = nil)
         taxon ||= Spree::Taxonomy.first.root
-        @@taxon = taxon
-
-        property = Spree::Property.find_by(name: 'Страна')
-
-        scope = Spree::ProductProperty.where(property: property).
-           joins(product: :taxons).
-           where("#{Spree::Taxon.table_name}.id" => [taxon] + taxon.descendants)
-
-        rows = scope.pluck(:value).uniq
-
-        pp = Spree::ProductProperty.arel_table
-
-        conds = Hash[*rows.map { |b| [b, pp[:value].eq(b)] }.flatten]
-
+        brand_property = Spree::Property.find_by(name: 'Страна')
+        scope = Spree::ProductProperty.where(property: brand_property).
+          joins(product: :taxons).
+          where("#{Spree::Taxon.table_name}.id" => [taxon] + taxon.descendants)
+        brands = scope.pluck(:value).uniq
         {
           name:   'Страна',
-          scope:  :country_any,
-          conds:  conds,
-          labels: rows.sort.map { |k| [k, k] }
+          scope:  :select_country_any,
+          labels: brands.sort.map { |k| [k, k] }
         }
       end
+
 
    end
   end

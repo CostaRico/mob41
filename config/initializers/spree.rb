@@ -1,3 +1,5 @@
+
+# require "#{Rails.root}/lib/spree/custom_search"
 # Configure Spree Preferences
 #
 # Note: Initializing preferences available within the Admin will overwrite any changes that were made through the user interface when you restart.
@@ -9,14 +11,17 @@
 #
 # In order to initialize a setting do:
 # config.setting_name = 'new value'
+require "#{Rails.root}/lib/spree/product_filters"
 Spree.config do |config|
+
   # Example:
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
   # config.currency = 'RUB'
 end
-require "#{Rails.root}/lib/spree/custom_search"
-Spree::Config.searcher_class = Spree::CustomSearch
+
+  # require 'spree/core/product_filters'
+# Spree::Config.searcher_class = Spree::CustomSearch
 Spree::Config[:layout]='spree/layouts/spree_application'
 Spree.user_class = "Spree::User"
 
