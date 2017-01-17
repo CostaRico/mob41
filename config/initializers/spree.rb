@@ -12,6 +12,8 @@
 # In order to initialize a setting do:
 # config.setting_name = 'new value'
 require "#{Rails.root}/lib/spree/product_filters"
+require "#{Rails.root}/lib/spree/custom_search"
+Spree::Config.searcher_class = Spree::CustomSearch
 Spree.config do |config|
 
   # Example:
@@ -21,7 +23,7 @@ Spree.config do |config|
 end
 
   # require 'spree/core/product_filters'
-# Spree::Config.searcher_class = Spree::CustomSearch
+
 Spree::Config[:layout]='spree/layouts/spree_application'
 Spree.user_class = "Spree::User"
 

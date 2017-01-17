@@ -1,3 +1,4 @@
+# encoding: utf-8
 module Spree
   class CustomSearch < Spree::Core::Search::Base
 
@@ -6,9 +7,9 @@ module Spree
       statement = nil
       search.each do |property_name, property_values|
         name = property_name.gsub("_any", "").gsub("selective_","")
-        property = Spree::Property.find_by_name(name)
-        next unless property
 
+        property = Spree::Property.find_by_name(get_name(name))
+        next unless property
         substatement = product_property[:property_id].eq(property.id).and(product_property[:value].eq(property_values.first))
         #substatement = Spree::Product.with_property_value(name, property_values.first)
         property_values[1..-1].each do |pv|
@@ -27,6 +28,16 @@ module Spree
       super
       @properties[:product] = Spree::Product.arel_table
       @properties[:product_property] = Spree::ProductProperty.arel_table
+    end
+
+    def get_name(name)
+        case name 
+        when "select_country"
+          "Страна"
+        when "select_type"
+          "Тип"
+        end
+
     end
   end
 end
