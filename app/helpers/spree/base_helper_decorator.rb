@@ -83,4 +83,8 @@ Spree::BaseHelper.class_eval do
     def display_hum_price(price)
       ActionController::Base.helpers.number_with_delimiter(price.to_i, delimiter: " ")
     end
+
+    def order_count(count)
+      return count > 99 ? "99+" : count
+    end
 end

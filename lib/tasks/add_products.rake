@@ -12,13 +12,13 @@ task :add_products => :environment do
 		{:name=>"Трапы, душевые лотки", :url=>"/trapy_i_dushevye_lotki/"}, {:name=>"Диспоузеры (измельчители)", :url=>"/kuhonnye_mojki/dispouzery/"}, 
 		{:name=>"Фильтры под мойку", :url=>"/filtry_dlja_vody/pod_moyku/"}, 
 		{:name=>"Люки сантехнические", :url=>"/santehnicheskie_ljuki/"}, {:name=>"Теплые полы", :url=>"/teplotehnika/teplye_poly/"}] 
-	files = ["Биде","Водонагреватели","Чугунные ванны","Ванны из искусственного камня","Диспоузеры (измельчители)","Душевые боксы","Душевые кабины","Душ", "Инсталляции"]
+	files = ["Биде"]#,"Водонагреватели","Чугунные ванны","Ванны из искусственного камня","Диспоузеры (измельчители)","Душевые боксы","Душевые кабины","Душ", "Инсталляции"]
 	path_to_file = Rails.root.to_s+"/public/product_list/"
 	init_taxons(first_level, second_level)
 	files.each do |file|
 		list = JSON.parse(File.read(path_to_file+file+".json"))
 		list.each do |item|
-			pars_product(item)
+			pars_product(item, file)
 		end
 	end
 
@@ -59,7 +59,7 @@ def prf
 	"taxon_id"=>16}
 end
 	
-def pars_product(item)
+def pars_product(item, folder)
 	@product = Spree::Product.find_by_code(item["code"].to_i)
 	if @product.nil?
 		puts "insert product"
@@ -68,7 +68,7 @@ def pars_product(item)
 		puts "Product #{item['name']} with code #{item['code']} already exist"
 	end
 	add_properties(@product, item['properties']) if @product.product_properties.empty?
-	add_images(@product, item['images'])
+	add_images(@product, item['images'], folder)
 end
 
 def insert_product(item)
@@ -84,20 +84,21 @@ def add_properties(product, properties_data)
 	product.product_properties.create(properties_data)
 end
 
-def add_images(product, image_list)
+def add_images(product, image_list, folder)
 	image_list.each do |pic|
 		current_img = product.images.find_by_attachment_file_name(pic.split("/").last)
 		if current_img
 			puts "image #{current_img} already exists"
 		else
-			insert_img(product, pic)
+			insert_img(product, pic, folder)
 		end
 	end
 end
 
-def insert_img(product, pic)
+def insert_img(product, pic, folder_name)
+	url_to_img = "/home/41km.ru/web/images/#{folder_name}/pic.split('/').last"
 	begin
-		img = product.images.create(:attachment => URI.parse(pic))
+		img = product.images.create(:attachment => url_to_img)
 		puts "#{img.attachment.url}" if img.save 
 	rescue => e
 		puts "--!!!!!-- image error --> #{e} --!!!!!!--"

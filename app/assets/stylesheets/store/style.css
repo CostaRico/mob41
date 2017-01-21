@@ -1253,7 +1253,7 @@ img.desaturate {
 
 .navbar-mini-cart .nav-link {
   position: relative; 
-  width: 8.5em;
+  min-width: 8.5em;
   }
 
 .navbar-mini-cart .cart-items-count {

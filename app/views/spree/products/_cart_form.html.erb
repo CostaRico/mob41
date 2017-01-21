@@ -1,4 +1,4 @@
-<%= form_for :order, url: populate_orders_path, :html =>{:class=> "variations_form cart", :remote => true} do |f| %>
+<%= form_for :order, url: populate_orders_path, :html =>{:class=> "variations_form cart"} do |f| %>
   <!-- <div class="row" id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="https://schema.org/Offer"> -->
     <% if @product.variants_and_option_values(current_currency).any? %>
       <div id="product-variants" class="col-md-6">
@@ -40,11 +40,13 @@
               <%= number_field_tag :quantity, 1,min: 1, class: "form-control line_item_quantity input-text qty text", size: 5 %>
             <input type="button" class="minus" value="-" style="background-color:#efecec !important;">
           </div>
+         
           <%= button_tag class: 'single_add_to_cart_button button', id: 'add-to-cart-button', type: :submit do %>
                   <%= Spree.t(:add_to_cart) %>
           <% end %> 
         </div>                          
         <% end %>
+        
       </div>
     <% else %>
       <div class="single_variation_wrap">
