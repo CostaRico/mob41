@@ -20,15 +20,15 @@ Spree::OrdersController.class_eval do
         flash[:error] = error
         redirect_back_or_default(spree.root_path)
       else
-      # 	if request.xhr?
+       	if request.xhr?
 	    	respond_to do |format|
 	    		format.js
 	    	end
-	    # else    
-	        # respond_with(order) do |format|
-	        #   format.html { redirect_to cart_path }
-	        # end
-	    # end
+	     else    
+	        respond_with(order) do |format|
+	          format.html { redirect_to cart_path }
+	         end
+	     end
       end
     end
 
