@@ -16,9 +16,10 @@ task :add_products => :environment do
 	path_to_file = Rails.root.to_s+"/public/product_list/"
 	init_taxons(first_level, second_level)
 	files.each do |file|
+		tax = Spree::Taxon.find_by_name(file)
 		list = JSON.parse(File.read(path_to_file+file+".json"))
 		list.each do |item|
-			pars_product(item, file)
+			pars_product(item, file, tax)
 		end
 	end
 
@@ -59,21 +60,24 @@ def prf
 	"taxon_id"=>16}
 end
 	
-def pars_product(item, folder)
+def pars_product(item, folder, tax)
 	@product = Spree::Product.find_by_code(item["code"].to_i)
+	@tax_id = tax.nil? ? Spree::Taxon.first.id : tax.id
 	if @product.nil?
 		puts "insert product"
-		@product = insert_product(item)
+		@product = insert_product(item, @tax_id)
 	else
 		puts "Product #{item['name']} with code #{item['code']} already exist"
+		@product.update_attributes(:name => item['name'], :price => item["price"], :description => item["description"], :code => item["code"],
+									 :shipping_category_id => "1", :taxon_ids => [@tax_id])
 	end
 	add_properties(@product, item['properties']) if @product.product_properties.empty?
 	add_images(@product, item['images'], folder)
 end
 
-def insert_product(item)
+def insert_product(item, tax_id)
 	@product = Spree::Product.create(:name => item['name'], :price => item["price"], :description => item["description"], :code => item["code"],
-									 :shipping_category_id => "1", :taxon_ids => [item['taxon_id']], :available_on => Time.current)
+									 :shipping_category_id => "1", :taxon_ids => [tax_id], :available_on => Time.current)
 end
 
 def add_properties(product, properties_data)
@@ -96,7 +100,7 @@ def add_images(product, image_list, folder)
 end
 
 def insert_img(product, pic, folder_name)
-	url_to_img = "/home/41km.ru/web/images/#{folder_name}/pic.split('/').last"
+	url_to_img = "/home/41km.ru/web/images/#{folder_name}/#{pic.split('/').last}"
 	begin
 		img = product.images.create(:attachment => url_to_img)
 		puts "#{img.attachment.url}" if img.save 
