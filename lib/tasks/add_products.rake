@@ -64,7 +64,7 @@ def pars_product(item, folder, tax)
 	@product = Spree::Product.find_by_code(item["code"].to_i)
 	@tax_id = tax.nil? ? Spree::Taxon.first.id : tax.id
 	if @product.nil?
-		puts "insert product"
+		puts "insert product #{item['name']}"
 		@product = insert_product(item, @tax_id)
 	else
 		puts "Product #{item['name']} with code #{item['code']} already exist"
@@ -72,7 +72,7 @@ def pars_product(item, folder, tax)
 									 :shipping_category_id => "1", :taxon_ids => [@tax_id])
 	end
 	add_properties(@product, item['properties']) if @product.product_properties.empty?
-	add_images(@product, item['images'], folder)
+	#add_images(@product, item['images'], folder)
 end
 
 def insert_product(item, tax_id)

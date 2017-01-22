@@ -8,7 +8,8 @@
             <!-- <span class="onsale">Sale!</span> -->
             <div class="images electro-gallery">
               <div class="thumbnails-single owl-carousel">
-                  <% if (@product.images + @product.variant_images).uniq.size > 1 %>
+
+                  <% if (@product.images + @product.variant_images).uniq.size > 0 %>
                       <% @product.images.each do |i| %>  
                           <%= link_to(image_tag(i.attachment.url(:product), :class=>"wp-attachment-shop_single size-shop_single-image"), i.attachment.url(:original), :class => "zoom", :data=> {:rel => "prettyPhoto[product-gallery]"}) %>
                       <% end %>
@@ -19,6 +20,8 @@
                             <%= link_to(image_tag(i.attachment.url(:product), :class=>"wp-attachment-shop_single size-shop_single-image"), i.attachment.url(:original), :class => "zoom", :data=> {:rel => "prettyPhoto[product-gallery]"}) %>
                         <% end %>
                       <% end %>
+                  <% else %>
+                    <%= product_image(@product) %>
                   <% end %>
               </div>
               <div class="thumbnails-all columns-5 owl-carousel">

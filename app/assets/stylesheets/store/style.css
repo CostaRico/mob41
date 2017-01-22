@@ -5396,8 +5396,8 @@ section.section-product-cards-carousel .owl-carousel .owl-stage-outer {
 .sidebar-blog .widget-title + ul,
 .sidebar-blog ul.menu {
   list-style: none;
-  padding-left: 0;
-  margin-bottom: 0; }
+  padding-left: 1em;
+  margin-bottom: 1em; }
   .sidebar .widget-title + ul li > a:only-child, .sidebar .widget-title + ul .menu-item > a, .sidebar .widget-title + ul .page_item > a, .sidebar .widget-title + ul .cat-item > a, .sidebar ul.menu li > a:only-child, .sidebar ul.menu .menu-item > a, .sidebar ul.menu .page_item > a, .sidebar ul.menu .cat-item > a,
   .sidebar-blog .widget-title + ul li > a:only-child,
   .sidebar-blog .widget-title + ul .menu-item > a,
@@ -5471,7 +5471,7 @@ section.section-product-cards-carousel .owl-carousel .owl-stage-outer {
     font-weight: 600;
     font-size: 1em;
     color: #575560;
-    margin-bottom: 1.572em;
+    margin-bottom: .572em;
     border: none;
     padding: 0; }
     .widget_electro_products_filter .widget .widget-title::after {

@@ -65,13 +65,13 @@
     </div>
   </main>
 </div>
-<div id="sidebar" class="sitebar">
+<div id="sidebar" class="sidebar">
   <%#= render partial: 'spree/shared/taxonomies', locals: {taxon: @taxon } %>
   <aside class="widget widget_electro_products_filter " style="margin-top: 13px;">
     <h3 class="widget-title ssc">Фильтры</h3>
     <aside class="widget woocommerce widget_price_filter">
       <%= render partial: 'spree/shared/filter', locals: {taxon: @taxon }%>
-      <h3 class="widget-title">Price</h3>
+      <!-- <h3 class="widget-title">Price</h3>
       <form action="#">
         <div class="price_slider_wrapper">
           <div class="price_slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" style="">
@@ -90,7 +90,7 @@
             <div class="clear"></div>
           </div>
         </div>
-      </form>
+      </form> -->
     </aside>
   </aside>
 </div>
