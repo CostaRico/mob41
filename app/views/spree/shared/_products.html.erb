@@ -25,7 +25,7 @@
         <li><%#= link_to_unless current_sorting?(:descend_by_master_price),"Highest price", :params => {sorting: :descend_by_master_price} %></li>
       </ul> -->
         <nav class="woocommerce-pagination" style="float: right;"> 
-          <%= paginate products, window:2, views_prefix: '/spree'%>
+          <%= paginate products, window:1, views_prefix: '/spree'%>
         </nav>
       </div>
     <% end %>

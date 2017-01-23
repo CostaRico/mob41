@@ -1,11 +1,12 @@
 <% filters = @taxon ? @taxon.applicable_filters : [Spree::Core::ProductFilters.all_taxons] %>
 <% unless filters.empty? %>
+<%= filters.size%>
   <%= form_tag '', method: :get, id: 'sidebar_products_search' do %>
     <%= hidden_field_tag 'per_page', params[:per_page] %>
     <% filters.each do |filter| %>
-      <aside class="widget woocommerce widget_layered_nav ">
         <% labels = filter[:labels] || filter[:conds].map {|m,c| [m,m]} %>
         <% next if labels.empty? %>
+        <aside class="widget woocommerce widget_layered_nav ">
         <div class="navigation" data-hook="navigation">
           <h3 class="widget-title"> <%= filter[:name] %> </h3>
           <ul >
@@ -22,6 +23,7 @@
             <% end %>
           </ul>
         </div>
+        </aside>
     <% end %>
     <%= submit_tag Spree.t(:search), name: nil, class: 'button' %>
   <% end %>

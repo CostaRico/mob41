@@ -14,10 +14,11 @@ task :add_products => :environment do
 		{:name=>"Люки сантехнические", :url=>"/santehnicheskie_ljuki/"}, {:name=>"Теплые полы", :url=>"/teplotehnika/teplye_poly/"}] 
 		#"Биде"
 		#"Чугунные ванны","Теплые полы","Трапы, душевые лотки","Унитазы","Фильтры под мойку",
-	files = ["Водонагреватели","Ванны из искусственного камня","Диспоузеры (измельчители)",
-			"Душевые боксы","Душевые кабины","Душ", "Инсталляции",
-			"Кухонные мойки","Люки сантехнические","Писсуары",
-			"Полотенцесушители","Раковины","Сифоны","Стальные ванны"]
+	# files = ["Водонагреватели","Ванны из искусственного камня","Диспоузеры (измельчители)",
+	# 		"Душевые боксы","Душевые кабины","Душ", "Инсталляции",
+	# 		"Кухонные мойки","Люки сантехнические","Писсуары",
+	# 		"Полотенцесушители","Раковины","Сифоны","Стальные ванны"]
+	files = ["Душевые боксы"]
 	path_to_file = Rails.root.to_s+"/public/product_list/"
 	init_taxons(first_level, second_level)
 	files.each do |file|
@@ -94,8 +95,9 @@ def add_properties(product, properties_data)
 end
 
 def add_images(product, image_list, folder)
-	image_list.each do |pic|
-		current_img = product.images.find_by_attachment_file_name(pic.split("/").last)
+	imgs = [image_list.first, image_list.last].compact.uniq || []
+	imgs.each do |pic|
+		current_img = product.images.find_by_attachment_file_name(pic.split("/").last.gsub('.JPG','.jpg'))
 		if current_img
 			puts "image #{current_img} already exists"
 		else
@@ -105,9 +107,9 @@ def add_images(product, image_list, folder)
 end
 
 def insert_img(product, pic, folder_name)
-	url_to_img = "/home/41km.ru/web/images/#{folder_name}/#{pic.split('/').last}"
+	url_to_img = "/home/art/Загрузки/t/dush/#{pic.split('/').last.gsub('.JPG','.jpg')}"
 	begin
-		img = product.images.create(:attachment => url_to_img)
+		img = product.images.create(:attachment => File.open(url_to_img))
 		puts "#{img.attachment.url}" if img.save 
 	rescue => e
 		puts "--!!!!!-- image error --> #{e} --!!!!!!--"

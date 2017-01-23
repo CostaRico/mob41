@@ -5,6 +5,26 @@
  *= require_tree .
  *= require_self
  */
+ .l-f{
+ 	display: block;
+    width: 100%;
+    padding: 3px 2px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #373a3c;
+    text-align: inherit;
+    white-space: nowrap;
+    background: none;
+    border: 0;
+    color: #333e48;
+    padding-left: 9px ;
+    white-space: normal;
+ }
+ .dropdown-menu .list{
+ 	overflow-y: scroll;
+    height: 15em;
+ }
 .single-product .cart .quantity{
 	width: 7em;
 }
