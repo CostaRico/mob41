@@ -17,18 +17,15 @@
   <% end %>
 </div>
   <% if products.any? %>
-    <% if products.respond_to?(:total_pages) %>
-      <div class="shop-control-bar">
-      <!-- <ul class="list-inline">
+    <%# if products.respond_to?(:total_pages) %>
+     <!--  <div class="shop-control-bar">
+      <ul class="list-inline">
         <li><%#= link_to_unless (current_sorting?(:ascend_by_updated_at)), "Newest",  :params => {sorting: :ascend_by_updated_at} %></li>
         <li><%#= link_to_unless current_sorting?(:ascend_by_master_price),"Lowest price",  :params => {sorting: :ascend_by_master_price} %></li>
         <li><%#= link_to_unless current_sorting?(:descend_by_master_price),"Highest price", :params => {sorting: :descend_by_master_price} %></li>
-      </ul> -->
-        <nav class="woocommerce-pagination" style="float: right;"> 
-          <%= paginate products, window:1, views_prefix: '/spree'%>
-        </nav>
-      </div>
-    <% end %>
+      </ul> 
+      </div> -->
+    <%# end %>
     
     <ul class="products columns-3">
       <% products.each do |product| %>
@@ -38,9 +35,9 @@
             <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : cache_key_for_product(product)) do %>
               <div class="product-inner">
                   <% if @taxon%>
-                    <span class="loop-product-categories">
-                      <%= link_to @taxon.name, seo_url(@taxon)%>
-                    </span>
+                   <!--  <span class="loop-product-categories">
+                      <%#= link_to @taxon.name, seo_url(@taxon)%>
+                    </span> -->
                   <% end %>
                   <%= link_to url do %>
                     <h3><%= product.name%></h3>
@@ -71,7 +68,7 @@
 <div class="shop-control-bar-bottom">
   <% if products.respond_to?(:total_pages) %>
     <nav class="woocommerce-pagination">
-        <%= paginate products, window:2, views_prefix: '/spree'%>
+        <%= paginate products,  window: 2, :left => 1, :right => 1, views_prefix: 'spree' %>
     </nav>
   <% end %>
 </div>

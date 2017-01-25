@@ -60,3 +60,12 @@
     <% end %>
   <!-- </div> -->
 <% end %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#quantity").on("change", function(){ 
+      if ($(this).val()==""){
+        $(this).val(1)
+      }
+    });
+  });
+</script>

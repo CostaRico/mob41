@@ -59,7 +59,7 @@
       </nav>
     </div> -->
     <div class="tab-content">
-        <nav class="shop-control-bar" > 
+        <nav class="shop-control-bar"  style="background-color: #fff;"> 
           <%= render partial: 'spree/shared/product_filter', locals: {taxon: @taxon }%>
         </nav>
         <div role="tabpanel" class="tab-pane active" id="grid" area-expanded=true>
@@ -71,7 +71,7 @@
 <div id="sidebar" class="sidebar">
   <%#= render partial: 'spree/shared/taxonomies', locals: {taxon: @taxon } %>
   <aside class="widget widget_electro_products_filter " style="margin-top: 13px;">
-    <h3 class="widget-title ssc">Фильтры</h3>
+    <!-- <h3 class="widget-title ssc">Фильтры</h3> -->
     <aside class="widget woocommerce widget_price_filter">
       <%#= render partial: 'spree/shared/filter', locals: {taxon: @taxon }%>
       <!-- <h3 class="widget-title">Price</h3>

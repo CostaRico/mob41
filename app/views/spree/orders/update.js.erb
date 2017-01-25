@@ -1,1 +1,29 @@
-$('.cart_form_edit').empty().append("<%= j(render :partial=>'order',:locals=>{:order=>@order})%>");
+$('.cart-edit').empty().append("<%= j(render :partial=>'order_form',:locals=>{:order=>@order})%>");
+$(".quantity.buttons_added").on("click", ".plus", function(){
+    v = $(this).parent().children(".qty").val();
+    $(this).parent().children(".qty").val(++v);
+
+});
+$(".quantity.buttons_added").on("click", ".minus", function(){
+    v = $(this).parent().children(".qty").val();
+    if (v > 1){
+      $(this).parent().children(".qty").val(--v);
+    }
+});
+$(".line_item_quantity").on("change", function(){ 
+    if ($(this).val() ==""){ 
+      $(this).val(1);
+    }
+});
+$(".line_item_quantity").on('change', function() {
+    if ($(this).val()==""){
+      $(this).val(1);
+    }
+    $('#update-cart').submit();
+});
+$('#update-cart').on('click', '.plus', function() {
+    $('#update-cart').submit();
+});
+$('#update-cart').on('click', '.minus', function() {
+    $('#update-cart').submit();
+});

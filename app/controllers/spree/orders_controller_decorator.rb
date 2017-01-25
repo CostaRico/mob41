@@ -1,4 +1,4 @@
-Spree::OrdersController.class_eval do
+  Spree::OrdersController.class_eval do
 	def populate
       order    = current_order(create_order_if_necessary: true)
       variant  = Spree::Variant.find(params[:variant_id].to_i)
@@ -31,7 +31,28 @@ Spree::OrdersController.class_eval do
 	     end
       end
     end
-
+    def update
+      if @order.contents.update_cart(order_params)
+        if request.xhr?
+            respond_to do |format|
+              format.js
+            end
+        else
+          respond_with(@order) do |format|
+            format.html do
+              if params.has_key?(:checkout)
+                @order.next if @order.cart?
+                redirect_to checkout_state_path(@order.checkout_steps.first)
+              else
+                redirect_to cart_path
+              end
+            end
+          end
+        end
+      else
+        respond_with(@order)
+      end
+    end
     def remove_line_item
     	if request.xhr?
         # @tr = Thread.new { 

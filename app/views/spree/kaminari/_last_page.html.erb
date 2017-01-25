@@ -1,5 +1,5 @@
 <% unless current_page.last? %>
   <li class="">
-  	<%= link_to_unless current_page.last?, raw(t 'views.pagination.last'), url, {remote: remote, :class=> "page-numbers"} %>
+  	<%= link_to_unless current_page.last?, raw(total_pages), url, {remote: remote, :class=> "page-numbers"} %>
   </li>
 <% end %>

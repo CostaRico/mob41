@@ -12,14 +12,14 @@ Spree::BaseHelper.class_eval do
         crumbs << content_tag(:span, Spree.t(:products), itemprop: "item")
       end
      
-      crumbs << separator + product.name  if product 
+      #crumbs << separator + product.name  if product 
 
       crumb_list = raw(crumbs.flatten.map{|li| li.mb_chars}.join)
       content_tag(:nav, crumb_list, id: 'breadcrumbs', class: 'woocommerce-breadcrumb')
   end
   def checkout_progress(numbers: false)
-      compl_css = "padding: 0.465em 0.929em; background-color: #f5f5f5; border-radius: 0.357em"
-      current_css = "padding: 0.465em 0.929em;    background-color: #fed700; border-radius: 0.357em"
+      # compl_css = "padding: 0.465em 0.929em; background-color: #f5f5f5; border-radius: 0.357em"
+      # current_css = "padding: 0.465em 0.929em;    background-color: #fed700; border-radius: 0.357em"
       states = @order.checkout_steps
       items = states.each_with_index.map do |state, i|
         text = Spree.t("order_state.#{state}").titleize
@@ -53,10 +53,14 @@ Spree::BaseHelper.class_eval do
     end
 
     def display_price(product_or_variant)
-      raw product_or_variant.
-        price_in(current_currency).
-        display_price_including_vat_for(current_price_options).
-        to_html.split(",00").first+" руб."
+      if product_or_variant.price.to_i == 0
+        "Цена по запросу"
+      else
+        raw product_or_variant.
+          price_in(current_currency).
+          display_price_including_vat_for(current_price_options).
+          to_html.split(",00").first+" руб."
+      end
     end
 
     def taxons_tree(root_taxon, current_taxon, max_level = 1)

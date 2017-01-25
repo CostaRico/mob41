@@ -6,7 +6,7 @@
       <% labels = filter[:labels] || filter[:conds].map {|m,c| [m,m]} %>
       <% next if labels.empty? %> 
       <div class="dropdown" style="display: inline;">
-      <button class="dLabel" type="button"  aria-haspopup="true" aria-expanded="false" >
+      <button class="dLabel" type="button"  aria-haspopup="true" aria-expanded="false" style="border-radius: 1.143em; display: inline; margin: 0.286em; cursor: pointer;">
        <%= filter[:name] %>
        <span class="caret"></span>
        </button>  
@@ -26,9 +26,8 @@
                  </li>
               <% end %>
             </div>
-            <%= submit_tag Spree.t(:search), name: nil, class: 'button' %>
+            <%= submit_tag "Применить", name: nil, class: 'button btn-filter' %>
           </ul>
-
         </div>
     <% end %>
     
@@ -36,8 +35,18 @@
 <% end %>
 <script type="text/javascript">
   $(document).ready(function () {
-    $('.dLabel').on('click', function (event) {
+    var element
+    $('.dLabel').on('click', function(event) {
       $(this).parent().toggleClass('open');
+      element = $(this)
+      event.stopPropagation();
     });
+    // $('#menuwrap').click(function(event){
+    //      event.stopPropagation();
+    // })
+
+    // $('.dLabel').click(function() {
+    //   element.parent().removeClass('open');;
+    // });
   });
 </script>

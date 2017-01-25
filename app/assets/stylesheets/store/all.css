@@ -21,9 +21,12 @@
     padding-left: 9px ;
     white-space: normal;
  }
+ .btn-filter{
+    width: 100%;
+ }
  .dropdown-menu .list{
  	overflow-y: scroll;
-    height: 15em;
+    height: 13em;
  }
 .single-product .cart .quantity{
 	width: 7em;
@@ -67,7 +70,7 @@
 }
  .sales-menu{
  	padding: 0.5rem 0 !important;
- 	top: 1060px !important; 
+ 	top: 63em !important; 
  	border: 2px solid #c50000 !important; 
  	border-top-color: #c50000 !important; 
  	border-radius: 0.625rem !important;
