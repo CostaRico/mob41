@@ -1,4 +1,5 @@
 $('.cart-edit').empty().append("<%= j(render :partial=>'order_form',:locals=>{:order=>@order})%>");
+$('.cart-in-header').empty().append(" <%= j(render :partial => 'spree/shared/cart', :locals => {:order => @order}) %>");
 $(".quantity.buttons_added").on("click", ".plus", function(){
     v = $(this).parent().children(".qty").val();
     $(this).parent().children(".qty").val(++v);

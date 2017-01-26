@@ -149,11 +149,12 @@
                                 </div>
                             </div>
                         </div>
+                        <%= render :partial => "spree/shared/latest_products_bottom"%> 
                     </div>				  
 				</div>
 			  	<div id="sidebar" class="sidebar" role="complementary">
 			  		<%#= render partial: "spree/shared/taxonomies"%>
-			  		<%= render partial: "spree/shared/latest_products", :locals => {:products => @feat_products} %>
+			  		<%#= render partial: "spree/shared/latest_products", :locals => {:products => @feat_products} %>
 			  	</div>
             </main>
         </div>
