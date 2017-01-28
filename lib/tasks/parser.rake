@@ -61,7 +61,7 @@ end
 def product_parser(base_url, file, path_to_file)
 	list = JSON.parse(File.read(file))
 	list.each_with_index do |item, i|
-		 if i > 7648
+		 if i > 9467
 			puts i
 			sleep(rand(9.0..13.0))
 			begin 

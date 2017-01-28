@@ -10,7 +10,7 @@
        <%= filter[:name] %>
        <span class="caret"></span>
        </button>  
-        <ul class="dropdown-menu" aria-labelledby="dLabel">
+        <ul class="dropdown-menu filter-menu" aria-labelledby="dLabel">
           <div class="list">
             <% labels.each do |nm,val| %>
               <% label = "#{filter[:name]}_#{nm}".gsub(/\s+/,'_') %>
@@ -35,18 +35,30 @@
 <% end %>
 <script type="text/javascript">
   $(document).ready(function () {
-    var element
-    $('.dLabel').on('click', function(event) {
-      $(this).parent().toggleClass('open');
-      element = $(this)
-      event.stopPropagation();
+    $('.dLabel').on('click', function() {
+      if ($(this).parent().hasClass("open")){
+        $(this).parent().removeClass('open');
+      }
+      else{
+        $('.dLabel').parent().removeClass('open');
+        $(this).parent().toggleClass('open');
+      }
     });
+    // $(document).click( function(event){
+    //   if( $(event.target).closest(".filter-menu").length ) 
+    //     return;
+    //   $(".filter-menu").fadeOut("slow");
+    //   event.stopPropagation();
+    // });
     // $('#menuwrap').click(function(event){
     //      event.stopPropagation();
     // })
-
-    // $('.dLabel').click(function() {
-    //   element.parent().removeClass('open');;
-    // });
+    // $(".dropdown").on("hide.bs.dropdown", function(){
+    // $(".btn").html('Dropdown <span class="caret"></span>');
+    //   });
+    //   $(".dropdown").on("show.bs.dropdown", function(){
+    //     $(".btn").html('Dropdown <span class="caret caret-up"></span>');
+    //   });
+    
   });
 </script>
