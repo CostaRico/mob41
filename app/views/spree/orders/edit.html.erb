@@ -15,7 +15,7 @@
 </script>
 <script type="text/javascript">
   $(document).ready(function(){
-    $(".quantity.buttons_added").on("change", function(){  
+    $(".line_item_quantity").on("change", function(){  
      if ($(this).val() == ""){ 
        $(this).val(1);
      }
@@ -25,6 +25,7 @@
      if ($(this).val() > 99){ 
        $(this).val(99);
      }
+
      $('#update-cart').submit();
     });
     $('#update-cart').on('click', '.plus', function() {
