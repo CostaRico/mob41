@@ -1309,7 +1309,7 @@ img.desaturate {
   .woocommerce-breadcrumb span.delimiter {
     margin: 0 1.429em; }
     .woocommerce-breadcrumb span.delimiter + a {
-      padding: 0.465em 0.929em;
+      padding: 0.465em 0em;
       /*background-color: #f5f5f5;*/
       border-radius: 0.357em; }
       .woocommerce-breadcrumb span.delimiter + a:focus, .woocommerce-breadcrumb span.delimiter + a:hover {
@@ -4546,7 +4546,7 @@ div.quantity.buttons_added {
     line-height: 3em;
     margin-left: 2em; }
   .shop-control-bar-bottom .woocommerce-pagination {
-    float: right; }
+    /*float: right; }*/}
     .shop-control-bar-bottom .woocommerce-pagination .prev, .shop-control-bar-bottom .woocommerce-pagination .next {
       display: none; }
 

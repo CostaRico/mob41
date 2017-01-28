@@ -5,6 +5,23 @@
  *= require_tree .
  *= require_self
  */
+ .dLabel {
+    color: #7e7e7e;
+    padding: 0.643em 1.429em;
+    border: 1px solid #e3e3e3;
+    background-color: #fff;
+    border-radius: 1.143em;
+    margin-right: 0.286em;
+    margin-bottom: 0.57em;
+ }
+ .dLabel:hover,.dLabel:focus{
+    background-color: #e3e3e3;
+    border: 1px solid #e3e3e3;
+    color: #7e7e7e;
+ }
+ .dLabel:active{
+    background-color: #fff !important;
+ }
  .caret {
     display: inline-block;
     width: 0;

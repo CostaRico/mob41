@@ -6,17 +6,17 @@
       <% labels = filter[:labels] || filter[:conds].map {|m,c| [m,m]} %>
       <% next if labels.empty? %> 
       <div class="dropdown" style="display: inline;">
-      <button class="dLabel" type="button"  aria-haspopup="true" aria-expanded="false" style="border-radius: 1.143em; display: inline; margin: 0.286em; cursor: pointer;">
-       <%= filter[:name] %>
-       <span class="caret"></span>
-       </button>  
+        <button class="dLabel" type="button"  aria-haspopup="true" aria-expanded="false">
+        <%= filter[:name] %>
+        <span class="caret"></span>
+        </button>  
         <ul class="dropdown-menu filter-menu" aria-labelledby="dLabel">
           <div class="list">
             <% labels.each do |nm,val| %>
               <% label = "#{filter[:name]}_#{nm}".gsub(/\s+/,'_') %>
                 <li class="filter-pos">
                   <label  for="<%= label %>" class="l-f">
-                  <input type="checkbox"
+                  <input class="chck" type="checkbox"
                          id="<%= label %>"
                          name="search[<%= filter[:scope].to_s %>][]"
                          value="<%= val %>"
@@ -44,6 +44,9 @@
         $(this).parent().toggleClass('open');
       }
     });
+    if ($('.chck').is(":checked")) {
+      $(this).parent('.dropdown').children(".dLabel").addClass(" active");
+    }
     // $(document).click( function(event){
     //   if( $(event.target).closest(".filter-menu").length ) 
     //     return;
