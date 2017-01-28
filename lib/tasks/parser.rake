@@ -52,7 +52,7 @@ task :run_parser => :environment do
 	#"Писсуары", "Полотенцесушители","Раковины","Сифоны","Стальные ванны","Теплые полы","Трапы, душевые лотки","Унитазы","Фильтры под мойку","Сифоны","Смесители","Уголки, ограждения, поддоны"]
 	files = ["products_list"]#
 	files.each do |file|
-		path = Rails.root.to_s + "/public/product_list/#{file}.json" 
+		path = Rails.root.to_s + "/public/product_list/#{file}_2.json" 
 		path_to_file = Rails.root.to_s+"/public/product_links/#{file}.json"
 		product_parser(@base_url, path_to_file, path)
 	end
@@ -61,7 +61,7 @@ end
 def product_parser(base_url, file, path_to_file)
 	list = JSON.parse(File.read(file))
 	list.each_with_index do |item, i|
-		 # if i > 5347
+		 if i > 7648
 			puts i
 			sleep(rand(9.0..13.0))
 			begin 
@@ -72,7 +72,7 @@ def product_parser(base_url, file, path_to_file)
 			rescue => e
 				puts "#{e}"
 			end
-		# end
+		end
 	end
 end 
 

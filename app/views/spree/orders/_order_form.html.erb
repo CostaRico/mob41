@@ -42,26 +42,3 @@
           <% end %>
         </div>
 </article>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $("#quantity").on("change", function(){ 
-     var input = $(this) 
-     if (input.val() =="");
-     { 
-       input.val(1);
-     }
-    });
-    $(".line_item_quantity").on('change', function() {
-      if ($(this).val()==""){
-        $(this).val(1);
-      }
-      $('#update-cart').submit();
-    });
-    $('#update-cart').on('click', '.plus', function() {
-      $('#update-cart').submit();
-    });
-    $('#update-cart').on('click', '.minus', function() {
-      $('#update-cart').submit();
-    });
-  });
-</script>

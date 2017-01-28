@@ -14,10 +14,28 @@
   Spree.current_order_token = "<%= @order.guest_token %>"
 </script>
 <script type="text/javascript">
-    $(".line_item_quantity").on("change", function(){ 
-     var input = $(this) 
-     if (input.val()== ""){ 
-       input.val(1)
+  $(document).ready(function(){
+    $(".quantity.buttons_added").on("change", function(){  
+     if ($(this).val() == ""){ 
+       $(this).val(1);
      }
+     if ($(this).val() == 0){ 
+       $(this).val(1);
+     }
+     if ($(this).val() > 99){ 
+       $(this).val(99);
+     }
+     $('#update-cart').submit();
+    });
+    $('#update-cart').on('click', '.plus', function() {
+      $(this).attr('disabled', 'true');
+      $('#update-cart').submit();
+      
+    });
+    $('#update-cart').on('click', '.minus', function() {
+      $(this).attr('disabled', 'true');
+      $('#update-cart').submit();
+      
+    });
   });
 </script>

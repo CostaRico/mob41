@@ -34,7 +34,7 @@ Spree::BaseHelper.class_eval do
           text = link_to text, checkout_state_path(state)
         end
         if state_index == current_index
-          #css_classes << "current_br"
+          css_classes << "current_br"
         end
         css_classes << 'next' if state_index == current_index + 1
         css_classes << 'active' if state == @order.state

@@ -1298,7 +1298,7 @@ img.desaturate {
 /*  WC-BREADCRUMB
 /*===================================================================================*/
 .woocommerce-breadcrumb {
-  margin-top: .7em;
+  margin-top: .65em;
   margin-bottom: 1.7em; }
   .woocommerce-breadcrumb a {
     color: #333e48;

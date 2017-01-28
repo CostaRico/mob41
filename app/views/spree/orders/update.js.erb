@@ -2,29 +2,37 @@ $('.cart-edit').empty().append("<%= j(render :partial=>'order_form',:locals=>{:o
 $('.cart-in-header').empty().append(" <%= j(render :partial => 'spree/shared/cart', :locals => {:order => @order}) %>");
 $(".quantity.buttons_added").on("click", ".plus", function(){
     v = $(this).parent().children(".qty").val();
-    $(this).parent().children(".qty").val(++v);
+    if (v < 99){
+        $(this).parent().children(".qty").val(++v);
+        $(this).attr('disabled', 'true');
+        $('#update-cart').submit();
+    }
 
 });
 $(".quantity.buttons_added").on("click", ".minus", function(){
     v = $(this).parent().children(".qty").val();
     if (v > 1){
       $(this).parent().children(".qty").val(--v);
-    }
-});
-$(".line_item_quantity").on("change", function(){ 
-    if ($(this).val() ==""){ 
-      $(this).val(1);
+      $(this).attr('disabled', 'true');
+      $('#update-cart').submit();
     }
 });
 $(".line_item_quantity").on('change', function() {
-    if ($(this).val()==""){
+    if ($(this).val() == ""){
       $(this).val(1);
+    }
+    if ($(this).val() == 0){ 
+       $(this).val(1);
+     }
+    if ($(this).val() > 99){ 
+      $(this).val(99);
     }
     $('#update-cart').submit();
 });
-$('#update-cart').on('click', '.plus', function() {
-    $('#update-cart').submit();
-});
-$('#update-cart').on('click', '.minus', function() {
-    $('#update-cart').submit();
-});
+// $('#update-cart').on('click', '.plus', function() {
+   
+    
+// });
+// $('#update-cart').on('click', '.minus', function() {
+    
+// });
