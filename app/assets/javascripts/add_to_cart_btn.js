@@ -16,7 +16,10 @@ $('document').ready(function(){
       quantity = 1;
       $.post( url, {
         variant_id: variant_id,
-        quantity: quantity
+        quantity: quantity,
+        success: function() {
+	      $().toastmessage('showSuccessToast', "Товар добавлен в вашу корзину"); 
+	    }
      });
 	});
 	

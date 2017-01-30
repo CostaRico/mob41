@@ -30,6 +30,11 @@
                 </table>
               </div>
             </div>
+           <div class="wc-proceed-to-checkout">           
+          <%= button_to "/checkout", class:'checkout-button button alt wc-forward', id: 'checkout-link', :method => :get do %>
+            <%= Spree.t(:checkout) %>
+          <% end %>
+        </div>
            <!--  <div id="empty-cart" class="col-md-3 pull-left" data-hook>
               <%#= form_tag empty_cart_path, method: :put do %>
                 <p id="clear_cart_link" data-hook>

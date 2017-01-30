@@ -5,6 +5,10 @@
  *= require_tree .
  *= require_self
  */
+ #checkout-link{
+    background-color: #00abc5;
+    color: #fff;
+ }
  .dLabel {
     color: #7e7e7e;
     padding: 0.643em 1.429em;
@@ -126,6 +130,9 @@
 	padding: 0.465em 0.929em;
 	background-color: #00abc5;
 	border-radius: 0.357em;
+}
+.current_br a{
+    padding: 0.465em 0em;
 }
 .ssc{
 	font-size: 1.357em;

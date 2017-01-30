@@ -24,4 +24,5 @@
 //= require upd_sipp
 //= require electro
 //= require add_to_cart_btn
+//= require modal_window
 

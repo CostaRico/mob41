@@ -89,6 +89,6 @@ Spree::BaseHelper.class_eval do
     end
 
     def order_count(count)
-      return count > 99 ? "99+" : count
+      return count.to_i > 99 ? "99+" : count
     end
 end

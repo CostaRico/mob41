@@ -2473,7 +2473,7 @@ table.cart {
 .cart-collaterals {
   margin-left: -0.9375rem;
   margin-right: -0.9375rem;
-  padding-top: 2em; }
+  /*padding-top: 2em;*/ }
   .cart-collaterals::after {
     content: "";
     display: table;
