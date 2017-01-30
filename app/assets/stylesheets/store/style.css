@@ -1849,7 +1849,7 @@ ul.products > li.product.list-view-small .price-add-to-cart, .section-onsale-pro
   .woocommerce-pagination ul.page-numbers > li,
   .pagination ul.page-numbers > li {
     float: left;
-    margin-right: 0.286em; }
+    margin-right: 0.57em; }
     .woocommerce-pagination ul.page-numbers > li a, .woocommerce-pagination ul.page-numbers > li span,
     .pagination ul.page-numbers > li a,
     .pagination ul.page-numbers > li span {
@@ -2333,7 +2333,7 @@ article.post {
 table.cart {
   width: 100%;
   max-width: 100%;
-  margin-bottom: 1.236rem; }
+  margin-bottom: 0rem; }
   table.cart th,
   table.cart td {
     padding: 0.75rem;

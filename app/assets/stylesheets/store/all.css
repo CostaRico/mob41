@@ -8,6 +8,7 @@
  #checkout-link{
     background-color: #00abc5;
     color: #fff;
+    float: right;
  }
  .dLabel {
     color: #7e7e7e;
@@ -56,9 +57,14 @@
  .btn-filter{
     width: 100%;
  }
- .dropdown-menu .list{
+ .filter-menu .list{
  	overflow-y: scroll;
     height: 13em;
+    border-bottom: 1px solid #eee;
+ }
+ .filter-menu .btn-filter{
+    margin-top: .5em;
+    border-radius: 1.143em;
  }
 .single-product .cart .quantity{
 	width: 7em;
