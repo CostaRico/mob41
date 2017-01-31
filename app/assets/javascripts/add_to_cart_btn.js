@@ -18,7 +18,7 @@ $('document').ready(function(){
         variant_id: variant_id,
         quantity: quantity,
         success: function() {
-	      $().toastmessage('showSuccessToast', "Товар добавлен в вашу корзину"); 
+	      $().toastmessage('showSuccessToast', "Товар добавлен в корзину"); 
 	    }
      });
 	});

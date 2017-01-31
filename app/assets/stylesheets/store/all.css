@@ -5,6 +5,7 @@
  *= require_tree .
  *= require_self
  */
+
  #checkout-link{
     background-color: #00abc5;
     color: #fff;
@@ -27,6 +28,11 @@
  .dLabel:active{
     background-color: #fff !important;
  }
+ .active-filter{
+    /*background-color: #94c060;*/
+    background-color: #5cb85c;
+    color: #fff;
+ }
  .caret {
     display: inline-block;
     width: 0;
@@ -41,10 +47,8 @@
  .l-f{
  	display: block;
     width: 100%;
-    padding: 3px 2px;
     clear: both;
     font-weight: normal;
-    line-height: 1.5;
     color: #373a3c;
     text-align: inherit;
     white-space: nowrap;
@@ -53,9 +57,13 @@
     color: #333e48;
     padding-left: 9px ;
     white-space: normal;
+    margin-bottom: 0;
  }
  .btn-filter{
     width: 100%;
+ }
+ .filter-menu{
+    padding-bottom: 0;
  }
  .filter-menu .list{
  	overflow-y: scroll;
@@ -63,7 +71,8 @@
     border-bottom: 1px solid #eee;
  }
  .filter-menu .btn-filter{
-    margin-top: .5em;
+    margin: .5em;
+    width: 90%;
     border-radius: 1.143em;
  }
 .single-product .cart .quantity{

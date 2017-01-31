@@ -1,5 +1,5 @@
 .toast-container {
-    width: 25em;
+    width: 22em;
     z-index: 9999;
 }
 
@@ -11,16 +11,17 @@
 .toast-item {
     height: auto;
     background: #94c060;
-    opacity: 0.8;
+    opacity: 0.7;
     -moz-border-radius: 1em;
     -webkit-border-radius: 1em;
     color: #eee;
     padding-top: 2em;
-    padding-bottom: 1.5em;
+    padding-bottom: 1em;
     padding-left: 1em;
     padding-right: 1em;
     /*font-family: lucida Grande;*/
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 600;
     /*border: 1px solid #999;*/
     display: block;
     position: relative;
@@ -29,7 +30,7 @@
 
 .toast-item p {
     text-align: left;
-    margin-left: 5em;
+    margin-left: 4em;
 }
 
 .toast-item-close {
@@ -42,8 +43,8 @@
 }
 
 .toast-item-image {
-    width: 2.3em;
-    height: 2.3em;
+    width: 2em;
+    height: 2em;
     margin-left: .8em;
     margin-top: -.2em;
     margin-right: .8em;
