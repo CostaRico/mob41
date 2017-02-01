@@ -25,4 +25,5 @@
 //= require electro
 //= require add_to_cart_btn
 //= require modal_window
+//= require one_step_checkout
 

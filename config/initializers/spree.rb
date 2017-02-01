@@ -14,6 +14,7 @@
 require "#{Rails.root}/lib/spree/product_filters"
 require "#{Rails.root}/lib/spree/custom_search"
 Spree::Config.searcher_class = Spree::CustomSearch
+Spree::Auth::Config[:registration_step] = false;
 Spree.config do |config|
 
   # Example:

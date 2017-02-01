@@ -14,7 +14,7 @@
           <div class="list">
             <% labels.each do |nm,val| %>
               <% label = "#{filter[:name]}_#{nm}".gsub(/\s+/,'_') %>
-                <li class="filter-pos checkbox abc-checkbox abc-checkbox-success">
+                <li class="filter-pos checkbox abc-checkbox abc-checkbox-info">
                   
                   <input class="chck" type="checkbox"
                          id="<%= label %>"
@@ -36,6 +36,26 @@
 <% end %>
 <script type="text/javascript">
   $(document).ready(function () {
+    
+    if ($('.chck').is(":checked")) {
+      $(this).parent('.dropdown').children(".dLabel").addClass(" active");
+    }
+    $("#sidebar_products_search .dropdown").find( ".chck:checked" ).parents(".dropdown ").children(".dLabel").addClass("active-filter")
+    $(document).mouseup(function (e)
+      {
+          var container = new Array();
+          container.push($('.filter-menu'));       
+          $.each(container, function(key, value) {
+            if ($(value).parent(".dropdown").hasClass("open")){
+              if (!$(value).is(e.target) 
+                  && $(value).has(e.target).length == 0 
+                  && !$(value).parent(".dropdown").children(".dLabel").is(e.target)) 
+              {
+                  $(value).parent(".dropdown").removeClass("open");
+              }
+            }
+          });
+      });
     $('.dLabel').on('click', function() {
       if ($(this).parent().hasClass("open")){
         $(this).parent().removeClass('open');
@@ -44,39 +64,6 @@
         $('.dLabel').parent().removeClass('open');
         $(this).parent().toggleClass('open');
       }
-    });
-    if ($('.chck').is(":checked")) {
-      $(this).parent('.dropdown').children(".dLabel").addClass(" active");
-    }
-    $("#sidebar_products_search .dropdown").find( ".chck:checked" ).parents(".dropdown ").children(".dLabel").addClass("active-filter")
-    // $(document).click( function(event){
-    //   if( $(event.target).closest(".filter-menu").length ) 
-    //     return;
-    //   $(".filter-menu").fadeOut("slow");
-    //   event.stopPropagation();
-    // });
-    // $('#menuwrap').click(function(event){
-    //      event.stopPropagation();
-    // })
-    // $(".dropdown").on("hide.bs.dropdown", function(){
-    // $(".btn").html('Dropdown <span class="caret"></span>');
-    //   });
-    //   $(".dropdown").on("show.bs.dropdown", function(){
-    //     $(".btn").html('Dropdown <span class="caret caret-up"></span>');
-    //   });
-    $(document).mouseup(function (e)
-      {
-          var container = new Array();
-          container.push($('.filter-menu'));        
-          $.each(container, function(key, value) {
-            if ($(value).parent(".dropdown").hasClass("open")){
-              if (!$(value).is(e.target) 
-                  && $(value).has(e.target).length === 0) 
-              {
-                  $(value).parent(".dropdown").removeClass("open");
-              }
-            }
-          });
-      });
+    }); 
   });
 </script>

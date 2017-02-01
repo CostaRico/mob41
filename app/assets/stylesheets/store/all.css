@@ -5,13 +5,19 @@
  *= require_tree .
  *= require_self
  */
-
+ .disabled-step {
+  opacity: .5;
+}
  #checkout-link{
-    background-color: #00abc5;
+    /*background-color: #00abc5;*/
     color: #fff;
     float: right;
  }
+ .checkout-button, .dropdown-menu-mini-cart .wc-forward.checkout{
+    background-color: #cb0232;
+ }
  .dLabel {
+    cursor: pointer;
     color: #7e7e7e;
     padding: 0.643em 1.429em;
     border: 1px solid #e3e3e3;
@@ -29,8 +35,8 @@
     background-color: #fff !important;
  }
  .active-filter{
-    /*background-color: #94c060;*/
-    background-color: #5cb85c;
+    background-color: #00abc5;
+    /*background-color: #5cb85c;*/
     color: #fff;
  }
  .caret {
@@ -65,15 +71,19 @@
  .filter-menu{
     padding-bottom: 0;
  }
+ .filter-pos{
+    cursor: pointer;
+ }
  .filter-menu .list{
  	overflow-y: scroll;
     height: 13em;
     border-bottom: 1px solid #eee;
  }
  .filter-menu .btn-filter{
+    padding: .7em 1.134em;
     margin: .5em;
     width: 90%;
-    border-radius: 1.143em;
+    /*border-radius: 1.143em;*/
  }
 .single-product .cart .quantity{
 	width: 7em;

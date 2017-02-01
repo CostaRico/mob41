@@ -23,16 +23,17 @@
                 <table class="shop_table shop_table_responsive">
                   <tbody>
                     <tr class="cart-subtotal">
-                      <th><%= Spree.t(:total) %></th>
-                      <td data-title="Subtotal"><span class="amount"><%= display_hum_price(@order.total)%> руб.</span></td>
+                      <th><%#= Spree.t(:total) %></th>
+                      <td data-title="Subtotal" style="font-size: 1.2em; padding-right: 1.25em;"><span class="amount"><%= display_hum_price(@order.total)%> руб.</span></td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
            <div class="wc-proceed-to-checkout">           
-          <%= button_to "/checkout", class:'checkout-button button alt wc-forward', id: 'checkout-link', :method => :get do %>
-            <%= Spree.t(:checkout) %>
+          <%= button_to "/checkout", class:'checkout-button button alt', id: 'checkout-link', :method => :get do %>
+            Оформить заказ
+            <%#= Spree.t(:checkout) %>
           <% end %>
         </div>
            <!--  <div id="empty-cart" class="col-md-3 pull-left" data-hook>

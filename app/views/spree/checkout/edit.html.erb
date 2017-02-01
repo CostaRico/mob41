@@ -1,48 +1,7 @@
-<% @body_id = 'checkout-page' %>
-<div id="content-order" class="site-content order-id" tabindex="-1">
-  <div class="container">
-    <% content_for :google_analytics do %>
-      <%= render partial: 'spree/shared/google_checkout.js', locals: { order: @order, step_number: (@order.checkout_steps.index(@order.state) + 1) } %>
-    <% end %>
-    <nav class="woocommerce-breadcrumb">
-      <%= checkout_progress %>
-    </nav>
-    <header class="entry-header-cart"><h1 itemprop="name" ><%= Spree.t(:checkout) %></h1>
-    </header>
-    <%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
-          <!-- <div id="checkout" data-hook>
-            
-            <div class="row" data-hook="checkout_content"> -->
-              <!-- <div class="<%#= if @order.state != 'confirm' then 'col-md-9' else 'col-md-12' end %>" data-hook="checkout_form_wrapper"> -->
-                <%= form_for @order, url: update_checkout_path(@order.state), html: { id: "checkout_form_#{@order.state}" } do |form| %>
-                  <% if @order.state == 'address' || !@order.email? %>
-                    <div class="panel panel-default">
-                      <div class="panel-body">
-                        <div class="form-group">
-                          <%= form.label :email %>
-                          <%= form.text_field :email, class: 'form-control' %>
-                        </div>
-                      </div>
-                    </div>
-                  <% end %>
-                  <%= form.hidden_field :state_lock_version %>
-                  <%= render @order.state, form: form %>
-                <% end %>
-              <!-- </div> -->
-              <% if @order.state != 'confirm' %>
-                <div id="checkout-summary" data-hook="checkout_summary_box" class="col-md-3">
-                  <%#= render partial: 'summary', locals: { order: @order } %>
-                </div>
-              <% end %>
-           <!--  </div>
-          </div> -->
-  </div>
+<div id="checkout" data-hook>
+  <% @order.checkout_steps[0...-1].each do |state| %>
+    <div class="row checkout_content <%= 'disabled-step' if state != @order.state %>" data-step="<%= state %>" data-hook="checkout_content" id="checkout_<%= state %>">
+      <%= render :partial => 'form_wrapper', :locals => { :order => @order, :state => state } %>
+    </div>
+  <% end %>
 </div>
-<script>
-  Spree.current_order_id = "<%= @order.number %>"
-  Spree.current_order_token = "<%= @order.guest_token %>"
-</script>
-
-<% if I18n.locale != :en %>
-  <%= javascript_include_tag 'jquery.validate/localization/messages_' + I18n.locale.to_s.downcase.gsub('-', '') %>
-<% end %>
