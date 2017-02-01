@@ -1,4 +1,4 @@
-<div class="woocommerce-checkout-review-order" id="order_review">
+<div class="woocommerce-checkout-review-order order-view" id="order_review">
   <table class="shop_table woocommerce-checkout-review-order-table">
     <thead>
       <tr>
@@ -39,7 +39,7 @@
       </tr>
     </tbody>
   </table>
-  <table id='line-items' data-hook="order_details " class="shop_table woocommerce-checkout-review-order-table">
+  <table id='line-items' data-hook="order_details " class="shop_table shop_table_responsive cart">
     <thead>
       <tr>
         <th class="product-thumbnail">&nbsp;</th>
@@ -56,7 +56,7 @@
           <% if item.variant.images.length == 0 %>
             <%= link_to small_image(item.variant.product), item.variant.product %>
           <% else %>
-            <%= link_to image_tag(item.variant.images.first.attachment.url(:small)), item.variant.product %>
+            <%= link_to image_tag(item.variant.images.first.attachment.url(:product)), item.variant.product %>
           <% end %>
         </td>
         <td class=" product-name" data-hook="order_item_description">
@@ -65,7 +65,7 @@
         </td>
         <td data-hook="order_item_price" class="product-price"><%= display_hum_price(item.price) %> руб.</td>
         <td data-hook="order_item_qty" class="product-quantity"><%= item.quantity %></td>
-        <td data-hook="order_item_total" class="product-subtotal"><%= display_hum_price(item.amout) руб.%></td>
+        <td data-hook="order_item_total" class="product-subtotal"><%= display_hum_price(item.amount) %>руб.</td>
       </tr>
     <% end %>
     </tbody>
@@ -84,7 +84,7 @@
             <% order.line_item_adjustments.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
              <tr class="total" data-hook="order_details_price_adjustments">
                <td><%= Spree.t(:promotion) %>: <strong><%= label %></strong></td>
-               <td class="total"><span><%= Spree::Money.new(adjustments.sum(&:amount), currency: order.currency) %></span></td>
+               <td class="total"><span><%= display_hum_price(adjustments.sum(&:amount)) %> руб.</span></td>
              </tr>
            <% end %>
         <% end %>
@@ -92,14 +92,14 @@
       <% order.shipments.group_by { |s| s.selected_shipping_rate.name }.each do |name, shipments| %>
         <tr class="order-total" data-hook='shipment-row'>
           <td class="text-muted"><%= Spree.t(:shipping) %>: <strong><%= name %></strong></td>
-          <td class="total"><span><%= Spree::Money.new(shipments.sum(&:discounted_cost), currency: order.currency).to_html %></span></td>
+          <td class="total"><span><%= display_hum_price(shipments.sum(&:discounted_cost)) %> руб.</span></td>
         </tr>
       <% end %>
       <% if order.all_adjustments.tax.exists? %>
         <% order.all_adjustments.tax.group_by(&:label).each do |label, adjustments| %>
           <tr class="order-total" data-hook="order_details_tax_adjustments">
             <td class="text-muted"><%= Spree.t(:tax) %>: <strong><%= label %></strong></td>
-            <td class="total"><span><%= Spree::Money.new(adjustments.sum(&:amount), currency: order.currency) %></span></td>
+            <td class="total"><span><%= display_hum_price(adjustments.sum(&:amount)) %> руб.</span></td>
           </tr>
         <% end %>
       <% end %>
@@ -107,9 +107,17 @@
           <% next if (adjustment.source_type == 'Spree::TaxRate') and (adjustment.amount == 0) %>
           <tr class="order-total" data-hook="order_details_adjustments">
             <td><strong><%= adjustment.label %></strong></td>
-            <td class="total"><span><%= adjustment.display_amount.to_html %></span></td>
+            <td class="total"><span><%= display_hum_price(adjustment.display_amount) %> руб.</span></td>
           </tr>
       <% end %>
     </tfoot>
   </table>
 </div>
+<script type="text/javascript">
+$(document).ready(function(){
+  // if (!$("#order_review").hasClass("order-view")){ 
+    $(".departments-menu .nav-item.dropdown").removeClass(" open");
+    $(".departments-menu .nav-link.dropdown-toggle").attr("aria-expanded", false);
+  // };
+});
+</script>

@@ -1,0 +1,9 @@
+<div id="checkout" data-hook class="order-id">
+	<div class="container">
+	  <% @order.checkout_steps[0...-1].each do |state| %>
+	    <div class="checkout_content <%= 'disabled-step' if state != @order.state %>" data-step="<%= state %>" data-hook="checkout_content" id="checkout_<%= state %>">
+	      <%= render :partial => 'form_wrapper', :locals => { :order => @order, :state => state } %>
+	    </div>
+	  <% end %>
+ 	</div>
+</div>

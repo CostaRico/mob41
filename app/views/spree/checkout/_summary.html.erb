@@ -13,7 +13,7 @@
         <% order.line_item_adjustments.nonzero.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
           <tr class="total">
             <td><%= label %></td>
-            <td><%= Spree::Money.new(adjustments.sum(&:amount), currency: order.currency).to_html %></td>
+            <td><%= display_hum_price(adjustments.sum(&:amount)) %></td>
           </tr>
         <% end %>
       </tbody>
@@ -23,7 +23,7 @@
       <% order.all_adjustments.nonzero.tax.eligible.group_by(&:label).each do |label, adjustments| %>
         <tr class="total">
           <td><%= label %></td>
-          <td><%= Spree::Money.new(adjustments.sum(&:amount), currency: order.currency).to_html %></td>
+          <td><%= display_hum_price(adjustments.sum(&:amount)) %></td>
         </tr>
       <% end %>
     </tbody>
@@ -31,7 +31,7 @@
     <% if order.passed_checkout_step?("address") && order.shipments.any? %>
       <tr data-hook="shipping_total">
         <td><%= Spree.t(:shipping_total) %>:</td>
-        <td data-hook='shipping-total' data-currency=<%= Money::Currency.find(order.currency).symbol %>><%= Spree::Money.new(order.shipments.to_a.sum(&:cost), currency: order.currency).to_html %></td>
+        <td data-hook='shipping-total' data-currency=<%= Money::Currency.find(order.currency).symbol %>><%= display_hum_price(order.shipments.to_a.sum(&:cost))%></td>
       </tr>
 
       <% if order.shipment_adjustments.nonzero.exists? %>
@@ -39,7 +39,7 @@
           <% order.shipment_adjustments.nonzero.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
             <tr class="total">
               <td><%= label %>:</td>
-              <td><%= Spree::Money.new(adjustments.sum(&:amount), currency: order.currency).to_html %></td>
+              <td><%= display_hum_price(adjustments.sum(&:amount)) %> руб.</td>
             </tr>
           <% end %>
         </tbody>
@@ -52,7 +52,7 @@
         <% next if (adjustment.source_type == 'Spree::TaxRate') and (adjustment.amount == 0) %>
           <tr class="total">
             <td><%= adjustment.label %>:</td>
-            <td><%= adjustment.display_amount.to_html %></td>
+            <td><%= display_hum_price(adjustment.amount) %> руб.</td>
           </tr>
         <% end %>
       </tbody>
@@ -60,7 +60,7 @@
 
     <tr data-hook="order_total">
       <td><strong><%= Spree.t(:order_total) %>:</strong></td>
-      <td><strong><span id='summary-order-total' class="lead text-primary" data-currency=<%= Money::Currency.find(order.currency).symbol %>><%= order.display_total.to_html %></span></strong></td>
+      <td><strong><span id='summary-order-total' class="lead text-primary" data-currency=<%= Money::Currency.find(order.currency).symbol %>><%= display_hum_price(order.total) %> руб.</span></strong></td>
     </tr>
 
     <% if order.using_store_credit? %>

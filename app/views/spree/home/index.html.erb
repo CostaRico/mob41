@@ -100,7 +100,7 @@
                     </div>
                     <main class="site-main" id="main">
                         <% cache(cache_key_for_products) do %>
-                            <%= render partial: 'spree/shared/featured_products', locals: { products: @products } %>
+                            <%= render partial: 'spree/shared/featured_products', locals: { products: @feat_products } %>
                         <% end %>   
                     </main>
                     <div itemprop="mainContentOfPage" class="entry-content">
