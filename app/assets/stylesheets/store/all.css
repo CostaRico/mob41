@@ -5,6 +5,9 @@
  *= require_tree .
  *= require_self
  */
+ .widget_shopping_cart_content .button, .checkout-button{
+    font-weight: 600;
+ }
  .disabled-step {
   opacity: .5;
 }
@@ -14,7 +17,7 @@
     float: right;
  }
  .checkout-button, .dropdown-menu-mini-cart .wc-forward.checkout{
-    background-color: #cb0232;
+    background-color: #ee0000;
  }
  .dLabel {
     cursor: pointer;

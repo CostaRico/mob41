@@ -9,7 +9,7 @@ Spree::Taxon.class_eval do
 	#    end   
     #fs << Spree::Core::ProductFilters.select_type_any(self) if Spree::Core::ProductFilters.respond_to?(:select_type_any)
     #fs << Spree::Core::ProductFilters.price_filter if Spree::Core::ProductFilters.respond_to?(:price_filter)
-    fs << Spree::Core::ProductFilters.select_dev_any(self) if Spree::Core::ProductFilters.respond_to?(:select_dev_any)
+    fs << Spree::Core::ProductFilters.select_brand_any(self) if Spree::Core::ProductFilters.respond_to?(:select_brand_any)
     fs << Spree::Core::ProductFilters.select_country_any(self) if Spree::Core::ProductFilters.respond_to?(:select_country_any)
     fs << Spree::Core::ProductFilters.select_material_any(self) if Spree::Core::ProductFilters.respond_to?(:select_material_any)
     fs << Spree::Core::ProductFilters.select_forms_any(self) if Spree::Core::ProductFilters.respond_to?(:select_forms_any)

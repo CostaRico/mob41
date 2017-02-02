@@ -18,15 +18,15 @@ task :add_products => :environment do
 	# 		"Душевые боксы","Душевые кабины","Душ", "Инсталляции",
 	# 		"Кухонные мойки","Люки сантехнические","Писсуары",
 	# 		"Полотенцесушители","Раковины","Сифоны","Стальные ванны","Душевые боксы"]
-	files = ["products_list","products_list_1","products_list_2","products_list_3","Уголки, ограждения, поддоны","Уголки, ограждения, поддоны_1"]
+	files =["Чугунные ванны"] #["Уголки, ограждения, поддоны","Уголки, ограждения, поддоны_1","products_list","products_list_1","products_list_2","products_list_3","Уголки, ограждения, поддоны"]
 	path_to_file = Rails.root.to_s+"/public/product_list/"
 	init_taxons(first_level, second_level)
 	files.each do |file|
 		tax = Spree::Taxon.find_by_name(file)
-		list = JSON.parse(File.read(path_to_file+file+".json"))
+		list = JSON.parse((eval(File.read(path_to_file+file+".json"))).to_json)
 		list.each do |item|
 			# tax = 
-			pars_product(item, file, get_tax(item))
+			pars_product(item, file, get_tax(item, file))
 		end
 	end
 
@@ -79,8 +79,9 @@ def pars_product(item, folder, tax)
 		@product.update_attributes(:name => item['name'], :price => item["price"], :description => item["description"], :code => item["code"],
 									 :shipping_category_id => "1", :taxon_ids => [@tax_id])
 	end
-	add_properties(@product, item['properties'], item["Бренд"]) if @product.product_properties.empty?
-	add_images(@product, item['images'], folder)
+	add_properties(@product, item['properties']) if @product.product_properties.empty?
+	add_brand(@product, item["Бренд"])
+	#add_images(@product, item['images'], folder)
 end
 
 def insert_product(item, tax_id)
@@ -88,9 +89,18 @@ def insert_product(item, tax_id)
 									 :shipping_category_id => "1", :taxon_ids => [tax_id], :available_on => Time.current)
 end
 
-def add_properties(product, properties_data, b=nil)
+def add_brand(product, b)
+	if b
+		data = {:property_name => "Бренд", :value => b} 
+		Spree::Property.find_by_name(data[:property_name]) || Spree::Property.create(:name => data[:property_name], :presentation => data[:property_name])
+		product.product_properties.create(data)
+		product.update_attributes(:brand => b)
+	end
+end
+
+def add_properties(product, properties_data)
 	properties_data = properties_data.map{|p| {:property_name => p['key'], :value => p['value']} if p['key'] != "Артикул"}.compact 
-	properties_data << {:property_name => "Бренд", :value => b} if b
+	
 	properties_data.each do |param|
 		Spree::Property.find_by_name(param[:property_name]) || Spree::Property.create(:name => param[:property_name], :presentation => param[:property_name])
 	end
@@ -119,7 +129,7 @@ def insert_img(product, pic, folder_name)
 	end
 end
 
-def get_tax(item)
+def get_tax(item, file)
 	case item["taxon_id"].to_i
 	when 2
 		return Spree::Taxon.find_by_name("Мебель для ванной")
@@ -127,5 +137,7 @@ def get_tax(item)
 		return Spree::Taxon.find_by_name("Акриловые ванны")
 	when 13
 		return Spree::Taxon.find_by_name("Уголки, ограждения, поддоны")	
+	else 
+		return Spree::Taxon.find_by_name(file)
 	end
 end

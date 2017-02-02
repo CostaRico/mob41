@@ -82,45 +82,45 @@ module Spree
         }
       end
       #==============================Производство===============================
-      # Spree::Product.add_search_scope :dev_any do |*opts|
-      #     conds = opts.map {|o| ProductFilters.dev_filter[:conds][o]}.reject { |c| c.nil? }
-      #     scope = conds.shift
-      #     conds.each do |new_scope|
-      #       scope = scope.or(new_scope)
-      #     end
-      #     Spree::Product.with_property('Производство').where(scope)
-      # end
+      Spree::Product.add_search_scope :brand_any do |*opts|
+          conds = opts.map {|o| ProductFilters.brand_filter[:conds][o]}.reject { |c| c.nil? }
+          scope = conds.shift
+          conds.each do |new_scope|
+            scope = scope.or(new_scope)
+          end
+          Spree::Product.with_property('Бренд').where(scope)
+      end
 
-      # def ProductFilters.dev_filter
-      #     brand_property = Spree::Property.find_by(name: 'Производство')
-      #     brands = brand_property ? Spree::ProductProperty.where(property_id: brand_property.id).pluck(:value).uniq.map(&:to_s) : []
-      #     pp = Spree::ProductProperty.arel_table
-      #     conds = Hash[*brands.map { |b| [b, pp[:value].eq(b)] }.flatten]
-      #     {
-      #       name:   'Производитель',
-      #       scope:  :dev_any,
-      #       conds:  conds,
-      #       labels: (brands.sort).map { |k| [k, k] }
-      #     }
-      # end
+      def ProductFilters.brand_filter
+          brand_property = Spree::Property.find_by(name: 'Бренд')
+          brands = brand_property ? Spree::ProductProperty.where(property_id: brand_property.id).pluck(:value).uniq.map(&:to_s) : []
+          pp = Spree::ProductProperty.arel_table
+          conds = Hash[*brands.map { |b| [b, pp[:value].eq(b)] }.flatten]
+          {
+            name:   'Производитель',
+            scope:  :brand_any,
+            conds:  conds,
+            labels: (brands.sort).map { |k| [k, k] }
+          }
+      end
 
-      # Spree::Product.add_search_scope :select_dev_any do |*opts|
-      #   Spree::Product.dev_any(*opts)
-      # end
+      Spree::Product.add_search_scope :select_brand_any do |*opts|
+        Spree::Product.brand_any(*opts)
+      end
 
-      # def ProductFilters.select_dev_any(taxon = nil)
-      #   taxon ||= Spree::Taxonomy.first.root
-      #   brand_property = Spree::Property.find_by(name: 'Производство')
-      #   scope = Spree::ProductProperty.where(property: brand_property).
-      #     joins(product: :taxons).
-      #     where("#{Spree::Taxon.table_name}.id" => [taxon] + taxon.descendants)
-      #   brands = scope.pluck(:value).uniq
-      #   {
-      #     name:   'Производитель',
-      #     scope:  :select_dev_any,
-      #     labels: brands.sort.map { |k| [k, k] }
-      #   }
-      # end
+      def ProductFilters.select_brand_any(taxon = nil)
+        taxon ||= Spree::Taxonomy.first.root
+        brand_property = Spree::Property.find_by(name: 'Бренд')
+        scope = Spree::ProductProperty.where(property: brand_property).
+          joins(product: :taxons).
+          where("#{Spree::Taxon.table_name}.id" => [taxon] + taxon.descendants)
+        brands = scope.pluck(:value).uniq
+        {
+          name:   'Производитель',
+          scope:  :select_brand_any,
+          labels: brands.sort.map { |k| [k, k] }
+        }
+      end
     #===========================================================================
      Spree::Product.add_search_scope :material_any do |*opts|
           conds = opts.map {|o| ProductFilters.material_filter[:conds][o]}.reject { |c| c.nil? }
@@ -719,7 +719,7 @@ module Spree
         {
           name:   'Гарантия',
           scope:  :select_guarantee_any,
-          labels: brands.sort.map { |k| [k, k] }
+          labels: brands.sort_by(&:to_i)
         }
       end
  #================================================================================
