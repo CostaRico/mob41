@@ -18,7 +18,7 @@ task :add_products => :environment do
 	# 		"Душевые боксы","Душевые кабины","Душ", "Инсталляции",
 	# 		"Кухонные мойки","Люки сантехнические","Писсуары",
 	# 		"Полотенцесушители","Раковины","Сифоны","Стальные ванны","Душевые боксы"]
-	files =["Чугунные ванны"] #["Уголки, ограждения, поддоны","Уголки, ограждения, поддоны_1","products_list","products_list_1","products_list_2","products_list_3","Уголки, ограждения, поддоны"]
+	files = ["Уголки, ограждения, поддоны","Уголки, ограждения, поддоны_1","products_list","products_list_1","products_list_2","products_list_3","Уголки, ограждения, поддоны"]
 	path_to_file = Rails.root.to_s+"/public/product_list/"
 	init_taxons(first_level, second_level)
 	files.each do |file|
@@ -80,7 +80,7 @@ def pars_product(item, folder, tax)
 									 :shipping_category_id => "1", :taxon_ids => [@tax_id])
 	end
 	add_properties(@product, item['properties']) if @product.product_properties.empty?
-	add_brand(@product, item["Бренд"])
+	#add_brand(@product, item["Бренд"])
 	#add_images(@product, item['images'], folder)
 end
 

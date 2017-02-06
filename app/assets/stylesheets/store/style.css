@@ -6886,12 +6886,13 @@ article.post .entry-content .gallery figure.gallery-item {
       margin: .327em .53em 0 0; }
   #payment .place-order {
     padding: 1.387em;
+    padding-left: 0;
     margin-bottom: 0;
     float: none;
     width: 100%; }
     #payment .place-order .button {
-      font-size: 1.387em;
-      width: 100%;
+      /*font-size: 1.387em;*/
+      /*width: 100%;*/
       white-space: pre-wrap; }
 
 .woocommerce-checkout .payment-fixed {

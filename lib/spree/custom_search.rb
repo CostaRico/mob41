@@ -38,8 +38,8 @@ module Spree
           "Тип"
         when "select_color"
           "Цвет"
-        when "select_dev"
-          'Производство'
+        when "select_brand"
+          'Бренд'
         when 'select_material'
           'Материал'
         when 'select_forms'

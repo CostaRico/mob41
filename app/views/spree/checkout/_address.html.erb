@@ -1,17 +1,36 @@
-<div id="customer_details" class="woocommerce-checkout">
-  <div class="col2-set">
-    <div class="col-1">
+    <div class="col-1 woocommerce-checkout">
       <div class="woocommerce-billing-fields ">
-        <h3><%= Spree.t(:billing_address) %></h3>
+        <h3>Адрес</h3>
         <%= form.fields_for :bill_address do |bill_form| %>
-        <label style="margin-bottom: 2em;"></label>
           <div class="panel-body">
+            <% if @order.state == 'address' || !@order.email? %>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="form-group">
+                    <%= form.label :email %>
+                    <%= form.text_field :email, class: 'form-control' %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
             <%= render partial: 'spree/address/form', locals: { form: bill_form, address_type: 'billing', address: @order.bill_address } %>
           </div>
         <% end %>
+        <div id="payment" class="woocommerce-checkout-review-order" id="order_review" style="float: left; width: 100%;">
+          <div class="form-row place-order">
+              <% if try_spree_current_user %>
+                <!-- <span data-hook="save_user_address">
+                  &nbsp; &nbsp;
+                  <%#= check_box_tag 'save_user_address', '1', try_spree_current_user.respond_to?(:persist_order_address) %>
+                  <%#= label_tag :save_user_address, Spree.t(:save_my_address) %>
+                </span> -->
+              <% end %>
 
+              <%= submit_tag Spree.t(:save_and_continue), class: 'button alt' %>
+          </div>
+        </div>
       </div>
-      <div class="col-2">
+      <div class="col-2"  style="display: none">
         <div class="woocommerce-shipping-fields">
             <h3><%= Spree.t(:shipping_address) %></h3>
             <%= form.fields_for :ship_address do |ship_form| %>
@@ -28,19 +47,3 @@
         </div>
       </div>
     </div>
-  </div>
-  <div id="payment" class="woocommerce-checkout-review-order" id="order_review">
-    <div class="form-row place-order">
-      <p>
-        <% if try_spree_current_user %>
-          <!-- <span data-hook="save_user_address">
-            &nbsp; &nbsp;
-            <%#= check_box_tag 'save_user_address', '1', try_spree_current_user.respond_to?(:persist_order_address) %>
-            <%#= label_tag :save_user_address, Spree.t(:save_my_address) %>
-          </span> -->
-        <% end %>
-        <%= submit_tag Spree.t(:save_and_continue), class: 'button alt' %>
-      </p> 
-    </div>
-  </div>
-</div>

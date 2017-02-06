@@ -3,9 +3,9 @@
     <thead>
       <tr>
         <% if order.has_step?("address") %>
-          <th class="product-name"><%= Spree.t(:billing_address) %> <%= link_to "(#{Spree.t(:edit)})", checkout_state_path(:address) unless order.completed? %></th>
+          <th class="product-name">Адрес <%= link_to "(#{Spree.t(:edit)})", checkout_state_path(:address) unless order.completed? %></th>
           <% if order.has_step?("delivery") %>
-            <th class="product-name"><%= Spree.t(:shipping_address) %> <%= link_to "(#{Spree.t(:edit)})", checkout_state_path(:address) unless order.completed? %></th>
+            <!-- <th class="product-name"><%#= Spree.t(:shipping_address) %> <%#= link_to "(#{Spree.t(:edit)})", checkout_state_path(:address) unless order.completed? %></th> -->
             <th class="product-name"><%= Spree.t(:shipments) %> <%= link_to "(#{Spree.t(:edit)})", checkout_state_path(:delivery) unless order.completed? %></th>
           <% end -%>
         <% end %>
@@ -21,7 +21,7 @@
             <%= render 'spree/shared/address', address: order.bill_address %>
           </td>
           <% if order.has_step?("delivery") %>
-            <td data-hook="order-ship-address"><%= render 'spree/shared/address', address: order.ship_address %></td>
+            <!-- <td data-hook="order-ship-address"><%#= render 'spree/shared/address', address: order.ship_address %></td> -->
             <td data-hook="order-shipment">
               <% order.shipments.each do |shipment| %>
                   <i class='fa fa-truck'></i>
