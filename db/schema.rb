@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161225221339) do
+ActiveRecord::Schema.define(version: 20170210004233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "delivery_types", force: :cascade do |t|
+    t.string "name"
+    t.text   "description", default: ""
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -29,6 +34,11 @@ ActiveRecord::Schema.define(version: 20161225221339) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
 
+  create_table "payment_types", force: :cascade do |t|
+    t.string "name"
+    t.text   "description", default: ""
+  end
+
   create_table "spree_addresses", force: :cascade do |t|
     t.string   "firstname"
     t.string   "lastname"
@@ -42,8 +52,11 @@ ActiveRecord::Schema.define(version: 20161225221339) do
     t.string   "company"
     t.integer  "state_id"
     t.integer  "country_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.text     "comment",           default: ""
+    t.string   "payment_type_id"
+    t.string   "delivery_type_id"
     t.index ["country_id"], name: "index_spree_addresses_on_country_id", using: :btree
     t.index ["firstname"], name: "index_addresses_on_firstname", using: :btree
     t.index ["lastname"], name: "index_addresses_on_lastname", using: :btree

@@ -1,6 +1,6 @@
     <div class="col-1 woocommerce-checkout">
       <div class="woocommerce-billing-fields ">
-        <h3>Адрес</h3>
+      <br />
         <%= form.fields_for :bill_address do |bill_form| %>
           <div class="panel-body">
             <% if @order.state == 'address' || !@order.email? %>
@@ -26,7 +26,7 @@
                 </span> -->
               <% end %>
 
-              <%= submit_tag Spree.t(:save_and_continue), class: 'button alt' %>
+              <%= submit_tag "Отправить заказ", class: 'button alt' %>
           </div>
         </div>
       </div>

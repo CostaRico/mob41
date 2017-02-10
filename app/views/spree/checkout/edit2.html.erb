@@ -1,0 +1,30 @@
+<nav class="woocommerce-breadcrumb">
+
+</nav>
+<div id="cont-chck" class="container col2-set">
+	<div id="checkout" data-hook class="order-id" >
+	    <div id="customer_details">
+			<% @order.checkout_steps[0...-1].each do |state| %>
+				<div class="checkout_content <%= 'disabled-step' if state != @order.state %>" data-step="<%= state %>" data-hook="checkout_content" id="checkout_<%= state %>">
+			      	<%= render :partial => 'form_wrapper', :locals => { :order => @order, :state => state } %>
+			    </div>
+			<% end %>
+		</div>
+		<div>
+			<% if @order.state != "confirm"%>
+				<div id="checkout-summary" data-hook="checkout_summary_box" class="columns omega four">
+					<%= render :partial => 'summary', :locals => { :order => @order } %>
+				</div>
+			<% end %>
+		</div>
+ 	</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  // if (!$("#order_review").hasClass("order-view")){ 
+    $(".departments-menu .nav-item.dropdown").removeClass(" open");
+    $(".departments-menu .nav-link.dropdown-toggle").attr("aria-expanded", false);
+  // };
+});
+</script>

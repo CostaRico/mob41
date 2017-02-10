@@ -1,5 +1,7 @@
 module Spree
 	Address.class_eval do 
+		belongs_to :delivery_type
+		belongs_to :payment_type
 	    def require_phone?
 	      false
 	    end

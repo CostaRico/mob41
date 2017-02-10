@@ -25,6 +25,9 @@ end
 
   # require 'spree/core/product_filters'
 
+Spree::PermittedAttributes.address_attributes << :comment
+Spree::PermittedAttributes.address_attributes << :delivery_type_id
+Spree::PermittedAttributes.address_attributes << :payment_type_id
 Spree::Config[:layout]='spree/layouts/spree_application'
 Spree.user_class = "Spree::User"
 
