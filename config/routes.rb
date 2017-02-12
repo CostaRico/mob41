@@ -9,9 +9,8 @@ Rails.application.routes.draw do
           # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     post "/orders/remove_item" => "spree/orders#remove_line_item"
 	
-	Spree::Core::Engine.routes.append do
-		get '/*id', to: 'taxons#show', as: :categories
-		get ':taxon_id/*id', to: "products#show"
-	end
-
+	# Spree::Core::Engine.routes.append do
+	# 	get '/*id' => 'taxons#show'
+	# end
+	get '*id', :to => 'spree/taxons#show', :as => :categories
 end
