@@ -1,19 +1,10 @@
-    <div class="col-1 woocommerce-checkout">
+    <div class="woocommerce-checkout">
       <div class="woocommerce-billing-fields ">
-      <br />
+        <br />
         <%= form.fields_for :bill_address do |bill_form| %>
           <div class="panel-body">
-            <% if @order.state == 'address' || !@order.email? %>
-              <div class="panel panel-default">
-                <div class="panel-body">
-                  <div class="form-group">
-                    <%= form.label :email %>
-                    <%= form.text_field :email, class: 'form-control' %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-            <%= render partial: 'spree/address/form', locals: { form: bill_form, address_type: 'billing', address: @order.bill_address } %>
+           
+            <%= render partial: 'spree/address/form', locals: { b_form: bill_form, address_type: 'billing', address: @order.bill_address, :form => form } %>
           </div>
         <% end %>
         <div id="payment" class="woocommerce-checkout-review-order" id="order_review" style="float: left; width: 100%;">
@@ -26,7 +17,7 @@
                 </span> -->
               <% end %>
 
-              <%= submit_tag "Отправить заказ", class: 'button alt' %>
+              <%= submit_tag "Завершить оформление", class: 'checkout-button alt ' %>
           </div>
         </div>
       </div>

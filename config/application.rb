@@ -21,6 +21,7 @@ module St
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
     end
+    
     config.time_zone = 'Moscow'
     config.i18n.default_locale = :ru
     config.autoload_paths << Rails.root.join('lib')

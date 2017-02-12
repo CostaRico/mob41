@@ -61,4 +61,6 @@ $('document').ready(function(){
 	};
     $('.navbar-mini-cart .nav-link').dropdownHover();
     // };
+    
+    $(".sales-menu").css("top", $("#menu-vertical-menu").height()+100)
 });

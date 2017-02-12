@@ -29,7 +29,7 @@
     
     <ul class="products columns-3">
       <% products.each do |product| %>
-        <% url = spree.product_path(product, taxon_id: @taxon.try(:id)) %>
+        <% url = spree.product_path(product) %>
         <li class="product " id="product_<%= product.id %>" itemtype="https://schema.org/Product">
           <div class="product-outer" style="height: 391px;">
             <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : cache_key_for_product(product)) do %>

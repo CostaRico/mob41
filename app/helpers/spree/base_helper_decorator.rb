@@ -91,4 +91,7 @@ Spree::BaseHelper.class_eval do
     def order_count(count)
       return count.to_i > 99 ? "99+" : count
     end
+    def seo_url(taxon)
+      categories_path(taxon.permalink)
+    end
 end

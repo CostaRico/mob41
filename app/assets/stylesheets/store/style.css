@@ -529,7 +529,7 @@ textarea,
   line-height: 1.286em;
   outline: none;
   border: 0;
-  -webkit-appearance: none;
+  /*-webkit-appearance: none;*/
   border-radius: 1.571em;
   box-sizing: border-box;
   border-width: 1px;

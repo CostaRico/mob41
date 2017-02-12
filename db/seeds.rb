@@ -10,5 +10,5 @@
 
 # Spree::Core::Engine.load_seed if defined?(Spree::Core)
 # Spree::Auth::Engine.load_seed if defined?(Spree::Auth)
-payments = PaymentType.create([{:name => "Наличный расчёт"}, {:name => "Банковской картой"}, {:name => "Электронные деньги"}]) #unless PaymentType.first.nil?
-delivers = DeliveryType.create([{:name => "Доставка по Москве(в пределах МКАД)"},{:name => "Доставка по области за пределы Москвы(МКАД)"},{:name => "Самовывоз"}]) #unless DeliveryType.first.nil?
+payments = PaymentType.create([{:name => "Наличными курьеру"}, {:name => "Банковской картой (+2%)"}, {:name => "На электронный кошелёк"},{:name => "На карту Сбербанка, ВТБ24, Альфа-Банка"},{:name => "Безналичный расчёт (для юр.лиц)"}]) #unless PaymentType.first.nil?
+delivers = DeliveryType.create([{:name => "Доставка по Москве (в пределах МКАД)"},{:name => "Доставка по Московской области"},{:name => "Доставка в регионы  России"}, {:name => "Самовывоз"}]) #unless DeliveryType.first.nil?

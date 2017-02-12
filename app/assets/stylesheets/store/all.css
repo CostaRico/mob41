@@ -5,6 +5,9 @@
  *= require_tree .
  *= require_self
  */
+ #payment{
+    border-top: none;
+ }
  .checkout-error{
     color: #aa0000;
  }
@@ -19,9 +22,7 @@
     color: #fff;
     float: right;
  }
- .checkout-button, .dropdown-menu-mini-cart .wc-forward.checkout{
-    background-color: #aa0000;
- }
+ 
  .dLabel {
     cursor: pointer;
     color: #7e7e7e;
@@ -133,7 +134,6 @@
 }
  .sales-menu{
  	padding: 0.5rem 0 !important;
- 	top: 63em !important; 
  	border: 2px solid #c50000 !important; 
  	border-top-color: #c50000 !important; 
  	border-radius: 0.625rem !important;
@@ -285,3 +285,27 @@ ul.products > li.product.list-view.list-view-small .button:active::after,
     background-color: #00abc5;
     border-color: #00abc5;
 }
+.checkout-button, .dropdown-menu-mini-cart .wc-forward.checkout{
+    background-color: #aa0000 ;
+ }
+ .woocommerce-checkout .checkout-button{
+    background-color: #aa0000 !important;
+    cursor: pointer;
+ }
+ .woocommerce-checkout .checkout-button:hover,.woocommerce-checkout .checkout-button:active{
+    background-color: #004049 !important;
+ }
+ .inp{
+    padding: 0.857em 1.214em;
+    background-color: transparent;
+    color: #818181;
+    line-height: 1.286em;
+    outline: none;
+    border: 0;
+    border-radius: 1.571em;
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #dddddd;
+
+ }

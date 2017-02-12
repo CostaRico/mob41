@@ -35,7 +35,7 @@
 		</div>
 		<% if "spree/products" == params[:controller] && @taxon || @taxonomies.present? %>
 			<div id="sidebar" class="sitebar">
-			  <%= render partial: 'spree/shared/taxonomies', locals: {taxon: @taxon } %>
+			  <%#= render partial: 'spree/shared/taxonomies', locals: {taxon: @taxon } %>
 			  <% if "spree/products" == params[:controller] && @taxon %>
 				  <aside class="widget widget_electro_products_filter ">
 				    <h3 class="widget-title ssc">Фильтры</h3>

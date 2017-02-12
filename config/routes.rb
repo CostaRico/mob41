@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   mount Spree::Core::Engine, at: '/'
           # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     post "/orders/remove_item" => "spree/orders#remove_line_item"
-
+	
+	Spree::Core::Engine.routes.append do
+		get '/*id', to: 'taxons#show', as: :categories
+		get ':taxon_id/*id', to: "products#show"
+	end
 
 end
