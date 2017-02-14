@@ -8,7 +8,7 @@
         <article id="post-8" class="hentry">
           <div class="entry-content">
             <div class="woocommerce">
-              <div class="customer-login-form" style="margin-left: 25%; width: 50%;">
+              <div class="customer-login-form" style="margin-left: 26%; width: 50%;">
                 <h2 class="panel-title">Изменить пароль</h2>
                 <%= form_for @spree_user, :as => :spree_user, :url => spree.update_password_path, :method => :put do |f| %>
                   <p>
@@ -20,7 +20,7 @@
                     <%= f.password_field :password_confirmation, :class => "input-text" %><br />
                   </p>
                   <%= f.hidden_field :reset_password_token %>
-                  <%= f.submit Spree.t(:update), :class => 'button' %>
+                  <%= f.submit Spree.t(:update), :class => 'button', :style => "width: auto"%>
                 <% end %>
               </div>
             </div>

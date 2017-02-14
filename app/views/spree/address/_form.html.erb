@@ -105,13 +105,13 @@
       <%= b_form.label :comment, "Комментарий к заказу" %>
       <%= b_form.text_area :comment, class: 'input-text' %>
     </p>
-    <p class="form-row form-row  form-row-wide validate-required" id=<%="#{address_id}delivery" %>>
+    <p class="form-row form-row  form-row-wide validate-required inp" id=<%="#{address_id}payment" %>>
       <%= b_form.label :payment_type_id, "Способ оплаты" %>
       <%= b_form.select :payment_type_id, options_for_select(PaymentType.all.map{|p| [p.name,p.id]}), {}, {class: 'input-text'} %>
     </p>
-    <p class="form-row form-row  form-row-wide validate-required" id=<%="#{address_id}delivery" %>>
-      <%= b_form.label :payment_type_id, "Способ доставки" %>
-      <%= b_form.select :payment_type_id, options_for_select(DeliveryType.all.map{|p| [p.name, p.id]}), {}, {class: 'input-text'}%>
+    <p class="form-row form-row  form-row-wide validate-required inp" id=<%="#{address_id}delivery" %>>
+      <%= b_form.label :delivery_type_id, "Способ доставки" %>
+      <%= b_form.select :delivery_type_id, options_for_select(DeliveryType.all.map{|p| [p.name, p.id]}), {}, {class: 'input-text '}%>
      
     </p>
      

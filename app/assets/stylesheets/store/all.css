@@ -5,8 +5,17 @@
  *= require_tree .
  *= require_self
  */
+ .shop_table .product-subtotal, .shop_table .product-price {
+    width: 8em;
+ }
+ .new_spree_user .btn{
+    width: auto;
+ }
  #payment{
     border-top: none;
+ }
+.place-order input{
+    float: right;
  }
  .checkout-error{
     color: #aa0000;
@@ -295,17 +304,18 @@ ul.products > li.product.list-view.list-view-small .button:active::after,
  .woocommerce-checkout .checkout-button:hover,.woocommerce-checkout .checkout-button:active{
     background-color: #004049 !important;
  }
- .inp{
-    padding: 0.857em 1.214em;
-    background-color: transparent;
-    color: #818181;
-    line-height: 1.286em;
-    outline: none;
-    border: 0;
-    border-radius: 1.571em;
-    box-sizing: border-box;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #dddddd;
 
- }
+.inp::after{
+    content: "\f107";
+    font-family: 'FontAwesome';
+    padding: 12px 8px;
+    position: absolute; right: 0; top: 0;
+    z-index: 1;
+    text-align: center;
+    width: 10%;
+    height: 100%;      
+    pointer-events: none;
+    box-sizing: border-box; 
+    top: 34px;
+    font-size: 2em;
+}

@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/spree-contrib/spree_editor.git
+  revision: 290b888c8f97dac011d741e5a0d60d8349c3a4f5
+  specs:
+    spree_editor (3.2.0.alpha)
+      ckeditor (~> 4.2.0)
+      spree_backend (>= 3.1.0, < 4.0)
+      spree_core (>= 3.1.0, < 4.0)
+      tinymce-rails (~> 4.2.5)
+
+GIT
   remote: git://github.com/spree-contrib/spree_i18n.git
   revision: a11ae1fa38ca7d71a7ef1f40ea9391c4c6c6c075
   specs:
@@ -8,6 +18,14 @@ GIT
       rails-i18n
       routing-filter
       spree_core (>= 3.1.0, < 4.0)
+
+GIT
+  remote: git://github.com/spree-contrib/spree_mail_settings.git
+  revision: e2fcbade367fbe6880b3ba5429143be0b777a4d4
+  branch: master
+  specs:
+    spree_mail_settings (3.2.0.alpha)
+      spree_backend (>= 3.1.0, < 4.0)
 
 GIT
   remote: git://github.com/spree-contrib/spree_recently_viewed.git
@@ -95,6 +113,9 @@ GEM
       rails (>= 4.1, < 5.1)
     carmen (1.0.2)
       activesupport (>= 3.0.0)
+    ckeditor (4.2.2)
+      cocaine
+      orm_adapter (~> 0.5.0)
     cldr-plurals-runtime-rb (1.0.1)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -335,6 +356,8 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.5)
     tilt (2.0.5)
+    tinymce-rails (4.2.8)
+      railties (>= 3.1.1)
     twitter_cldr (3.6.0)
       camertron-eprun
       cldr-plurals-runtime-rb (~> 1.0)
@@ -376,8 +399,10 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   spree (~> 3.2.0.rc1)
   spree_auth_devise (~> 3.2.0.beta)
+  spree_editor!
   spree_gateway (~> 3.2.0.beta)
   spree_i18n!
+  spree_mail_settings!
   spree_recently_viewed!
   spree_static_content!
   spring
