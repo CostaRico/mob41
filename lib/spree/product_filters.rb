@@ -399,7 +399,7 @@ module Spree
         {
           name:   'Ширина',
           scope:  :select_width_any,
-          labels: brands.sort.map { |k| [k, k] }
+          labels: brands.sort_by(&:to_f)
         }
       end
     #================================Глубина, см > Глубина========================================
@@ -439,7 +439,7 @@ module Spree
         {
           name:   'Глубина',
           scope:  :select_deep_any,
-          labels: brands.sort.map { |k| [k, k] }
+          labels: brands.sort_by(&:to_f)
         }
       end
     #===================================Высота, см > Высота=====================================
@@ -479,7 +479,7 @@ module Spree
         {
           name:   'Высота',
           scope:  :select_height_any,
-          labels: brands.sort.map { |k| [k, k] }
+          labels: brands.sort_by(&:to_f)
         }
       end
     #==================================Направление выпуска======================================
@@ -719,7 +719,7 @@ module Spree
         {
           name:   'Гарантия',
           scope:  :select_guarantee_any,
-          labels: brands.sort_by(&:to_i)
+          labels: brands.sort_by(&:to_f)
         }
       end
  #================================================================================

@@ -5,6 +5,9 @@
  *= require_tree .
  *= require_self
  */
+ .adr .local {
+    display: none !important; 
+ }
  .shop_table .product-subtotal, .shop_table .product-price {
     width: 8em;
  }

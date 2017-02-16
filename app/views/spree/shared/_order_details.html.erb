@@ -4,21 +4,29 @@
       <tr>
         <% if order.has_step?("address") %>
           <th class="product-name">Адрес <%= link_to "(#{Spree.t(:edit)})", checkout_state_path(:address) unless order.completed? %></th>
-          <% if order.has_step?("delivery") %>
+          <%# if order.has_step?("delivery") %>
             <!-- <th class="product-name"><%#= Spree.t(:shipping_address) %> <%#= link_to "(#{Spree.t(:edit)})", checkout_state_path(:address) unless order.completed? %></th> -->
-            <th class="product-name"><%= Spree.t(:shipments) %> <%= link_to "(#{Spree.t(:edit)})", checkout_state_path(:delivery) unless order.completed? %></th>
-          <% end -%>
+            <th class="product-name">Способ доставки <%#= link_to "(#{Spree.t(:edit)})", checkout_state_path(:delivery) unless order.completed? %></th>
+          <%# end -%>
         <% end %>
-        <% if order.has_step?("payment") %>
-          <th class="product-name"><%= Spree.t(:payment_information) %> <%= link_to "(#{Spree.t(:edit)})", checkout_state_path(:payment) unless order.completed? %></th>
-        <% end %>
+        <%# if order.has_step?("payment") %>
+          <th class="product-name">Тип платежа <%#= link_to "(#{Spree.t(:edit)})", checkout_state_path(:payment) unless order.completed? %></th>
+        <%# end %>
       </tr>
     </thead>
     <tbody>
       <tr>
         <% if order.has_step?("address") %>
           <td data-hook="order-bill-address">
-            <%= render 'spree/shared/address', address: order.bill_address %>
+            <%if order.bill_address.address1.blank?%>
+              Не указан  
+            <%else%>
+              <%= render 'spree/shared/address', address: order.bill_address %>
+            <% end -%>
+          </td>
+          <td data-hook="order-shipment">
+          <% dt = order.bill_address.delivery_type%>
+           <%= dt.name  if dt%>
           </td>
           <% if order.has_step?("delivery") %>
             <!-- <td data-hook="order-ship-address"><%#= render 'spree/shared/address', address: order.ship_address %></td> -->
@@ -30,11 +38,15 @@
               <% end %>
             </td>
             <td data-hook="order-payment">
-               <% order.payments.valid.each do |payment| %>
+              <% order.payments.valid.each do |payment| %>
                 <%= render payment %><br/>
               <% end %>
             </td>
           <% end %>
+          <td data-hook="order-payment">
+          <% pt = order.bill_address.payment_type%>
+            <%= pt.name if pt%>
+          </td>
         <% end %>
       </tr>
     </tbody>
@@ -69,49 +81,62 @@
       </tr>
     <% end %>
     </tbody>
-    <tfoot id="order-total" data-hook="order_details_total">
+<!--     <tfoot id="order-total" data-hook="order_details_total">
       <tr class="warning total">
-        <th> <%= Spree.t(:order_total) %>: </th> 
-        <td class="total"><span id="order_total" class="amount"><%= display_hum_price(order.total)%> руб.</span></td>
+        <th> <%#= Spree.t(:order_total) %>: </th> 
+        <td class="total"><span id="order_total" class="amount"><%#= display_hum_price(order.total)%> руб.</span></td>
       </tr>
       <tr class="order-total" id="subtotal-row">
-        <td><%= Spree.t(:subtotal) %>:</td>
-        <td class="total"><span class="amount"><%= display_hum_price(order.item_total) %> руб.</span></td>
+        <td><%#= Spree.t(:subtotal) %>:</td>
+        <td class="total"><span class="amount"><%#= display_hum_price(order.item_total) %> руб.</span></td>
       </tr>
     
-      <% if order.line_item_adjustments.exists? %>
-        <% if order.line_item_adjustments.promotion.eligible.exists? %>
-            <% order.line_item_adjustments.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
+      <%# if order.line_item_adjustments.exists? %>
+        <%# if order.line_item_adjustments.promotion.eligible.exists? %>
+            <%# order.line_item_adjustments.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
              <tr class="total" data-hook="order_details_price_adjustments">
-               <td><%= Spree.t(:promotion) %>: <strong><%= label %></strong></td>
-               <td class="total"><span><%= display_hum_price(adjustments.sum(&:amount)) %> руб.</span></td>
+               <td><%#= Spree.t(:promotion) %>: <strong><%#= label %></strong></td>
+               <td class="total"><span><%#= display_hum_price(adjustments.sum(&:amount)) %> руб.</span></td>
              </tr>
-           <% end %>
-        <% end %>
-      <% end %>
-      <% order.shipments.group_by { |s| s.selected_shipping_rate.name }.each do |name, shipments| %>
+           <%# end %>
+        <%# end %>
+      <%# end %>
+      <%# order.shipments.group_by { |s| s.selected_shipping_rate.name }.each do |name, shipments| %>
         <tr class="order-total" data-hook='shipment-row'>
-          <td class="text-muted"><%= Spree.t(:shipping) %>: <strong><%= name %></strong></td>
-          <td class="total"><span><%= display_hum_price(shipments.sum(&:discounted_cost)) %> руб.</span></td>
+          <td class="text-muted"><%#= Spree.t(:shipping) %>: <strong><%#= name %></strong></td>
+          <td class="total"><span><%#= display_hum_price(shipments.sum(&:discounted_cost)) %> руб.</span></td>
         </tr>
-      <% end %>
-      <% if order.all_adjustments.tax.exists? %>
-        <% order.all_adjustments.tax.group_by(&:label).each do |label, adjustments| %>
+      <%# end %>
+      <%# if order.all_adjustments.tax.exists? %>
+        <%# order.all_adjustments.tax.group_by(&:label).each do |label, adjustments| %>
           <tr class="order-total" data-hook="order_details_tax_adjustments">
-            <td class="text-muted"><%= Spree.t(:tax) %>: <strong><%= label %></strong></td>
-            <td class="total"><span><%= display_hum_price(adjustments.sum(&:amount)) %> руб.</span></td>
+            <td class="text-muted"><%#= Spree.t(:tax) %>: <strong><%#= label %></strong></td>
+            <td class="total"><span><%#= display_hum_price(adjustments.sum(&:amount)) %> руб.</span></td>
           </tr>
-        <% end %>
-      <% end %>
-      <% order.adjustments.eligible.each do |adjustment| %>
-          <% next if (adjustment.source_type == 'Spree::TaxRate') and (adjustment.amount == 0) %>
+        <%# end %>
+      <%# end %>
+      <%# order.adjustments.eligible.each do |adjustment| %>
+          <%# next if (adjustment.source_type == 'Spree::TaxRate') and (adjustment.amount == 0) %>
           <tr class="order-total" data-hook="order_details_adjustments">
-            <td><strong><%= adjustment.label %></strong></td>
-            <td class="total"><span><%= display_hum_price(adjustment.display_amount) %> руб.</span></td>
+            <td><strong><%#= adjustment.label %></strong></td>
+            <td class="total"><span><%#= display_hum_price(adjustment.display_amount) %> руб.</span></td>
           </tr>
-      <% end %>
-    </tfoot>
+      <%# end %>
+    </tfoot> -->
   </table>
+   <div class="cart-collaterals">
+              <div class="cart_totals ">
+                <h2><%= Spree.t(:total) %></h2>
+                <table class="shop_table shop_table_responsive">
+                  <tbody>
+                    <tr class="cart-subtotal">
+                      <th><%#= Spree.t(:total) %></th>
+                      <td data-title="Subtotal" style="font-size: 1.2em; padding-right: 1.25em;"><span class="amount"><%= display_hum_price(order.total)%> руб.</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
 </div>
 <script type="text/javascript">
 $(document).ready(function(){

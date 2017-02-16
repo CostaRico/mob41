@@ -205,14 +205,24 @@ label {
 
 textarea.input-text {
   min-height: 10em;
-  padding: 1.858em; }
-
+  padding: 1em; }
+input[type="submit"], .btn-vv{
+  font-size: 0.875rem;
+  border-radius: 1.571em;
+  padding: 1.036em 2.134em;
+  border-width: 0;
+  display: inline-block;
+  font-weight: 600;
+  color: #fff;
+  background-color: #00abc5;
+  border-color: #00abc5;
+}
 .btn, .hero-action-btn,
 .button,
 button,
 input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+input[type="reset"]
+ {
   font-size: 0.875rem;
   border-radius: 1.571em;
   padding: 1.036em 2.134em;
@@ -233,6 +243,8 @@ input[type="submit"] {
   .btn:focus, .hero-action-btn:focus, .btn.focus, .focus.hero-action-btn,
   .button:focus,
   .button.focus,
+  .btn-vv:hover,
+  .btn-vv:focus,
   button:focus,
   button.focus,
   input[type="button"]:focus,

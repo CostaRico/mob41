@@ -5,20 +5,28 @@
 <% end %>
 <div id="content" class="site-content" tabindex="-1">
   <div class="container">
-  <nav class="woocommerce-breadcrumb">
-  </nav>  
+  <nav class="woocommerce-breadcrumb"><a href="/" style="padding: 0.465em 0em;">Главная</a><span class="delimiter"><i class="fa fa-angle-right"></i></span> <%= accurate_title %></nav> 
       <div class="woocommerce-checkout-review-order woocommerce-checkout">
         <h3><%= accurate_title %></h3>
         <% if order_just_completed?(@order) %>
           <strong><%= Spree.t(:thank_you_for_your_order) %></strong>
+          <p>Наш менеджер свяжется с Вами в ближайшие два часа в рабочее время магазина <br />
+          Будьте внимательны! Менеджеры нашего интернет-магазина НИКОГДА не отправляют счета для оплаты товара с личных почтовых ящиков. <br /> Для связи с покупателями всегда используются только почтовые адреса нашего сайта @41km.ru.
+          </p>
+          <script type="text/javascript">
+            $(document).ready(function(){
+              $().toastmessage('showSuccessToast', "Заказ сформирован");
+            });
+
+          </script>
         <% end %>
         <%= render partial: 'spree/shared/order_details', locals: { order: @order } %>
         <br class="clear" />
-        <p data-hook="links">
-          <%= link_to Spree.t(:back_to_store), spree.root_path, class: "button" %>
+        <p data-hook="links" style="float:right">
+          <%= link_to Spree.t(:continue_shopping), spree.root_path, class: "btn-vv" %>
           <% unless order_just_completed?(@order) %>
             <% if try_spree_current_user && respond_to?(:account_path) %>
-              <%= link_to Spree.t(:my_account), account_path, class: "button" %>
+              <%= link_to Spree.t(:my_account), account_path, class: "btn-vv" %>
             <% end %>
           <% end %>
         </p>
