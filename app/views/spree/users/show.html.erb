@@ -1,4 +1,4 @@
-<div id="primary" class="content-area">
+<div id="primary" class="content-area" style="padding-left: 1.9375rem; width: 75%; left: 25%;">
   <main id="main" class="site-main">
     <nav class="woocommerce-breadcrumb" >
     </nav>
@@ -18,20 +18,17 @@
               <th class="order-number"><%= Spree.t(:order) %></th>
               <th class="order-date"><%= Spree.t(:date) %></th>
               <th class="order-status"><%= Spree.t(:status) %></th>
-              <th class="order-payment-state"><%= Spree.t(:payment_state) %></th>
-              <th class="order-shipment-state"><%= Spree.t(:shipment_state) %></th>
+
               <th class="order-total"><%= Spree.t(:total) %></th>
             </tr>
           </thead>
           <tbody>
             <% @orders.each do |order| %>
               <tr>
-                <td class="order-number"><%= link_to order.number, order_url(order) %></td>
+                <td class="order-number" ><%= link_to order.number, order_url(order), :style =>"color: #0062bd;"%></td>
                 <td class="order-date"><%= l order.completed_at.to_date %></td>
                 <td class="order-status"><%= Spree.t("order_state.#{order.state}").titleize %></td>
-                <td class="order-payment-state"><%= Spree.t("payment_states.#{order.payment_state}").titleize if order.payment_state %></td>
-                <td class="order-shipment-state"><%= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></td>
-                <td class="lead text-primary order-total"><%= order.display_total %></td>
+                <td class="lead  order-total"><%= display_hum_price(order.total) %> руб.</td>
               </tr>
             <% end %>
           </tbody>
@@ -41,4 +38,10 @@
       <% end %>
     </article>
   </main>
+</div>
+<div id="sidebar" class="sidebar">
+  <aside class="widget widget_electro_products_filter " style="margin-top: 13px;">
+    <aside class="widget woocommerce widget_price_filter">
+    </aside>
+  </aside>
 </div>
