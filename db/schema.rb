@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214164916) do
+ActiveRecord::Schema.define(version: 20170216234658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,12 @@ ActiveRecord::Schema.define(version: 20170214164916) do
     t.index ["calculable_id", "calculable_type"], name: "index_spree_calculators_on_calculable_id_and_calculable_type", using: :btree
     t.index ["deleted_at"], name: "index_spree_calculators_on_deleted_at", using: :btree
     t.index ["id", "type"], name: "index_spree_calculators_on_id_and_type", using: :btree
+  end
+
+  create_table "spree_call_messages", force: :cascade do |t|
+    t.string "name",                 null: false
+    t.string "phone",   default: ""
+    t.text   "comment", default: ""
   end
 
   create_table "spree_countries", force: :cascade do |t|

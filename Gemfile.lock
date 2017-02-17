@@ -146,6 +146,10 @@ GEM
       warden (~> 1.2.3)
     devise-encryptable (0.1.2)
       devise (>= 2.1.0)
+    dotenv (2.2.0)
+    dotenv-rails (2.2.0)
+      dotenv (= 2.2.0)
+      railties (>= 3.2, < 5.1)
     erubis (2.7.0)
     execjs (2.7.0)
     ffaker (2.2.0)
@@ -169,6 +173,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
+    json (2.0.3)
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -260,6 +265,8 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    recaptcha (4.1.0)
+      json
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
     routing-filter (0.6.0)
@@ -389,6 +396,7 @@ DEPENDENCIES
   bourbon
   byebug
   coffee-rails (~> 4.2)
+  dotenv-rails
   font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails
@@ -396,6 +404,7 @@ DEPENDENCIES
   pg
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
+  recaptcha
   sass-rails (~> 5.0)
   spree (~> 3.2.0.rc1)
   spree_auth_devise (~> 3.2.0.beta)

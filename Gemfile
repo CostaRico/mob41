@@ -38,6 +38,8 @@ gem 'spree_i18n', github: 'spree-contrib/spree_i18n'
 gem 'spree_static_content', github: 'spree-contrib/spree_static_content'
 gem 'spree_recently_viewed', github: 'spree-contrib/spree_recently_viewed', branch: 'master'
 gem 'spree_mail_settings', github: 'spree-contrib/spree_mail_settings', branch: 'master'
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
+gem "recaptcha", require: "recaptcha/rails"
 gem 'bourbon'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

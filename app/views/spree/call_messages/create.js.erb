@@ -1,0 +1,13 @@
+		$("#myModalNorm").modal('hide');
+		$('body').removeClass('modal-open');
+		$("#myModalNorm #fb_comment").val("Пожалуйста, свяжитесь со мной");
+		$('.modal-backdrop').remove();
+	<% if @flag == true%>
+		$().toastmessage('showSuccessToast', "Cпасибо! Мы свяжемся с вами"); 
+		$('#modal-call').empty().append("<%= render partial: 'spree/shared/modal_form', :locals=>{:call_message => Spree::CallMessage.new}%>");
+		window.location.reload();
+	<% else %>
+		$().toastmessage('showSuccessToast', "Cпасибо! Мы свяжемся с вами");
+		
+		window.location.reload();
+	<% end %>
