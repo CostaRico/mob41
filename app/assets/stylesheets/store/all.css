@@ -5,6 +5,17 @@
  *= require_tree .
  *= require_self
  */
+ .modal-dialog {
+    max-width: 335px;
+ }
+ #new_call_message .form-group, #new_call_message .form-group.g-recaptcha{
+    margin-bottom: 25px;
+ }
+  #new_call_message .sub-btn{
+    margin-bottom: 10px;
+    margin-top:25px;
+    width: 100%;
+  }
  .adr .local {
     display: none !important; 
  }

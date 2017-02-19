@@ -29,8 +29,8 @@
                     <label for="fb_comment">Комментарий</label>
                     <%= f.text_area :comment, :id=>"fb_comment",  :class=>"input-text", :value => "Пожалуйста, свяжитесь со мной"%>
                   </div>
-                  <%= recaptcha_tags %>
-                  <%= f.submit :value=>'Заказать обратный звонок', :style =>"margin-top:10px;"%>
+                  <%= recaptcha_tags :hl => :ru %>
+                  <%= f.submit :value=>'Заказать обратный звонок', :class => "sub-btn"%>
                 <% end -%>
 
             </div>

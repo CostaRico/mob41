@@ -27,7 +27,7 @@
    <% if @order.state == 'address' || !@order.email? %>
               <div class="panel panel-default">
                 <div class="panel-body">
-                  <div class="form-group">
+                  <div class="form-group" style="margin-bottom: 1.714em;">
                     <%= form.label :email do %>Электронна почта<% end -%>
                     <%= form.text_field :email, class: 'form-control' %>
                   </div>
@@ -103,7 +103,7 @@
   <% end %>
     <p class="form-row form-row  form-row-wide validate-required " id=<%="#{address_id}comment" %>>
       <%= b_form.label :comment, "Комментарий к заказу" %>
-      <%= b_form.text_area :comment, class: 'input-text' %>
+      <%= b_form.text_area :comment, class: 'input-text', :style => "height: 148px;"%>
     </p>
     <p class="form-row form-row  form-row-wide validate-required inp" id=<%="#{address_id}payment" %>>
       <%= b_form.label :payment_type_id, "Способ оплаты" %>
