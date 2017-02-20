@@ -1,0 +1,39 @@
+<% if @page.layout.present? and @page.render_layout_as_partial? %>
+  <%= render partial: @page.layout %>
+<% else %>
+  <% content_for :head do -%>
+    <%- if @page.meta_title.present? -%>
+      <meta name="title" content="<%= @page.meta_title %>">
+    <%- else -%>
+      <meta name="title" content="<%= @page.title %>">
+    <%- end -%>
+    <meta name="keywords" content="<%= @page.meta_keywords %>">
+    <meta name="description" content="<%= @page.meta_description %>">
+  <% end -%>
+
+  <% content_for :sidebar do %>
+    <% if (defined?(@products) && @products) && (defined?(@taxon) && @taxon) %>
+      <%= render partial: 'spree/shared/filters' %>
+    <% elsif defined?(@taxonomies) && @taxonomies %>
+      <%= render partial: 'spree/shared/taxonomies' %>
+    <% end %>
+  <% end %>
+<div id="primary" class="content-area" style="padding-left: 1.9375rem; width: 75%; left: 25%;">
+  <main id="main" class="site-main">
+    <nav class="woocommerce-breadcrumb" >
+    </nav>
+    <article class="page type-page status-publish hentry">
+      <header class="woocommerce-account"><h2 ><%= @page.title %></h2></header>
+      </article>
+       <div id="page_content">
+        <%= raw @page.body %>
+      </div>
+  </main>
+</div>
+<div id="sidebar" class="sidebar">
+  <aside class="widget widget_electro_products_filter " style="margin-top: 13px;">
+    <aside class="widget woocommerce widget_price_filter">
+    </aside>
+  </aside>
+</div> 
+<% end %>
