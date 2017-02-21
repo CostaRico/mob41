@@ -30,11 +30,13 @@ plugins:
   - visualchars
   - nonbreaking
   - template
-
+  - textcolor 
+  - colorpicker
+  - code
 # Each line is a toolbar
 toolbar:
-  - cut copy paste pastetext pasteword | search replace | undo redo | link unlink anchor image cleanup help code | insertdate inserttime preview
+  - cut copy paste pastetext pasteword | search replace | undo redo | link unlink anchor image cleanup help code | insertdate inserttime preview | forecolor backcolor
   - bold italic underline strikethrough | justifyleft justifycenter justifyright justifyfull | sub sup | bullist numlist | outdent indent blockquote"
-  - styleselect formatselect fontselect fontsizeselect | forecolor backcolor
+  - styleselect formatselect fontselect fontsizeselect | 
   - tablecontrols | hr removeformat visualaid
   - fullscreen | charmap media | visualchars blockquote

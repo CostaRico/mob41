@@ -29,7 +29,7 @@
                 <div class="panel-body">
                   <div class="form-group" style="margin-bottom: 1.714em;">
                     <%= form.label :email do %>Электронна почта<% end -%>
-                    <%= form.text_field :email, class: 'form-control' %>
+                    <%= form.text_field :email, class: 'input-text' %>
                   </div>
                 </div>
               </div>
@@ -103,15 +103,15 @@
   <% end %>
     <p class="form-row form-row  form-row-wide validate-required " id=<%="#{address_id}comment" %>>
       <%= b_form.label :comment, "Комментарий к заказу" %>
-      <%= b_form.text_area :comment, class: 'input-text', :style => "height: 148px;"%>
+      <%= b_form.text_area :comment, class: 'input-text', :style => "height: 144.5px;"%>
     </p>
     <p class="form-row form-row  form-row-wide validate-required inp" id=<%="#{address_id}payment" %>>
       <%= b_form.label :payment_type_id, "Способ оплаты" %>
-      <%= b_form.select :payment_type_id, options_for_select(PaymentType.all.map{|p| [p.name,p.id]}), {}, {class: 'input-text'} %>
+      <%= b_form.select :payment_type_id, options_for_select(PaymentType.all.map{|p| [p.name,p.id]}), {}, {class: 'input-text', :style => "padding: 0.83em 1.214em;"} %>
     </p>
     <p class="form-row form-row  form-row-wide validate-required inp" id=<%="#{address_id}delivery" %>>
       <%= b_form.label :delivery_type_id, "Способ доставки" %>
-      <%= b_form.select :delivery_type_id, options_for_select(DeliveryType.all.map{|p| [p.name, p.id]}), {}, {class: 'input-text '}%>
+      <%= b_form.select :delivery_type_id, options_for_select(DeliveryType.all.map{|p| [p.name, p.id]}), {}, {class: 'input-text ', :style => "padding: 0.83em 1.214em;"}%>
      
     </p>
      
