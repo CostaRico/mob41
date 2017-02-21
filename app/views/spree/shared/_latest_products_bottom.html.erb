@@ -1,49 +1,36 @@
 <% if cached_recently_viewed_products.any? %>
-<section class="products-carousel-tabs animate-in-view fadeIn animated sidebar-item" data-animation="fadeIn" data-hook>
-    <header>
-        <h3 class="h1">Вы недавно смотрели</h3>
-    </header>
-    <div class="tab-content">
-        <div class="tab-pane active" id="tab-products-1" role="tabpanel">
-            <section class="section-products-carousel" >
-                <div class="home-v2-owl-carousel-tabs">
-                    <div class="woocommerce columns-3">
-                        <div class="products owl-carousel home-v2-carousel-tabs products-carousel columns-3">
-                            <% cached_recently_viewed_products.each do |product| %>
-                                <div class="product " itemtype="https://schema.org/Product">
-                                    <div class="product-outer" style="height: 391px;">
-                                        <div class="product-inner">
-                                            <span class="loop-product-categories">
-                                              <% taxon = product.taxons.first %>
-                                              <% if taxon %>
-                                                <%= link_to taxon.name, seo_url(taxon), :rel => "tag" %>
-                                              <% end %>
-                                            </span>
-                                            <%= link_to product_url(product) do %>
-                                                <h3><%= product.name%></h3>
-                                                <div class="product-thumbnail">
-                                                    <%= product_image(product, :class => "img-responsive", :style => "display: block; margin: 0 auto;")%>
-                                                </div>
-                                            <% end %>
-                                            <div class="price-add-to-cart">
-                                                <span class="price">
-                                                  <span class="electro-price">
-                                                    <span class="amount"><%= display_price(product) %></span>
-                                                  </span>
-                                                </span>
-                                                <!-- <a rel="nofollow" data-link="link_to-<%= product.master.id %>" class="button add_to_cart_button" href="" data-remote="true"><%#= Spree.t(:add_to_cart)%></a> -->
-                                            </div>
-                                            <div class="hover-area">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <% end %>
-                        </div>
-                    </div>
+  <div class="related products">
+      <h2>Вы недавно смотрели</h2>
+      <ul class="products columns-5">
+        <% cached_recently_viewed_products.last(4).each do |product| %>
+          <li class="product">
+            <div class="product-outer" >
+              <div class="product-inner">
+                <span class="loop-product-categories">
+                  <% taxon = product.taxons.first %>
+                  <% if taxon %>
+                    <%= link_to taxon.name, seo_url(taxon), :rel => "tag" %>
+                  <% end %>
+                </span>
+                <%= link_to product_path(product) do %>
+                  <h3><%= product.name %></h3>
+                  <div class="product-thumbnail" >
+                    <%= product_image(product) %>
+                  </div>
+                <% end %>
+                <div class="price-add-to-cart">
+                  <span class="price">
+                    <span class="electro-price">
+                      <span class="amount"><%= display_price(product)%></span>
+                    </span>
+                  </span>
+                  <!-- <a rel="nofollow" data-link="link_to-<%= product.master.id %>" class="button add_to_cart_button" href="" data-remote="true"><%#= Spree.t(:add_to_cart)%></a> -->
                 </div>
-            </section>
-        </div>
-    </div>
-</section>
+                <div class="hover-area"></div>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul> 
+  </div>  
 <% end %>

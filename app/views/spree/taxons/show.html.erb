@@ -66,10 +66,10 @@
         <div role="tabpanel" class="tab-pane active" id="grid" area-expanded=true>
           <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
         </div>
-        <%= render :partial => "spree/shared/latest_products_bottom"%>
         <div class="taxon-seo-content">
           <%= raw @taxon.description%>
         </div>
+        <%= render :partial => "spree/shared/latest_products_bottom"%>
     </div>
   </main>
 </div>
