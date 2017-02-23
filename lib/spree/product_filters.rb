@@ -723,6 +723,33 @@ module Spree
         }
       end
  #================================================================================
+  Spree::Product.add_search_scope :price_range_any do |*opts|
+        conds = opts.map {|o| Spree::Core::ProductFilters.price_filter[:conds][o]}.reject { |c| c.nil? }
+        scope = conds.shift
+        conds.each do |new_scope|
+          scope = scope.or(new_scope)
+        end
+        Spree::Product.joins(master: :default_price).where(scope)
+      end
+
+      def ProductFilters.format_price(amount)
+        amount.to_i.to_s + " руб."
+      end
+
+      def ProductFilters.price_filter
+        v = Spree::Price.arel_table
+        conds = [ [ Spree.t(:under_price, price: format_price(1000))     , v[:amount].lteq(1000)],
+                  [ "#{format_price(1000)} - #{format_price(5000)}"        , v[:amount].in(1000..5000)],
+                  [ "#{format_price(5000)} - #{format_price(10000)}"        , v[:amount].in(5000..10000)],
+                  [ "#{format_price(10000)} - #{format_price(25000)}"        , v[:amount].in(10000..25000)],
+                  [ Spree.t(:or_over_price, price: format_price(25000)) , v[:amount].gteq(25000)]]
+        {
+          name:   Spree.t(:price_range),
+          scope:  :price_range_any,
+          conds:  Hash[*conds.flatten],
+          labels: conds.map { |k,v| [k, k] }
+        }
+      end
    end
   end
 end

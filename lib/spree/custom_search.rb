@@ -6,20 +6,29 @@ module Spree
     def add_search_scopes(base_scope)
       statement = nil
       search.each do |property_name, property_values|
-        name = property_name.gsub("_any", "").gsub("selective_","")
-        puts "custom searhccccccc"
-        property = Spree::Property.find_by_name(get_name(name))
-        next unless property
-        substatement = product_property[:property_id].eq(property.id).and(product_property[:value].eq(property_values.first))
-        #substatement = Spree::Product.with_property_value(name, property_values.first)
-        property_values[1..-1].each do |pv|
-          substatement = substatement.or product_property[:value].eq(pv)
-          #substatement = substatement.or Spree::Product.with_property_value(name, pv)
+        if property_name == "price_range_any"
+          puts "custom 123312"
+          scope_name = property_name.to_sym
+               if base_scope.respond_to?(:search_scopes) && base_scope.search_scopes.include?(scope_name.to_sym)
+                 base_scope = base_scope.send(scope_name, *property_values)
+              end
+            
+        else
+          name = property_name.gsub("_any", "").gsub("selective_","")
+          puts "custom searhccccccc"
+          property = Spree::Property.find_by_name(get_name(name))
+          next unless property
+          substatement = product_property[:property_id].eq(property.id).and(product_property[:value].eq(property_values.first))
+          #substatement = Spree::Product.with_property_value(name, property_values.first)
+          property_values[1..-1].each do |pv|
+            substatement = substatement.or product_property[:value].eq(pv)
+            #substatement = substatement.or Spree::Product.with_property_value(name, pv)
+          end
+          tail = product[:id].in(Spree::ProductProperty.select(:product_id).where(substatement).map(&:product_id))
+          #ids = Spree::ProductProperty.select(:product_id).where(substatement).map(&:product_id)
+          #tail = product[:id].in(ids)
+          statement = statement.nil? ? tail : statement.and(tail)
         end
-        tail = product[:id].in(Spree::ProductProperty.select(:product_id).where(substatement).map(&:product_id))
-        #ids = Spree::ProductProperty.select(:product_id).where(substatement).map(&:product_id)
-        #tail = product[:id].in(ids)
-        statement = statement.nil? ? tail : statement.and(tail)
       end if search
       statement ? base_scope.where(statement) : base_scope
     end
@@ -71,7 +80,6 @@ module Spree
         when 'select_guarantee'
           'Гарантия'
         end
-
     end
   end
 end
