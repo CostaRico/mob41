@@ -181,10 +181,6 @@ module Spree
           'Вид решетки'
         when 'select_shutter_type'
           'Вид затвора'
-        when condition
-        when condition
-
-
         end
     end
   end
