@@ -15,9 +15,15 @@ Spree::Admin::ProductsController.class_eval do
 	          	if params[:product][:available_on].present?
 		        	params[:product][:available_on] = params[:product][:available_on] == "0" ?  "" : Time.current 
 		        end
+		        last_sku = Spree::Variant.order("sku").last.sku
+		        if @object.sku == ""
+		        	curr_sku = last_sku == "" ? "1".rjust(5, '0') : (last_sku.to_i+1).to_s.rjust(5, '0')
+		        else
+		        	curr_sku = @object.sku
+		        end
 		        @collection = collection
 		        logger.debug(@collection)
-	          	@object.update_attributes(:available_on => params[:product][:available_on])
+	          	@object.update_attributes(:available_on => params[:product][:available_on], :sku => curr_sku)
 	          	respond_with(@collection) do |format|
 		            format.html { redirect_to  :back }
 		            format.js   { render layout: false }
