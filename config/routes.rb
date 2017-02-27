@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :call_messages, only: [:new, :create]
     namespace :admin, path: Spree.admin_path do
       resources :call_messages
+      resources :providers
     end
   end
           # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -70,26 +70,28 @@
                         </div>
                     </div>
                 </div>
-                <div id="primary" class="content-area" data-hook="homepage_products" style="padding-left: 0.9375rem; width: 75%; left: 25%;">
-                     <div itemprop="mainContentOfPage" class="entry-content">
-                        <div class="vc_row wpb_row vc_row-fluid">
-                            <div class="wpb_column vc_column_container vc_col-sm-12" >
-                                <div class="vc_column-inner ">
-                                    <div class="wpb_wrapper">
-                                        <h2 class="vc_custom_heading faq-page-title contact-page-title" style="font-size: 25px;color: #434343;text-align: left;font-family:Open Sans;font-weight:400;font-style:normal">41km.ru - интернет-магазин сантехники в Москве 
-                                        </h2>
+                <% if @text_first_leg %>
+                    <div id="primary" class="content-area" data-hook="homepage_products" style="padding-left: 0.9375rem; width: 75%; left: 25%;">
+                         <div itemprop="mainContentOfPage" class="entry-content">
+                            <div class="vc_row wpb_row vc_row-fluid">
+                                <div class="wpb_column vc_column_container vc_col-sm-12" >
+                                    <div class="vc_column-inner ">
+                                        <div class="wpb_wrapper">
+                                            <h2 class="vc_custom_heading faq-page-title contact-page-title" style="font-size: 25px;color: #434343;text-align: left;font-family:Open Sans;font-weight:400;font-style:normal"><%= @text_first_leg.title %> 
+                                            </h2>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="vc_row wpb_row vc_row-fluid inner-bottom-xs" style="display: inline-block;">
-                            <div class="wpb_column vc_column_container vc_col-sm-12 col-sm-12" style='padding-left: 0'>
-                                <div class="vc_column-inner ">
-                                    <div class="wpb_wrapper">
-                                        <div class="wpb_text_column wpb_content_element ">
-                                            <div class="wpb_wrapper">
-                                                <div class="text-content">
-                                                    <p>В интернет-магазине <a href="http://41km.ru">41km.ru</a> вы найдете широкий асортимент сантехники как отечественного, так и импортного производства. Вас приятно удивят наши цены на ванны, душевые уголки, мебель для ванной комнаты, санфаянс, смесители, инсталляции</p>
+                            <div class="vc_row wpb_row vc_row-fluid inner-bottom-xs" style="display: inline-block;">
+                                <div class="wpb_column vc_column_container vc_col-sm-12 col-sm-12" style='padding-left: 0'>
+                                    <div class="vc_column-inner ">
+                                        <div class="wpb_wrapper">
+                                            <div class="wpb_text_column wpb_content_element ">
+                                                <div class="wpb_wrapper">
+                                                    <div class="text-content">
+                                                       <%= raw @text_first_leg.body%>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -97,58 +99,40 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <% end %>
                     <main class="site-main" id="main">
                         <% cache(cache_key_for_products) do %>
                             <%= render partial: 'spree/shared/featured_products', locals: { products: @feat_products } %>
                         <% end %>   
                     </main>
-                    <div itemprop="mainContentOfPage" class="entry-content">
-                        <div class="vc_row wpb_row vc_row-fluid">
-                            <div class="wpb_column vc_column_container vc_col-sm-12">
-                                <div class="vc_column-inner ">
-                                    <div class="wpb_wrapper">
-                                        <h2 class="vc_custom_heading faq-page-title contact-page-title" style="font-size: 25px;color: #434343;text-align: left;font-family:Open Sans;font-weight:400;font-style:normal">5 причин купить сантехнику в интернет-магазине 41km.ru
-                                        </h2>
+                    <% if @text_second_leg%>
+                        <div itemprop="mainContentOfPage" class="entry-content">
+                            <div class="vc_row wpb_row vc_row-fluid">
+                                <div class="wpb_column vc_column_container vc_col-sm-12">
+                                    <div class="vc_column-inner ">
+                                        <div class="wpb_wrapper">
+                                            <h2 class="vc_custom_heading faq-page-title contact-page-title" style="font-size: 25px;color: #434343;text-align: left;font-family:Open Sans;font-weight:400;font-style:normal"><%= @text_second_leg.title %>
+                                            </h2>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="vc_row wpb_row vc_row-fluid inner-bottom-xs" style="display: inline-block;">
-                        	<div class="wpb_column vc_column_container vc_col-sm-12 col-sm-12" style='padding-left: 0'>
-                                <div class="vc_column-inner ">
-                                    <div class="wpb_wrapper">
-                                        <div class="wpb_text_column wpb_content_element ">
-                                            <div class="wpb_wrapper">
-                                                <div class="text-content">
-                                                    <p><span class="s-bold">1) Мы предлагаем сантехнику по самым выгодным ценам в г.Москве.</span>
-                                                    <br />
-                                                    Работаем напрямую с заводами-производителями без посредников, что позволяет поддерживать минимальные розничные цены, разрешенные для дилеров.
-                                                    </p>
-                                                    <p><span class="s-bold">2) Бесплатная доставка сантехники по Москве в пределах МКАД* (подробнее в разделе Доставка).</span>
-                                                    <br />
-                                                    Наличие собственных курьеров позволяет осуществлять доставку бесплатно и в максимально короткий срок. При желании, заказ можно забрать самостоятельно из пункта самовывоза, расположенного на рынке МКАД 41КМ «Мельница» (подробная схема проезда в разделе Контакты).
-                                                    </p>
-                                                    <p><span class="s-bold">3) Лучшая программа лояльности!</span>
-                                                    <br />
-                                                    Мы предлагаем скидки и бонусы каждому покупателю! Следите за актуальными предложениями в разделе Акции и бонусы.
-                                                    </p>
-                                                    <p><span class="s-bold">4) Опытные и вежливые консультанты интернет-магазина 41km.ru всегда помогут сделать правильный выбор.</span>
-                                                    <br />
-                                                    В среднем, опыт наших менеджеров в сфере продажи сантехники не менее 5 лет. 
-                                                    Они постоянно проходят обучающие семинары и тренинги по общению с клиентами.
-                                                    </p>
-                                                    <p><span class="s-bold">5) Гарантия производителя на весь ассортимент представленного товара</span>
-                                                    <br />
-                                                       Мы работаем только с известными, надежными и проверенными производителями сантехники. Продаем сертифицированные товары, имеющие легальное происхождение.
-                                                    </p>
+                            <div class="vc_row wpb_row vc_row-fluid inner-bottom-xs" style="display: inline-block;">
+                            	<div class="wpb_column vc_column_container vc_col-sm-12 col-sm-12" style='padding-left: 0'>
+                                    <div class="vc_column-inner ">
+                                        <div class="wpb_wrapper">
+                                            <div class="wpb_text_column wpb_content_element ">
+                                                <div class="wpb_wrapper">
+                                                    <div class="text-content">
+                                                        <%= raw @text_second_leg.body %>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                   	</div>
+                                       	</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <% end -%>
                         <%= render :partial => "spree/shared/latest_products_bottom"%>
                     </div>				  
 				</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216234658) do
+ActiveRecord::Schema.define(version: 20170226211718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -462,6 +462,8 @@ ActiveRecord::Schema.define(version: 20170216234658) do
     t.datetime "discontinue_on"
     t.integer  "code"
     t.string   "brand",                default: ""
+    t.integer  "provider_id"
+    t.boolean  "from_index"
     t.index ["available_on"], name: "index_spree_products_on_available_on", using: :btree
     t.index ["deleted_at"], name: "index_spree_products_on_deleted_at", using: :btree
     t.index ["discontinue_on"], name: "index_spree_products_on_discontinue_on", using: :btree
@@ -580,6 +582,12 @@ ActiveRecord::Schema.define(version: 20170216234658) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "spree_providers", force: :cascade do |t|
+    t.string  "name"
+    t.text    "description"
+    t.boolean "active"
   end
 
   create_table "spree_refund_reasons", force: :cascade do |t|
