@@ -6,14 +6,12 @@ Spree::Admin::ProductsController.class_eval do
         if params[:product][:option_type_ids].present?
           params[:product][:option_type_ids] = params[:product][:option_type_ids].split(',')
         end
-       
+
         invoke_callbacks(:update, :before)
         if @object.update_attributes(permitted_resource_params)
           invoke_callbacks(:update, :after)
           flash[:success] = flash_message_for(@object, :successfully_updated)
           	if params[:product][:from_index].present?
-          		logger.debug("12332123123123---------------")
-          		logger.debug(collection)
 	          	if params[:product][:available_on].present?
 		        	params[:product][:available_on] = params[:product][:available_on] == "0" ?  "" : Time.current 
 		        end
