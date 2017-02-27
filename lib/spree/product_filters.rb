@@ -399,7 +399,7 @@ module Spree
         {
           name:   'Ширина',
           scope:  :select_width_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort_by(&:to_f)).map { |k| [k, k] }
         }
       end
     #================================Глубина, см > Глубина========================================
@@ -439,7 +439,7 @@ module Spree
         {
           name:   'Глубина',
           scope:  :select_deep_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort_by(&:to_f)).map { |k| [k, k] }
         }
       end
     #===================================Высота, см > Высота=====================================
@@ -479,7 +479,7 @@ module Spree
         {
           name:   'Высота',
           scope:  :select_height_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort_by(&:to_f)).map { |k| [k, k] }
         }
       end
     #==================================Направление выпуска======================================
@@ -719,7 +719,7 @@ module Spree
         {
           name:   'Гарантия',
           scope:  :select_guarantee_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort_by(&:to_f)).map { |k| [k, k] }
         }
       end
  #================================================================================
@@ -787,7 +787,7 @@ module Spree
         {
           name:   'Тип',
           scope:  :select_type_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
       #=================================Вид затвора=======================================
@@ -827,7 +827,7 @@ module Spree
         {
           name:   'Вид затвора',
           scope:  :select_shutter_type_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
       #=================================Вид решетки=======================================
@@ -867,7 +867,7 @@ module Spree
         {
           name:   'Вид решетки',
           scope:  :select_lattice_type_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
       #=================================Объем, л=======================================
@@ -907,7 +907,7 @@ module Spree
         {
           name:   'Объем, л',
           scope:  :select_bulk_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort_by(&:to_f)).map { |k| [k, k] }
         }
       end
       #=================================материал корпуса=======================================
@@ -947,7 +947,7 @@ module Spree
         {
           name:   'Материал корпуса',
           scope:  :select_corpus_material_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
        #=================================Покрытие корпуса=======================================
@@ -987,7 +987,7 @@ module Spree
         {
           name:   'Покрытие корпуса',
           scope:  :select_corpus_coating_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
       #=================================Материал фасада=======================================
@@ -1027,7 +1027,7 @@ module Spree
         {
           name:   'Материал фасада',
           scope:  :select_fasade_material_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
       #=================================Покрытие фасада=======================================
@@ -1067,7 +1067,7 @@ module Spree
         {
           name:   'Покрытие фасада',
           scope:  :select_fasade_coating_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
       #=================================Материал столешницы=======================================
@@ -1107,7 +1107,7 @@ module Spree
         {
           name:   'Материал столешницы',
           scope:  :select_tabletop_material_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
       #=================================Материал полотна двери=======================================
@@ -1147,7 +1147,7 @@ module Spree
         {
           name:   'Материал полотна двери',
           scope:  :select_door_material_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
       #=================================Материал решетки=======================================
@@ -1187,7 +1187,7 @@ module Spree
         {
           name:   'Материал решетки',
           scope:  :select_lattice_material_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
       #=================================Исполнение полотна двери=======================================
@@ -1227,7 +1227,7 @@ module Spree
         {
           name:   'Исполнение полотна двери',
           scope:  :select_door_execution_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
     #=================================Форма раковины=======================================
@@ -1267,7 +1267,7 @@ module Spree
         {
           name:   'Форма раковины',
           scope:  :select_sink_form_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
       #=================================Цвет раковины=======================================
@@ -1307,7 +1307,7 @@ module Spree
         {
           name:   'Цвет раковины',
           scope:  :select_sink_color_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
        #=================================Ориентация=======================================
@@ -1347,7 +1347,7 @@ module Spree
         {
           name:   'Ориентация',
           scope:  :select_orientation_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
       #=================================Назначение=======================================
@@ -1387,7 +1387,7 @@ module Spree
         {
           name:   'Назначение',
           scope:  :select_appointment_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
        #=================================Направление выпуска=======================================
@@ -1427,7 +1427,7 @@ module Spree
         {
           name:   'Направление выпуска',
           scope:  :select_emission_direct_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
       #=================================Отверстия под смеситель=======================================
@@ -1467,7 +1467,7 @@ module Spree
         {
           name:   'Отверстия под смеситель',
           scope:  :select_door_presence_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
        #=================================Управление=======================================
@@ -1507,7 +1507,7 @@ module Spree
         {
           name:   'Управление',
           scope:  :select_control_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
        #=================================Вид поддона=======================================
@@ -1547,7 +1547,7 @@ module Spree
         {
           name:   'Вид поддона',
           scope:  :select_type_of_pallet_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
        #=================================Система гидромассажа=======================================
@@ -1587,7 +1587,7 @@ module Spree
         {
           name:   'Гидромассаж',
           scope:  :select_hydromassage_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
        #=================================Аэромассаж=======================================
@@ -1627,7 +1627,7 @@ module Spree
         {
           name:   'Аэромассаж',
           scope:  :select_aeromassage_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
        #=================================Турецкая баня=======================================
@@ -1667,7 +1667,7 @@ module Spree
         {
           name:   'Турецкая баня',
           scope:  :select_turkish_bath_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
 
@@ -1708,7 +1708,7 @@ module Spree
         {
           name:   'Финская сауна',
           scope:  :select_finnish_sauna_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
        #=================================Подсветка=======================================
@@ -1748,7 +1748,7 @@ module Spree
         {
           name:   'Подсветка',
           scope:  :select_backlight_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
        #=================================Освещение=======================================
@@ -1788,7 +1788,7 @@ module Spree
         {
           name:   'Освещение',
           scope:  :select_illumination_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
        #=================================Встроенное сиденье=======================================
@@ -1828,7 +1828,7 @@ module Spree
         {
           name:   'Встроенное сиденье',
           scope:  :select_built_in_seat_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
        #=================================Конструкция дверей=======================================
@@ -1868,7 +1868,7 @@ module Spree
         {
           name:   'Конструкция дверей',
           scope:  :select_door_construction_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
        #=================================Ручной душ=======================================
@@ -1908,7 +1908,7 @@ module Spree
         {
           name:   'Ручной душ',
           scope:  :select_hand_shower_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
        #=================================Тропический (верхний) душ=======================================
@@ -1948,7 +1948,7 @@ module Spree
         {
           name:   'Тропический душ (верхний)',
           scope:  :select_tropic_shower_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
        #=================================Радио=======================================
@@ -1988,7 +1988,7 @@ module Spree
         {
           name:   'Радио',
           scope:  :select_radio_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
      #=================================Сиденье с микролифтом=======================================
@@ -2028,7 +2028,7 @@ module Spree
         {
           name:   'Сиденье с микролифтом',
           scope:  :select_seed_with_micro_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
      #=================================Безободковый=======================================
@@ -2068,7 +2068,7 @@ module Spree
         {
           name:   'Безободковый',
           scope:  :select_rimless_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
      #=================================Функция биде=======================================
@@ -2108,7 +2108,7 @@ module Spree
         {
           name:   'Функция биде',
           scope:  :select_bide_function_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
      #=================================Режим слива воды=======================================
@@ -2148,7 +2148,7 @@ module Spree
         {
           name:   'Режим слива воды',
           scope:  :select_water_drain_mode_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
      #=================================Метод крепления=======================================
@@ -2188,7 +2188,7 @@ module Spree
         {
           name:   'Метод крепления',
           scope:  :select_attach_method_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
      #=================================Подвод воды=======================================
@@ -2228,7 +2228,7 @@ module Spree
         {
           name:   'Подвод воды',
           scope:  :select_water_delivery_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
      #=================================Крыло=======================================
@@ -2268,7 +2268,7 @@ module Spree
         {
           name:   'Крыло',
           scope:  :select_wing_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
        #=================================Расположение крыла=======================================
@@ -2308,7 +2308,7 @@ module Spree
         {
           name:   'Расположение крыла',
           scope:  :select_wing_location_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
      #=================================Число основных чаш=======================================
@@ -2348,7 +2348,7 @@ module Spree
         {
           name:   'Число основных чаш',
           scope:  :select_main_cups_count_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort_by(&:to_f)).map { |k| [k, k] }
         }
       end
      #=================================Встраиваемая система=======================================
@@ -2388,7 +2388,7 @@ module Spree
         {
           name:   'Встраиваемая система',
           scope:  :select_emb_system_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
      #=================================Диаметр подключения, см=======================================
@@ -2428,7 +2428,7 @@ module Spree
         {
           name:   'Диаметр подключения',
           scope:  :select_connect_diametr_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort_by(&:to_f)).map { |k| [k, k] }
         }
       end
      #=================================Диаметр слива, см=======================================
@@ -2468,7 +2468,7 @@ module Spree
         {
           name:   'Диаметр слива',
           scope:  :select_drain_diametr_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort_by(&:to_f)).map { |k| [k, k] }
         }
       end
      #=================================Размещение=======================================
@@ -2508,7 +2508,7 @@ module Spree
         {
           name:   'Размещение',
           scope:  :select_placement_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
        #=================================Межосевое расстояние, см=======================================
@@ -2548,7 +2548,7 @@ module Spree
         {
           name:   'Межосевое расстояние',
           scope:  :select_wheelbase_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort_by(&:to_f)).map { |k| [k, k] }
         }
       end
      #=================================Вид нагрева=======================================
@@ -2588,7 +2588,7 @@ module Spree
         {
           name:   'Вид нагрева',
           scope:  :select_heating_type_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
      #=================================Мощность, Вт=======================================
@@ -2628,7 +2628,7 @@ module Spree
         {
           name:   'Мощность',
           scope:  :select_power_wt_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort_by(&:to_f)).map { |k| [k, k] }
         }
       end
      #=================================Объем накопительной емкости, л=======================================
@@ -2668,7 +2668,7 @@ module Spree
         {
           name:   'Объем бака',
           scope:  :select_tank_vol_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort_by(&:to_f)).map { |k| [k, k] }
         }
       end
      #=================================Вид нагревательного элемента=======================================
@@ -2708,7 +2708,7 @@ module Spree
         {
           name:   'Нагревательный элемент',
           scope:  :select_heat_element_type_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
      #=================================Подводка=======================================
@@ -2748,7 +2748,7 @@ module Spree
         {
           name:   'Подводка',
           scope:  :select_liner_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
      #=================================Внутреннее покрытие бака=======================================
@@ -2788,7 +2788,7 @@ module Spree
         {
           name:   'Внутреннее покрытие бака',
           scope:  :select_internal_coating_tank_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
      #=================================Оснащение=======================================
@@ -2828,7 +2828,7 @@ module Spree
         {
           name:   'Оснащение',
           scope:  :select_equip_any,
-          labels: brands.sort_by(&:to_f)
+          labels: (brands.sort).map { |k| [k, k] }
         }
       end
    end

@@ -1,7 +1,7 @@
 <% collection.each do |product| %>
           <tr <%== "style='color: red;'" if product.deleted? %> id="<%= spree_dom_id product %>" data-hook="admin_products_index_rows" class="<%= cycle('odd', 'even') %>">
             <%= form_for [:admin, product], method: :put, html: { multipart: true, :remote => false } do |f| %>
-              <td class="sku" style="width: 150px;"><%#= f.text_field :sku, size: 8, class: 'form-control', :value => product.sku %><%= product.sku%></td>
+              <td class="sku" ><%#= f.text_field :sku, size: 8, class: 'form-control', :value => product.sku %><%= product.sku%></td>
               <td class="status"><%= f.check_box :available_on, checked: product.available?, class: 'form-control' %> </td>
               <td class="image" ><%= mini_image product %></td>
               <td ><%= link_to truncate(product.try(:name), length: 80), edit_admin_product_path(product) %></td>
@@ -11,7 +11,7 @@
               </td>
               <td> <%= button Spree.t('actions.update'), 'refresh', 'submit', {class: 'btn-success', data: { disable_with: "#{ Spree.t(:saving) }..." }} %></td>
               <%= f.check_box :from_index, class: 'form-control hidden', :hidden => true%>
-              <td><%= product.updated_at.strftime("Обновлён %m/%d/%Y - %T") %></td> 
+              <td><%= product.updated_at.strftime("Обновлён %d/%m/%Y - %T") %></td> 
               <td class="actions actions-3 text-right" data-hook="admin_products_index_row_actions">
                 <%= link_to_edit product, no_text: true, class: 'edit' if can?(:edit, product) && !product.deleted? %>
                 <%= link_to_clone product, no_text: true, class: 'clone' if can?(:clone, product) %>

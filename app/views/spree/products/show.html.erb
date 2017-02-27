@@ -34,19 +34,24 @@
               <%#= link_to @taxon.name, seo_url(@taxon), :rel=>"tag"%>
             </span>
             <h1 itemprop="name" class="product_title entry-title"><%= @product.name %></h1>
-            <div class="availability in-stock"><strong>Код товара</strong>: <span style="color:#b60000;"><%= @product.code%></span></div>
+            <div class="availability in-stock"><strong>Код товара</strong>: <span style="color:#b60000;"><%= @product.sku%></span></div>
             <hr class="single-product-title-divider" />
             
             <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-              <p class="price">
-              <span class="electro-price">
-                <span class="amount"><%= display_price(@product) %></span>
-                </span>
-              </p>
-              <meta itemprop="price" content="1215" />
-              <meta itemprop="priceCurrency" content="rub" />
-              <link itemprop="availability" href="http://schema.org/InStock" />
-              <%= render partial: 'cart_form' %>
+              <% if @product.available?%>
+                <p class="price">
+                <span class="electro-price">
+                  <span class="amount"><%= display_price(@product) %></span>
+                  </span>
+                </p>
+                <meta itemprop="price" content="1215" />
+                <meta itemprop="priceCurrency" content="rub" />
+                <link itemprop="availability" href="http://schema.org/InStock" />
+              
+                <%= render partial: 'cart_form' %>
+              <% else %>
+                Наличие товара уточняйте
+              <% end %>
             </div>
           </div>
         </div>
