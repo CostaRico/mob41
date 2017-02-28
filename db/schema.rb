@@ -464,6 +464,7 @@ ActiveRecord::Schema.define(version: 20170226211718) do
     t.string   "brand",                default: ""
     t.integer  "provider_id"
     t.boolean  "from_index"
+    t.float    "provider_price"
     t.index ["available_on"], name: "index_spree_products_on_available_on", using: :btree
     t.index ["deleted_at"], name: "index_spree_products_on_deleted_at", using: :btree
     t.index ["discontinue_on"], name: "index_spree_products_on_discontinue_on", using: :btree

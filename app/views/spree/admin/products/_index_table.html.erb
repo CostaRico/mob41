@@ -5,13 +5,17 @@
               <td class="status"><%= f.check_box :available_on, checked: product.available?, class: 'form-control' %> </td>
               <td class="image" ><%= mini_image product %></td>
               <td ><%= link_to truncate(product.try(:name), length: 80), edit_admin_product_path(product) %></td>
-              <td class="text-center" ><%= f.text_field :price, value: number_to_currency(product.price, unit: ''), class: 'form-control', disabled: (cannot? :update, product.price) %></td>
+              <td class="text-center" ><%= f.text_field :price, value: product.price, class: 'form-control', disabled: (cannot? :update, product.price) %></td>
               <td >
                 <%= f.select :provider_id, options_for_select(Spree::Provider.active_providers.map{|p| [p.name, p.id]}, product.provider_id), {include_blank: true}, {class: 'form-control'}%>
               </td>
+              
+              <td><%= f.text_field :provider_price, value: product.provider_price, class: 'form-control' %></td>       
+              <td>
+                <%= product.available_on.strftime("%d/%m/%Y   %T") if product.available?%>
+                <%= f.check_box :from_index, class: 'form-control hidden', :hidden => true%>
+              </td> 
               <td> <%= button Spree.t('actions.update'), 'refresh', 'submit', {class: 'btn-success', data: { disable_with: "#{ Spree.t(:saving) }..." }} %></td>
-              <%= f.check_box :from_index, class: 'form-control hidden', :hidden => true%>
-              <td><%= product.updated_at.strftime("Обновлён %d/%m/%Y - %T") %></td> 
               <td class="actions actions-3 text-right" data-hook="admin_products_index_row_actions">
                 <%= link_to_edit product, no_text: true, class: 'edit' if can?(:edit, product) && !product.deleted? %>
                 <%= link_to_clone product, no_text: true, class: 'clone' if can?(:clone, product) %>
