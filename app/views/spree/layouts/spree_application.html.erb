@@ -17,7 +17,7 @@
     <div id="content" class="site-content" tabindex="-1" style="min-height: 800px;">
       <div class="container">
         <%= breadcrumbs(@taxon, @product) %>
-        <%= render partial: 'spree/shared/sidebar'  %>
+        <%= render partial: 'spree/shared/sidebar' if content_for? :sidebar %>
         <%#= flash_messages %>
         <%= yield %>
 
