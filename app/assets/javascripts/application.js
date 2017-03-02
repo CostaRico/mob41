@@ -1,6 +1,6 @@
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
-//
+//	
 // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
 // or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
 //
@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require bootstrap.min
 //= require owl.carousel.min
 //= require bootstrap-hover-dropdown.min
@@ -27,6 +28,19 @@
 //= require modal_window
 //= require jquery.payment
 //= require jquery.validate/jquery.validate.min
-
+// $(document).ready(function() {
+//     var slider = $("#the_slider").slider({
+//         range: true,
+//         min: 0,
+//         max: 50000,
+//         values: [0, 50000],
+//         slide: function(event, ui) {
+//             $("#filter_min_price").val(ui.values[0]);
+//             $("#filter_max_price").val(ui.values[1]);
+//         }
+//     });
+//     $("#filter_min_price").val(slider.slider("values")[0]);
+//     $("#filter_max_price").val(slider.slider("values")[1]);
+// });
 
 //$().toastmessage('showErrorToast', 'Произошла ошибка! Попробуйте снова'); 

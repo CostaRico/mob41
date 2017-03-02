@@ -5,6 +5,14 @@
  *= require_tree .
  *= require_self
  */
+ .price-filter label{
+    margin-top: 1em;
+    padding-left: 1em;
+ }
+ /*.price-filter input{
+    margin-left: 5px;
+    margin-right: 5px;
+ }*/
  .modal-dialog {
     max-width: 335px;
  }

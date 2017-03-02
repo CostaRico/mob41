@@ -1,1 +1,78 @@
  <%= yield :sidebar %>
+<span for="amount" class="filter-hd">Price range</span>
+<hr class="myhr2">
+<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+<div id="slider-range"></div>
+<script type="text/javascript">
+// 	$(document).ready(function(){
+
+
+// 	$(function() {
+//       $("#slider-range").slider({
+//           range: true,
+//           min: 0,
+//           max: 5000,
+//           /* jshint ignore:start */
+//           values: [ <%#= params.key?(:minprice) ? params[:minprice].to_i : 0 %>, <%#= params.key?(:maxprice) ? params[:maxprice].to_i : 1000 %> ],
+//           slide: function( event, ui ) {
+//               $( "#amount" ).val( "<%#= current_currency %>" + ui.values[ 0 ] + " - <%#= current_currency %>" + ui.values[ 1 ] );
+//           },
+//           /* jshint ignore:end */
+//           change: function( event, ui ) {
+//               url = window.location.href;
+//               newmin = ui.values[ 0 ];
+//               newmax = ui.values[ 1 ];
+//               url = updateURLParameter(url, 'minprice', newmin);
+//               url = updateURLParameter(url, 'maxprice', newmax);
+//               window.location.href = url;
+//           }
+//       });
+//       $( "#amount" ).val( "<%#= current_currency %>" + $( "#slider-range" ).slider( "values", 0 ) +
+//   " - <%#= current_currency %>" + $( "#slider-range" ).slider( "values", 1 ) );
+//   });
+// 	function updateURLParameter(url, param, paramVal)
+// {
+//     var TheAnchor = null;
+//     var newAdditionalURL = "";
+//     var tempArray = url.split("?");
+//     var baseURL = tempArray[0];
+//     var additionalURL = tempArray[1];
+//     var temp = "";
+
+//     if (additionalURL)
+//     {
+//         var tmpAnchor = additionalURL.split("#");
+//         var TheParams = tmpAnchor[0];
+//             TheAnchor = tmpAnchor[1];
+//         if(TheAnchor)
+//             additionalURL = TheParams;
+
+//         tempArray = additionalURL.split("&");
+
+//         for (i=0; i<tempArray.length; i++)
+//         {
+//             if(tempArray[i].split('=')[0] != param)
+//             {
+//                 newAdditionalURL += temp + tempArray[i];
+//                 temp = "&";
+//             }
+//         }
+//     }
+//     else
+//     {
+//         var tmpAnchor = baseURL.split("#");
+//         var TheParams = tmpAnchor[0];
+//             TheAnchor  = tmpAnchor[1];
+
+//         if(TheParams)
+//             baseURL = TheParams;
+//     }
+
+//     if(TheAnchor)
+//         paramVal += "#" + TheAnchor;
+
+//     var rows_txt = temp + "" + param + "=" + paramVal;
+//     return baseURL + "?" + newAdditionalURL + rows_txt;
+// }
+// })
+</script>

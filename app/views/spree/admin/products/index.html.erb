@@ -65,7 +65,7 @@
     </colgroup>
     <thead>
       <tr data-hook="admin_products_index_headers">
-        <th><%= Spree.t(:sku) %></th>
+        <th><%= sort_link @search, :sku, Spree.t(:sku), { default_order: "desc" } %></th>
         <th><%= Spree.t(:status) %></th>
         <th></th>
         <th ><%= sort_link @search,:name, Spree.t(:name), { default_order: "desc" }, {title: 'admin_products_listing_name_title'} %></th>

@@ -93,7 +93,6 @@ Spree::BaseHelper.class_eval do
     end
     
     def seo_url(taxon)
-    # return spree.nested_taxons_path(taxon.permalink)
       return main_app.categories_path(taxon.permalink)
     end
 end

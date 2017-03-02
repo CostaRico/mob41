@@ -1,6 +1,25 @@
 <% filters = @taxon ? @taxon.applicable_filters : [Spree::Core::ProductFilters.all_taxons] %>
+
 <% unless filters.empty? %>
-  <%= form_tag '', method: :get, id: 'sidebar_products_search' do %>
+<%= form_tag '', method: :get, id: 'sidebar_products_search' do %>
+    <div class="dropdown" style="display: inline;">
+        <button class="dLabel" type="button"  aria-haspopup="true" aria-expanded="false">
+          Ценовой диапазон
+          <span class="caret"></span>
+        </button>
+        
+        <ul class="dropdown-menu filter-menu" aria-labelledby="dLabel">
+          <div class="list price-filter">
+            <li>
+              <label  for="filter_min_price" class="l-f">От</label>
+              <input id="filter_min_price" class="l-f" type="text" name="min_price" value ="<%= params[:min_price].present? ? params[:min_price] : '0'%>" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+              <label  for="filter_max_price" class="l-f">До</label>
+              <input id="filter_max_price" class="l-f" type="text" name="max_price" value ="<%= params[:max_price].present? ? params[:max_price] : '200000'%>" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>  
+            </li>
+          </div>
+          <%= submit_tag "Применить", name: nil, class: 'button btn-filter' %>
+        </ul>
+    </div>
     <%= hidden_field_tag 'per_page', params[:per_page] %>
     <% filters.each do |filter| %>
       <% labels = filter[:labels] || filter[:conds].map {|m,c| [m,m]} %>
@@ -15,7 +34,6 @@
             <% labels.each do |nm,val| %>
               <% label = "#{filter[:name]}_#{nm}".gsub(/\s+/,'_') %>
                 <li class="filter-pos checkbox abc-checkbox abc-checkbox-info">
-                  
                   <input class="chck" type="checkbox"
                          id="<%= label %>"
                          name="search[<%= filter[:scope].to_s %>][]"
@@ -64,6 +82,16 @@
         $('.dLabel').parent().removeClass('open');
         $(this).parent().toggleClass('open');
       }
-    }); 
+    });
+    $("#filter_min_price").on("change", function(){ 
+      if ($(this).val()==""){
+        $(this).val(0)
+      }
+    });
+    $("#filter_max_price").on("change", function(){ 
+      if ($(this).val()==""){
+        $(this).val(200000)
+      }
+    });
   });
 </script>

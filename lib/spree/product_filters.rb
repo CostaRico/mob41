@@ -8,12 +8,14 @@ module Spree
           conds.each do |new_scope|
             scope = scope.or(new_scope)
           end
+          puts "123333-------------------------------"
+          puts (scope.pluck(:value))
           Spree::Product.with_property('Страна').where(scope)
         end
 
       def ProductFilters.country_filter
           brand_property = Spree::Property.find_by(name: 'Страна')
-          brands = brand_property ? Spree::ProductProperty.where(property_id: brand_property.id).pluck(:value).uniq.map(&:to_s) : []
+          brands = brand_property ? Spree::ProductProperty.where(property_id: brand_property.id).map{|p| p.value.split(",").first}.uniq.map(&:to_s) : []
           pp = Spree::ProductProperty.arel_table
           conds = Hash[*brands.map { |b| [b, pp[:value].eq(b)] }.flatten]
           {
@@ -34,7 +36,8 @@ module Spree
         scope = Spree::ProductProperty.where(property: brand_property).
           joins(product: :taxons).
           where("#{Spree::Taxon.table_name}.id" => [taxon] + taxon.descendants)
-        brands = scope.pluck(:value).uniq
+          
+        brands = scope.map{|p| p.value.split(",").first}.uniq
         {
           name:   'Страна бренда',
           scope:  :select_country_any,
