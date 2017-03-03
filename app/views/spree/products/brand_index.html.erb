@@ -1,0 +1,23 @@
+<div id="content" class="site-content" tabindex="-1">
+  	<div class="container">
+		<nav class="woocommerce-breadcrumb"></nav>
+		<div id="primary" class="content-area" data-hook="homepage_products" style="padding-left: 0.9375rem; width: 75%; left: 25%;">
+		  <main class="site-main" id="main">
+		  	<section>
+		  		<header class="page-header">
+				    <h1 class="page-title">Список брендов</h1>
+				</header>
+				     	<%if @brands.any?%>
+				     		<ul class="products columns-3">
+				     			<% @brands.each do |brand| %>
+				     				<li><%= link_to brand, "/brands/#{brand}" %></li>
+				     			<% end %>
+				     		</ul>
+				     	<% end %>
+				     	
+				
+		  	</section>
+		  </main>
+		</div>
+	</div>
+</div>

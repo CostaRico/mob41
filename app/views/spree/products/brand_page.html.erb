@@ -1,0 +1,29 @@
+<div id="primary" class="content-area" data-hook="homepage_products" style="padding-left: 1.9375rem; width: 75%; left: 25%;">
+  <main class="site-main" id="main">
+  <nav class="woocommerce-breadcrumb"></nav>
+  <section>
+    <header class="page-header">
+      <h1 class="page-title"><%= @name %></h1>
+      <!-- <p class="woocommerce-result-count">Showing 1–15 of 20 results</p> -->
+    </header>
+  </section>
+   <div class="tab-content">
+        <nav class="shop-control-bar"  style="background-color: #fff;"> 
+          <%#= render partial: 'spree/shared/product_filter', locals: {taxon: @taxon }%>
+        </nav>
+        <div role="tabpanel" class="tab-pane active" id="grid" area-expanded=true>
+          <%= render partial: 'spree/shared/products', locals: { products: @products } %>
+        </div>
+        <div class="taxon-seo-content">
+          <%#= raw @taxon.description%>
+        </div>
+        <%= render :partial => "spree/shared/latest_products_bottom"%>
+    </div>
+  </main>
+</div>
+<div id="sidebar" class="sidebar">
+<aside class="widget widget_electro_products_filter " style="margin-top: 13px;">
+<aside class="widget woocommerce widget_price_filter">
+ </aside>
+  </aside>
+</div>
