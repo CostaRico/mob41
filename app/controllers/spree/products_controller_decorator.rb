@@ -37,6 +37,21 @@ Spree::ProductsController.class_eval do
       @taxon = params[:taxon_id].present? ? Spree::Taxon.find(params[:taxon_id]) : @product.taxons.first
       redirect_if_legacy_path
     end
+    def brand_index
+      @property = Spree::Property.find_by_name("Бренд")
+      if @property
+        @brands = @property.product_properties.pluck(:value).uniq  
+      end
+    end
+
+    def brand_page
+        @name = params[:id]
+        @brands = Spree::ProductProperty.where(:value => params[:id])
+        @products_ids = @brands.pluck(:product_id).uniq
+        @products = Spree::Product.where(:id => @products_ids).
+          page(params[:page]).per(params[:per_page] || Spree::Config[:admin_products_per_page])
+    end
+
     private
 
     def sorting_scope
@@ -49,17 +64,5 @@ Spree::ProductsController.class_eval do
 
     def allowed_sortings
       [:descend_by_master_price, :ascend_by_master_price, :ascend_by_updated_at]
-    end
-
-    def brand_index
-      @property = Spree::Property.find_by_name("Бренд")
-      if @property
-        @brands = @property.product_properties.pluck(:value).uniq  
-      end
-    end
-
-    def brand_page
-        @brand = Spree::ProductProperty.where(:value => params[:id])
-        logger.debug("#{@brand.value}----------------------------------------------")
     end
 end
