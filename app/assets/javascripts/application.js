@@ -28,19 +28,5 @@
 //= require modal_window
 //= require jquery.payment
 //= require jquery.validate/jquery.validate.min
-// $(document).ready(function() {
-//     var slider = $("#the_slider").slider({
-//         range: true,
-//         min: 0,
-//         max: 50000,
-//         values: [0, 50000],
-//         slide: function(event, ui) {
-//             $("#filter_min_price").val(ui.values[0]);
-//             $("#filter_max_price").val(ui.values[1]);
-//         }
-//     });
-//     $("#filter_min_price").val(slider.slider("values")[0]);
-//     $("#filter_max_price").val(slider.slider("values")[1]);
-// });
 
 //$().toastmessage('showErrorToast', 'Произошла ошибка! Попробуйте снова'); 

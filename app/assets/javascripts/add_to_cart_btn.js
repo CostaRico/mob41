@@ -27,11 +27,9 @@ $('document').ready(function(){
 	  if ($(this).attr("aria-expanded")=='false'){
 	    $(this).parent('.nav-item').addClass(" open");
 	    $(this).attr("aria-expanded","true")
-	    console.log(1)
 	  }else
 	  { $(this).parent(".nav-item").removeClass("open");
 	    $(this).attr("aria-expanded","false")
-	    console.log(2)
 	  }
 	});
 	$( ".navbar-mini-cart" ).on( "click", ".nav-item", function() {

@@ -3,18 +3,18 @@
 <% unless filters.empty? %>
 <%= form_tag '', method: :get, id: 'sidebar_products_search' do %>
     <div class="dropdown" style="display: inline;">
-        <button class="dLabel" type="button"  aria-haspopup="true" aria-expanded="false">
-          Ценовой диапазон
+        <button class="dLabel <%= 'active-filter' if params[:min_price].present?&&params[:min_price]!=@min_product_price.to_s||params[:max_price].present?&&params[:max_price]!=@max_product_price.to_s%>" type="button"  aria-haspopup="true" aria-expanded="false">
+          Цена
           <span class="caret"></span>
         </button>
         
         <ul class="dropdown-menu filter-menu" aria-labelledby="dLabel">
-          <div class="list price-filter">
+          <div class="list price-filter ">
             <li>
               <label  for="filter_min_price" class="l-f">От</label>
-              <input id="filter_min_price" class="l-f" type="text" name="min_price" value ="<%= params[:min_price].present? ? params[:min_price] : '0'%>" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+              <input id="filter_min_price" class="l-f" type="text" name="min_price" value ="<%= params[:min_price].present? ? params[:min_price] : @min_product_price%>" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
               <label  for="filter_max_price" class="l-f">До</label>
-              <input id="filter_max_price" class="l-f" type="text" name="max_price" value ="<%= params[:max_price].present? ? params[:max_price] : '200000'%>" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>  
+              <input id="filter_max_price" class="l-f" type="text" name="max_price" value ="<%= params[:max_price].present? ? params[:max_price] : @max_product_price%>" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>  
             </li>
           </div>
           <%= submit_tag "Применить", name: nil, class: 'button btn-filter' %>
@@ -85,12 +85,12 @@
     });
     $("#filter_min_price").on("change", function(){ 
       if ($(this).val()==""){
-        $(this).val(0)
+        $(this).val("<%= j(@min_product_price.to_s) %>")
       }
     });
     $("#filter_max_price").on("change", function(){ 
       if ($(this).val()==""){
-        $(this).val(200000)
+        $(this).val("<%= j(@max_product_price.to_s)%>")
       }
     });
   });

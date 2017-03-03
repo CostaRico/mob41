@@ -9,10 +9,10 @@
     margin-top: 1em;
     padding-left: 1em;
  }
- /*.price-filter input{
-    margin-left: 5px;
-    margin-right: 5px;
- }*/
+ .price-filter input{
+    width: 90%;
+    margin-left: .7em;
+ }
  .modal-dialog {
     max-width: 335px;
  }

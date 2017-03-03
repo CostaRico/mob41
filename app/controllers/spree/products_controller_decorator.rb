@@ -51,4 +51,15 @@ Spree::ProductsController.class_eval do
       [:descend_by_master_price, :ascend_by_master_price, :ascend_by_updated_at]
     end
 
+    def brand_index
+      @property = Spree::Property.find_by_name("Бренд")
+      if @property
+        @brands = @property.product_properties.pluck(:value).uniq  
+      end
+    end
+
+    def brand_page
+        @brand = Spree::ProductProperty.where(:value => params[:id])
+        logger.debug("#{@brand.value}----------------------------------------------")
+    end
 end

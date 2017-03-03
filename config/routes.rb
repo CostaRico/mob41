@@ -9,13 +9,16 @@ Rails.application.routes.draw do
   mount Spree::Core::Engine, at: '/'
   Spree::Core::Engine.routes.append do
     resources :call_messages, only: [:new, :create]
+    get '/brands', :to =>'products#brand_index'
+    get '/brands/:id', :to => 'products#brand_page'
     namespace :admin, path: Spree.admin_path do
       resources :call_messages
       resources :providers
     end
-  end
+  end 
           # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   post "/orders/remove_item" => "spree/orders#remove_line_item"
 	get '*id', :to => 'spree/taxons#show', :as => :categories
+
   #resources :call_messages#, :only => [:create, :new]
 end
