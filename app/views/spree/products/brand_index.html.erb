@@ -1,7 +1,8 @@
 <div id="content" class="site-content" tabindex="-1">
   	<div class="container">
-		<nav class="woocommerce-breadcrumb"></nav>
+		
 		<div id="primary" class="content-area" data-hook="homepage_products" style="padding-left: 0.9375rem; width: 75%; left: 25%;">
+		<nav class="woocommerce-breadcrumb"><a href="/" style="padding: 0.465em 0em;">Главная</a><span class="delimiter"><i class="fa fa-angle-right"></i></span>Бренды</nav>
 		  <main class="site-main" id="main">
 		  	<section>
 		  		<header class="page-header">
@@ -10,7 +11,7 @@
 				     	<%if @brands.any?%>
 				     		<ul class="products columns-3">
 				     			<% @brands.each do |brand| %>
-				     				<li><%= link_to brand, "/brands/#{brand}" %></li>
+				     				<li class="brand-list"><%= link_to brand, "/brands/#{brand}" %></li>
 				     			<% end %>
 				     		</ul>
 				     	<% end %>

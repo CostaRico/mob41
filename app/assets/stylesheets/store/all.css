@@ -5,6 +5,11 @@
  *= require_tree .
  *= require_self
  */
+ .brand-list{
+    display: inline;
+    margin: 2em 1em;
+    font-size: 1.2em;
+ }
  .price-filter label{
     margin-top: 1em;
     padding-left: 1em;
