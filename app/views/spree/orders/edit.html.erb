@@ -1,7 +1,7 @@
 <% @body_id = 'cart' %>
 <div id="content-order" class="site-content order-id" tabindex="-1">
   <div class="container">
-    <nav class="woocommerce-breadcrumb"><a href="/" style="padding: 0.465em 0em;">Главная</a><span class="delimiter"><i class="fa fa-angle-right"></i></span><%= Spree.t(:shopping_cart) %></nav>
+    <nav class="woocommerce-breadcrumb "><a href="/" style="padding: 0.465em 0em;">Главная</a><span class="delimiter"><i class="fa fa-angle-right"></i></span><%= Spree.t(:shopping_cart) %></nav>
     <div id="primary" class="content-area">
       <main id="main" class="site-main cart-edit">
         <%= render partial: "order_form", locals: {order: @order}%>

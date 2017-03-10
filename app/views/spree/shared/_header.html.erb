@@ -1,76 +1,78 @@
 <script type="text/javascript">
   // $(document).on("turbolinks:load", function(){
-    $( ".departments-menu" ).on( "click",'.nav-item' ,function() {
-      if ($(this).children(".nav-link").attr("aria-expanded")=='false'){
-        $(this).addClass(" open");
-        $(this).children(".nav-link").attr("aria-expanded","true")
-      }else
-      { $(this).removeClass("open");
-        $(this).children(".nav-link").attr("aria-expanded","false")
-      }
-    });
+  $(".departments-menu").on("click", '.nav-item', function () {
+    if ($(this).children(".nav-link").attr("aria-expanded") == 'false') {
+      $(this).addClass(" open");
+      $(this).children(".nav-link").attr("aria-expanded", "true")
+    } else {
+      $(this).removeClass("open");
+      $(this).children(".nav-link").attr("aria-expanded", "false")
+    }
+  });
   // });
 </script>
 
-<div class="top-bar">
-    <div class="container">
-      <div class="container" style="padding-left: 0px;">
-        <nav> 
-          <ul id="menu-top-bar-left" class="nav nav-inline pull-left animate-dropdown flip">
-                
-                <li class="menu-item"><a title="About" href="/about">О компании</a></li>
-                <li class="menu-item"><a title="Delivery" href="/delivery"><%= Spree.t(:delivery)%></a></li>
-                <li class="menu-item"><a title="Payment" href="/payment">Оплата</a></li>
-                <li class="menu-item"><a title="Contacts" href="/contacts">Контакты</a></li>
-          </ul>
-        </nav>
-        <nav>
-          <ul id="menu-top-bar-right" class="nav nav-inline pull-right animate-dropdown flip">
-            <%= render partial:'/spree/shared/login_bar'%>
-          </ul>
-        </nav>
-      </div>
+<div class="top-bar hidden-sm-down">
+  <div class="container ">
+    <div class="container" style="padding-left: 0px;">
+      <nav>
+        <ul id="menu-top-bar-left" class="nav nav-inline pull-left animate-dropdown flip hidden-sm-down">
+
+          <li class="menu-item"><a title="About" href="/about">О компании</a></li>
+          <li class="menu-item"><a title="Delivery" href="/delivery"><%= Spree.t(:delivery) %></a></li>
+          <li class="menu-item"><a title="Payment" href="/payment">Оплата</a></li>
+          <li class="menu-item"><a title="Contacts" href="/contacts">Контакты</a></li>
+        </ul>
+      </nav>
+      <nav>
+        <ul id="menu-top-bar-right" class="nav nav-inline pull-right animate-dropdown flip">
+          <%= render partial: '/spree/shared/login_bar' %>
+        </ul>
+      </nav>
     </div>
   </div>
-<header class="site-header header-v2">
+</div>
+
+<header class="site-header header-v2 hidden-sm-down">
   <div class="container">
     <div class="row" style="margin-top: 5px;">
       <div class="header-logo">
         <a href="/" class="header-logo-link">
-          <img src="<%= asset_path('logo_h.png') %>">
+          <img src="<%= asset_path('logo_h.png') %>"/>
         </a>
       </div>
-       <div class="primary-nav animate-dropdown" style=" padding: .7em .9375rem; padding-top: .1em; padding-left: 2em;">
-          <div class="clearfix">
-              <button class="navbar-toggler hidden-sm-up pull-right flip" type="button" data-toggle="collapse" data-target="#default-header">
-                &#9776;
-              </button>
-          </div>
-          <div class="collapse navbar-toggleable-xs" id="default-header">
-            <nav>
-              <ul id="menu-main-menu" class="nav nav-inline yamm" style="font-size: 2em;">
-                <li class="menu-item">
-                  <ul class="call">
-                    <li><a ><i class="fa fa-phone color-gray" aria-hidden="true"></i>  +7 (495) <span class="color-blue">212-13-66</span></a></li>
-                    <li data-toggle="modal" data-target="#myModalNorm"><span class="color-gray call-text-active" ><a>заказать обратный звонок</a> </span></li>
-                  </ul>
-                </li>
-                <li class="menu-item">
-                  <ul class="call">
-                    <li><a><i class="fa fa-phone color-gray" aria-hidden="true"></i>  8 (800) <span class="color-red">744-44-22</span> </a></li>
-                    <li><span class="color-gray call-text-passive"><a>бесплатный звонок по России</a> </span></li>
-                  </ul>
-                </li>
+      <div class="primary-nav animate-dropdown" style=" padding: .7em .9375rem; padding-top: .1em; padding-left: 2em;">
 
-                <li class="menu-item" style="float: right">
+        <div class="collapse navbar-toggleable-xs" id="default-header">
+          <nav>
+            <ul id="menu-main-menu" class="nav nav-inline yamm" style="font-size: 2em;">
+              <li class="menu-item">
+                <ul class="call">
+                  <li><a><i class="fa fa-phone color-gray" aria-hidden="true"></i> +7 (495)
+                    <span class="color-blue">212-13-66</span></a></li>
+                  <li data-toggle="modal" data-target="#myModalNorm">
+                    <span class="color-gray call-text-active"><a>заказать обратный звонок</a> </span></li>
+                </ul>
+              </li>
+              <li class="menu-item">
+                <ul class="call">
+                  <li><a><i class="fa fa-phone color-gray" aria-hidden="true"></i> 8 (800)
+                    <span class="color-red">744-44-22</span> </a></li>
+                  <li><span class="color-gray call-text-passive"><a>бесплатный звонок по России</a> </span></li>
+                </ul>
+              </li>
+
+              <li class="menu-item" style="float: right">
                 <ul>
-                  <li> <a><i class="fa fa-clock-o color-gray" aria-hidden="true"></i> <span>  10:00-21:00</span>  </a></li>
+                  <li><a><i class="fa fa-clock-o color-gray" aria-hidden="true"></i> <span>  10:00-21:00</span> </a>
+                  </li>
                   <li><span class="color-gray call-text" style="padding-left: 2.4em;"> ежедневно</span></li>
                 </ul>
-               </li>
-              </ul>
-            </nav>
-          </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </div><!-- 
     <div class="header-support-info">
       <div class="media">
@@ -81,26 +83,27 @@
           <span class="support-email">Без выходных</span>
         </div>    
       </div>
-    </div>
-  </div> --> 
+    </div>-->
+  </div>
 </header>
-<nav class="navbar navbar-primary navbar-full">
+<nav class="navbar navbar-primary navbar-full hidden-sm-down">
   <div class="container">
     <ul class="nav navbar-nav departments-menu animate-dropdown">
-      <li class="nav-item dropdown " >
-        <a class="nav-link dropdown-toggle" href="#" id="departments-menu-toggle" aria-expanded="false">Каталог товаров</a>
-        <ul id="menu-vertical-menu" class="dropdown-menu yamm departments-menu-dropdown" style="border-bottom-right-radius: 0.625rem;">
-          <% Spree::Taxonomy.first.root.children.each do |taxon|%>
-            <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown menu-item-2584 dropdown"><%= link_to taxon.name, seo_url(taxon), :title => taxon.name%></li>
+      <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle" href="#" id="departments-menu-toggle" aria-expanded="false">Каталог
+          товаров</a>
+        <ul id="menu-vertical-menu" class="dropdown-menu yamm departments-menu-dropdown " style="border-bottom-right-radius: 0.625rem;">
+          <% Spree::Taxonomy.first.root.children.each do |taxon| %>
+              <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown menu-item-2584 dropdown"><%= link_to taxon.name, seo_url(taxon), :title => taxon.name %></li>
           <% end %>
         </ul>
-        <ul class="dropdown-menu yamm departments-menu-dropdown sales-menu">
-          <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown menu-item-2584 dropdown"> 
-          <a href="/promotions" style="color: #c50000;">% Акции и бонусы</a></li>
+        <ul class="dropdown-menu yamm departments-menu-dropdown sales-menu collapse" id="catalog">
+          <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown menu-item-2584 dropdown">
+            <a href="/promotions" style="color: #c50000;">% Акции и бонусы</a></li>
         </ul>
       </li>
     </ul>
-    <%= render partial: '/spree/shared/search'%>
+    <%= render partial: '/spree/shared/search' %>
     <div class="cart-in-header">
       <%= render partial: "/spree/shared/cart", :locals => {:order => current_order} %>
     </div>

@@ -8,8 +8,11 @@
     <%= render partial: 'spree/shared/head' %>
   </head>
   <body class="<% if current_spree_user %> 'customer-logged-in'<% end %> page home page-template-default " data-hook="body">
+  <!--main-container needed to listen scrolling in mobile version of website-->
+  <div id="main-container">
     <%= render partial: 'spree/shared/google_analytics.js' %>
     <%= render partial: 'spree/shared/header' %>
+    <%= render partial: 'mobile/header' %>
     <div id="modal-call">
       <%= render partial: "spree/shared/modal_form", :locals=>{:call_message => Spree::CallMessage.new}%>
     </div>
@@ -26,5 +29,7 @@
       </div>
     </div>
     <%= render partial:"spree/shared/footer"%>
+    <%= render partial: 'mobile/footer' %>
+  </div>
   </body>
 </html>

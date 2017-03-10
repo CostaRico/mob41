@@ -4,7 +4,7 @@
     <% content_for :google_analytics do %>
       <%= render partial: 'spree/shared/google_checkout.js', locals: { order: @order, step_number: (@order.checkout_steps.index(@order.state) + 1) } %>
     <% end %>
-    <nav class="woocommerce-breadcrumb">
+    <nav class="woocommerce-breadcrumb ">
       <%#= checkout_progress %>
       <a href="/" style="padding: 0.465em 0em;">Главная</a><span class="delimiter"><i class="fa fa-angle-right"></i></span>
       <a href="/cart" style="padding: 0.465em 0em;"><%= Spree.t(:shopping_cart) %></a> <span class="delimiter"><i class="fa fa-angle-right"></i></span>

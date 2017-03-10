@@ -28,5 +28,8 @@
 //= require modal_window
 //= require jquery.payment
 //= require jquery.validate/jquery.validate.min
+//= require mobile
+//= require simpleDropDown
+
 
 //$().toastmessage('showErrorToast', 'Произошла ошибка! Попробуйте снова'); 

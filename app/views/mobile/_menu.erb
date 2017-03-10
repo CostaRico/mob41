@@ -1,0 +1,35 @@
+<script type="text/javascript">
+  // $(document).on("turbolinks:load", function(){
+  $(".departments-menu").on("click", '.nav-item', function () {
+    if ($(this).children(".nav-link").attr("aria-expanded") == 'false') {
+      $(this).addClass(" open");
+      $(this).children(".nav-link").attr("aria-expanded", "true")
+    } else {
+      $(this).removeClass("open");
+      $(this).children(".nav-link").attr("aria-expanded", "false")
+    }
+  });
+  // });
+</script>
+
+<div class="mob-menu hidden-md-up" >
+  <button class="hide-btn" onclick="mobileMenuClose()" >
+    <img style="fill:white" src="<%= asset_path('closeNav.svg') %>" alt="Закрыть"/>
+  </button>
+
+  <!--onClick='close()'-->
+  <div class="mob-menu__content">
+    <ul>
+      <li class="mob-menu__item"><a title="Login" href="/login">Вход</a></li>
+      <li class="mob-menu__item mob-menu__item_with-break"><a title="Signup" href="/signup">Регистрация</a></li>
+      <li class="mob-menu__item"><a title="Home" href="/">Главная</a></li>
+      <li class="mob-menu__item"><a title="Contacts" href="/contacts">Контакты</a></li>
+      <li class="mob-menu__item"><a href="/how-to-order">Как сделать заказ</a></li>
+      <li class="mob-menu__item"><a title="Payment" href="/payment">Оплата</a></li>
+      <li class="mob-menu__item"><a title="Delivery" href="/delivery"><%= Spree.t(:delivery) %></a></li>
+      <li class="mob-menu__item mob-menu__item_with-break"><a href="/return">Возврат товара</a></li>
+      <li class="mob-menu__item "><a href="/about">О нас</a></li>
+      <li class="mob-menu__item"><a href="/faq">Вопрос-ответ</a></li>
+    </ul>
+  </div>
+</div>

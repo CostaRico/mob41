@@ -1,71 +1,78 @@
 <% address_id = address_type.chars.first %>
 <div class="col-1 ">
-  <p  class="form-row form-row form-row validate-required" id=<%="#{address_id}firstname" %>>
+  <p class="form-row form-row form-row validate-required" id=<%= "#{address_id}firstname" %>>
     <%= b_form.label :firstname do %>
-      Ваше имя
+        Ваше имя
     <% end %>
     <%= b_form.text_field :firstname, class: 'input-text' %>
   </p>
-  <p class="form-row form-row form-row validate-required validate-email" id=<%="#{address_id}phone" %>>
+  <p class="form-row form-row form-row validate-required validate-email" id=<%= "#{address_id}phone" %>>
     <%= b_form.label :phone do %>
-      <%= Spree.t(:phone) %><% if address.require_phone? %><% end %>
+        <%= Spree.t(:phone) %>
+        <% if address.require_phone? %>
+        <% end %>
     <% end %>
     <%= b_form.phone_field :phone, class: "input-text #{'required' if address.require_phone?}" %>
   </p>
-  <p id=<%="#{address_id}lastname" %> class="form-row form-row form-row-last validate-required hidden"  style="display: none">
+  <p id="<%= "#{address_id}lastname" %>" class="form-row form-row form-row-last validate-required hidden" style="display:
+      none">
     <%= b_form.label :lastname do %>
-      <%= Spree.t(:last_name) %>
+        <%= Spree.t(:last_name) %>
     <% end %>
     <%= b_form.text_field :lastname, class: 'input-text ' %>
   </p>
   <% if Spree::Config[:company] %>
-    <p id=<%="#{address_id}company" %> class="form-row form-row form-row-wide">
-        <%= b_form.label :company, Spree.t(:company) %>
-        <%= b_form.text_field :company, class: 'input-text' %>
-    </p>
+      <p id=<%= "#{address_id}company" %> class="form-row form-row form-row-wide">
+      <%= b_form.label :company, Spree.t(:company) %>
+      <%= b_form.text_field :company, class: 'input-text' %>
+      </p>
   <% end %>
-   <% if @order.state == 'address' || !@order.email? %>
-              <div class="panel panel-default">
-                <div class="panel-body">
-                  <div class="form-group" style="margin-bottom: 1.714em;">
-                    <%= form.label :email do %>Электронна почта<% end -%>
-                    <%= form.text_field :email, class: 'input-text' %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-  <p id=<%="#{address_id}city"%> class="form-row form-row form-row-wide validate-required validate-email" style="display: none">
-    <%= b_form.label :city do %>
+  <% if @order.state == 'address' || !@order.email? %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="form-group" style="margin-bottom: 1.714em;">
+            <%= form.label :email do %>Электронна почта
+            <% end -%>
+            <%= form.text_field :email, class: 'input-text' %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+  <p id=<%= "#{address_id}city" %> class="form-row form-row form-row-wide validate-required validate-email"
+  style="display: none">
+  <%= b_form.label :city do %>
       <%= Spree.t(:city) %>
-    <% end %>
-    <%= b_form.text_field :city, class: 'input-text'%>
-  </p> 
- 
-  <p id=<%="#{address_id}address2" %> class="form-row form-row form-row-wide address-field"  style="display: none">
-    <%= b_form.label :address2, Spree.t(:street_address_2) %>
-    <%= b_form.text_field :address2, class: 'input-text' %>
+  <% end %>
+  <%= b_form.text_field :city, class: 'input-text' %>
   </p>
-  
-  <p class="form-row form-row form-row-wide address-field validate-required" id=<%="#{address_id}country" %>  style="display: none">
-    <%= b_form.label :country_id do %>
+
+  <p id=<%= "#{address_id}address2" %> class="form-row form-row form-row-wide address-field" style="display: none">
+  <%= b_form.label :address2, Spree.t(:street_address_2) %>
+  <%= b_form.text_field :address2, class: 'input-text' %>
+  </p>
+
+  <p class="form-row form-row form-row-wide address-field validate-required" id=<%= "#{address_id}country" %>  style="display: none
+  ">
+  <%= b_form.label :country_id do %>
       <%= Spree.t(:country) %>
-    <% end %>
-    <span id=<%="#{address_id}country-selection" %> >
-    <%= b_form.text_field :country_id, class: 'input-text required', :value => 190  %>
-      <%#= b_form.collection_select :country_id, available_countries, :id, :name, {}, {class: 'input-text required'} %>
+  <% end %>
+  <span id=<%= "#{address_id}country-selection" %>>
+    <%= b_form.text_field :country_id, class: 'input-text required', :value => 190 %>
+    <%#= b_form.collection_select :country_id, available_countries, :id, :name, {}, {class: 'input-text required'} %>
     </span>
   </p>
-  <p id=<%="#{address_id}address1" %> class="form-row form-row form-row-wide address-field validate-required">
-      <%= b_form.label :address1 do %>
-        <%= Spree.t(:street_address) %>
-      <% end %>
-      <%= b_form.text_field :address1, class: 'input-text' %>
+  <p id=<%= "#{address_id}address1" %> class="form-row form-row form-row-wide address-field validate-required">
+  <%= b_form.label :address1 do %>
+      <%= Spree.t(:street_address) %>
+  <% end %>
+  <%= b_form.text_field :address1, class: 'input-text' %>
   </p>
   <% if Spree::Config[:address_requires_state] %>
-    <p class="form-row form-row form-row-wide address-field validate-required" id=<%="#{address_id}state" %> style="display: none">
+      <p class="form-row form-row form-row-wide address-field validate-required" id=<%= "#{address_id}state" %> style="display: none
+      ">
       <%# have_states = !address.country.states.empty? %>
       <%#= b_form.label :state do %>
-        <%#= Spree.t(:state) %>
+      <%#= Spree.t(:state) %>
       <%# end %>
 
       <%#== state_elements = [
@@ -79,41 +86,43 @@
                             disabled: have_states)
          ].join.gsub('"', "'").gsub("\n", "")
       %>
-    
-     <%= b_form.text_field :state_id, class: 'input-text required', :value => 2346  %>
+
+      <%= b_form.text_field :state_id, class: 'input-text required', :value => 2346 %>
       <noscript>
         <%#= b_form.text_field :state_name, class: 'input-text required' %>
       </noscript>
-    </p>
+      </p>
   <% end %>
 </div>
 <div class="col-2">
-  <p class="form-row form-row form-row-first validate-required " id=<%="#{address_id}zipcode" %> style="display: none">
-    <%= b_form.label :zipcode do %>
-      <%= Spree.t(:zip) %><% if address.require_zipcode? %><% end %>
-    <% end %>
-    <%= b_form.text_field :zipcode, class: "input-text #{'required' if address.require_zipcode?}" %>
-  </p>
- 
-  <% if Spree::Config[:alternative_shipping_phone] %>
-    <p class="form-row form-row  form-row-wide validate-required " id=<%="#{address_id}altphone" %>>
-      <%= b_form.label :alternative_phone, Spree.t(:alternative_phone) %>
-      <%= b_form.phone_field :alternative_phone, class: 'input-text' %>
-    </p>
+  <p class="form-row form-row form-row-first validate-required " id=<%= "#{address_id}zipcode" %> style="display: none">
+  <%= b_form.label :zipcode do %>
+      <%= Spree.t(:zip) %>
+      <% if address.require_zipcode? %>
+      <% end %>
   <% end %>
-    <p class="form-row form-row  form-row-wide validate-required " id=<%="#{address_id}comment" %>>
-      <%= b_form.label :comment, "Комментарий к заказу" %>
-      <%= b_form.text_area :comment, class: 'input-text', :style => "height: 144.5px;"%>
-    </p>
-    <p class="form-row form-row  form-row-wide validate-required inp" id=<%="#{address_id}payment" %>>
-      <%= b_form.label :payment_type_id, "Способ оплаты" %>
-      <%= b_form.select :payment_type_id, options_for_select(PaymentType.all.map{|p| [p.name,p.id]}), {}, {class: 'input-text', :style => "padding: 0.83em 1.214em;"} %>
-    </p>
-    <p class="form-row form-row  form-row-wide validate-required inp" id=<%="#{address_id}delivery" %>>
-      <%= b_form.label :delivery_type_id, "Способ доставки" %>
-      <%= b_form.select :delivery_type_id, options_for_select(DeliveryType.all.map{|p| [p.name, p.id]}), {}, {class: 'input-text ', :style => "padding: 0.83em 1.214em;"}%>
-     
-    </p>
-     
+  <%= b_form.text_field :zipcode, class: "input-text #{'required' if address.require_zipcode?}" %>
+  </p>
+
+  <% if Spree::Config[:alternative_shipping_phone] %>
+      <p class="form-row form-row  form-row-wide validate-required " id=<%= "#{address_id}altphone" %>>
+        <%= b_form.label :alternative_phone, Spree.t(:alternative_phone) %>
+        <%= b_form.phone_field :alternative_phone, class: 'input-text' %>
+      </p>
+  <% end %>
+  <p class="form-row form-row  form-row-wide validate-required " id=<%= "#{address_id}comment" %>>
+    <%= b_form.label :comment, "Комментарий к заказу" %>
+    <%= b_form.text_area :comment, class: 'input-text', :style => "height: 144.5px;" %>
+  </p>
+  <p class="form-row form-row  form-row-wide validate-required inp" id=<%= "#{address_id}payment" %>>
+    <%= b_form.label :payment_type_id, "Способ оплаты" %>
+    <%= b_form.select :payment_type_id, options_for_select(PaymentType.all.map { |p| [p.name, p.id] }), {}, {class: 'input-text', :style => "padding: 0.83em 1.214em;"} %>
+  </p>
+  <p class="form-row form-row  form-row-wide validate-required inp" id=<%= "#{address_id}delivery" %>>
+    <%= b_form.label :delivery_type_id, "Способ доставки" %>
+    <%= b_form.select :delivery_type_id, options_for_select(DeliveryType.all.map { |p| [p.name, p.id] }), {}, {class: 'input-text ', :style => "padding: 0.83em 1.214em;"} %>
+
+  </p>
+
 </div>
 </div>

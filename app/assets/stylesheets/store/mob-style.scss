@@ -1,0 +1,263 @@
+$brand-light: #00abc5;
+$brand-dark: #004049;
+
+.mob-header, .mob-menu, .mob-header__catalog {
+  button {
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 0;
+  }
+}
+
+.mob-header {
+  z-index: 400;
+  box-sizing: border-box;
+  //height: calc(2em + 2px);
+  color: white;
+  position: fixed;
+  width: 100%;
+  &__first-line {
+    background-color: $brand-light;
+    display: flex;
+    line-height: 2em;
+  }
+
+  &__logo {
+    flex: 0 1 6.5em;
+    padding-left: .5em;
+    img {
+      display: inline;
+      width: 6em;
+      height: 0.90em;
+    }
+    position: relative;
+  }
+
+  &__tel {
+    line-height: 2em;
+    flex: 20 1 12.5em;
+    //padding-right: 6.5em;
+    font-size: 1.1em;
+    text-align: center;
+    a {
+      font-weight: bold;
+      color: white;
+    }
+  }
+
+  &__toggler {
+    flex: 0 0 1.85em;
+    position: relative;
+    margin: 1px;
+
+    button {
+      color: white;
+      border: 1px solid white;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      font-size: 1.1em;
+      border-radius: 2px;
+      &:hover {
+        border-color: white;
+        background-color: $brand-light;
+        color: white;
+      }
+      &:focus {
+        background: transparent;
+        color: white;
+      }
+      &:active, &:target {
+        background-color: $brand-dark !important;
+        color: white !important;
+      }
+    }
+    .icon {
+      top: -1px;
+      position: relative;
+    }
+  }
+  &-blank {
+    box-sizing: border-box;
+    height: 3.35rem;
+    //height: calc(2em + 2px);
+  }
+  &__catalog {
+    width: 100%;
+    border-bottom: 1px solid white;
+    &-btn {
+      color: white;
+      width: auto;
+      z-index: 402;
+      &:hover, &:active, &:target, &:focus {
+        border-color: transparent !important;
+        background-color: transparent !important;
+        color: white !important;
+      }
+    }
+
+    &-content {
+      position: fixed;
+      top: calc(3.9em - 1px);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: none;
+
+      height: calc(100% - 4em);
+      overflow-x: scroll;
+      min-width: 160px;
+      width: 20em;
+      //box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      background-color: white;
+    }
+    &-content a {
+      background-color: $brand-dark;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown a:hover {
+      background-color: #f1f1f1
+    }
+
+    &_show {
+      display: block;
+    }
+
+    a {
+      color: white;
+      font-weight: bold;
+      &:active{
+        background-color: $brand-light;
+      }
+    }
+    color: white;
+    box-sizing: border-box;
+    padding: 0 1em;
+    z-index: 401;
+    background-color: $brand-dark;
+
+    &-search {
+      color: $brand-dark;
+      background-color: white;
+    }
+  }
+
+  &__search-form {
+    margin: .5em;
+  }
+
+  &__search-label {
+    text-align: right;
+    margin: 0;
+    margin-left: 1em;
+    font-weight: 400 !important;
+  }
+
+  &__search-input {
+    width: calc(100% - 3em);
+    padding: .25em !important;
+    padding-bottom: .3em !important;
+    margin: 0 0;
+    background-color: white !important;
+    border-radius: 0 !important;
+  }
+}
+
+#main-container {
+  height: 100%;
+  overflow: auto;
+}
+
+div[data-hook="homepage_products"]{
+  padding-left: 1.9375rem;
+  width: 75%;
+  left: 25%;
+}
+
+@media all and (max-width: 550px) {
+  .mob-footer, .mob-menu, .mob-menu {
+    font-size: .80em;
+  }
+  .mob-menu__toggler {
+    border-radius: 1px;
+  }
+}
+
+.mob-footer {
+  box-sizing: border-box;
+  height: calc(2em + 2px);
+  padding: 0 1em;
+  background-color: #e4e4e4;
+  display: flex;
+  &__left {
+    flex: 1 1 100px;
+    text-align: left;
+  }
+  &__right {
+    flex: 1 1 100px;
+    text-align: right;
+  }
+}
+
+.mob-menu {
+  a {
+    color: white;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  display: none;
+  &_visible {
+    display: block;
+  }
+  background-color: $brand-dark;
+  position: fixed;
+  z-index: 99999;
+  margin: 0;
+  padding: 0;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  overflow: hidden;
+
+  &__content {
+    padding-top: 4em;
+    height: 100%;
+    overflow: auto;
+  }
+
+  &__item {
+    line-height: 2.5em;
+    font-size: 1rem;
+    margin: 0 auto;
+    width: 70%;
+    font-weight: bold;
+    &_with-break {
+      border-bottom: 1px solid white;
+      margin-bottom: 1em;
+      padding-bottom: 1em;
+    }
+  }
+
+  ol, ul {
+    list-style: none;
+  }
+  .hide-btn {
+    position: absolute;
+    right: 0;
+    margin: 1em;
+
+    &:active, &:target {
+      background-color: $brand-dark !important;
+    }
+  }
+}

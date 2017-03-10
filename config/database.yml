@@ -1,10 +1,6 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: st
-  host: localhost
-  port: 5432
+  database: db41km
   pool: 10
   timeout: 10000
-  username: deployer  
-  password: deployer

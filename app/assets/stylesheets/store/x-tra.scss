@@ -1,0 +1,79 @@
+.left-move-first {
+  padding-left: 0.9375rem !important;
+  width: 75% !important;
+  left: 25% !important;
+}
+
+.left-move-second {
+  padding-left: 1.9375rem !important;
+  width: 75% !important;
+  left: 25% !important;
+}
+
+.left-move-third {
+  padding-left: 1.9375rem !important;
+  width: 75% !important;
+  left: 25% !important;
+}
+
+@media all and (max-width: 768px) {
+
+  .mob-filter-hide{
+    display: none !important;
+  }
+  // mob-lb-* это кнопки в фильтре, с лейблами они в базе на русском языке поэтому я использовал
+  //гем для транслитерации, view: _product_filter.html.erb:27
+  .mob-filter-{
+    &strana-brenda{
+      //display: none !important;
+    }
+  }
+
+  #breadcrumbs {
+    display: none;
+    /*margin-left:0 !important;*/
+  }
+  .container{
+    padding: 0.5em .3em;
+
+  }
+  .shop-control-bar{
+    padding: 0;
+    margin: 0;
+  }
+  .left-move-first, .left-move-second, .left-move-third {
+    left: 0 !important;
+
+    margin: 0 !important;
+    padding-left: 0 !important;
+    width: 100% !important;
+  }
+  .page-header {
+    font-size: 16px;
+    .page-title {
+      font-size: 16px;
+
+    }
+    margin:0;
+  }
+  #sidebar_products_search{
+    button{
+      padding: .2em .6em;
+      border-radius: .8em;
+    }
+  }
+  .dropdown-menu{
+    width: 80vw;
+    left:auto;
+    top: auto;
+    margin: 0 auto;
+
+  }
+  .filter-menu .list{
+    height: auto !important;
+  }
+  .list{
+    padding-bottom: 1em;
+  }
+
+}

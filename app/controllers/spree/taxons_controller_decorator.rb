@@ -10,8 +10,8 @@ Spree::TaxonsController.class_eval do
       # @searcher = build_searcher(params.merge(taxon: @taxon.id, include_images: true))
       # # @products = @products.reorder('').send(sorting_scope) if params[:sorting].present?
       # @taxonomies = Spree::Taxonomy.includes(root: :children)
-      @min_product_price = @taxon.products.ascend_by_master_price.last.price.to_i
-      @max_product_price = @taxon.products.ascend_by_master_price.first.price.to_i
+      @min_product_price = @taxon.products.ascend_by_master_price.present? ? @taxon.products.ascend_by_master_price.last.price.to_i : 0
+      @max_product_price = @taxon.products.ascend_by_master_price.present? ? @taxon.products.ascend_by_master_price.first.price.to_i : 0
       @products = @products.master_price_lte(params[:max_price].to_f) if params[:max_price]&&!params[:max_price].blank?
       @products = @products.master_price_gte(params[:min_price].to_f) if params[:min_price]&&!params[:min_price].blank? #if params.key?(:minprice) @&& params.key?(:maxprice)
     end
