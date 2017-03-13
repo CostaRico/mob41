@@ -1,17 +1,3 @@
-<script type="text/javascript">
-  // $(document).on("turbolinks:load", function(){
-  $(".departments-menu").on("click", '.nav-item', function () {
-    if ($(this).children(".nav-link").attr("aria-expanded") == 'false') {
-      $(this).addClass(" open");
-      $(this).children(".nav-link").attr("aria-expanded", "true")
-    } else {
-      $(this).removeClass("open");
-      $(this).children(".nav-link").attr("aria-expanded", "false")
-    }
-  });
-  // });
-</script>
-
 <div class="mob-menu hidden-md-up" >
   <button class="hide-btn" onclick="mobileMenuClose()" >
     <img style="fill:white" src="<%= asset_path('closeNav.svg') %>" alt="Закрыть"/>

@@ -1,5 +1,3 @@
-
-
 <div class="mob-header hidden-md-up">
   <div class="mob-header__first-line">
     <div class="mob-header__logo" >
@@ -21,23 +19,28 @@
     </div>
   </div>
 
-  <div class="mob-header__catalog hidden-md-up" id="mob-header__catalog">
-    <button onclick="openMobileCatalog()" class="mob-header__catalog-btn">
-      Каталог товаров <i class="fa fa-caret-down" aria-hidden="true"></i>
-    </button>
-    <div id="mob-header__catalog-content" class="mob-header__catalog-content mob-header__catalog-content_show" >
-      <div class="mob-header__catalog-search">
-        <%= form_tag spree.products_path, method: :get, class: "mob-header__search-form" do %>
-            <label for="keywords" class="mob-header__search-label"><i class="fa fa-search" aria-hidden="true"></i>:</label>
-            <%= search_field_tag :keywords, params[:keywords], id:'mob-header__search-input', placeholder: 'поиск товаров', class: "mob-header__search-input" %>
+  <div class="mob-header__second-line">
+    <div class="mob-header__catalog" id="mob-header__catalog">
+      <button onclick="openMobileCatalog()" class="mob-header__catalog-btn">
+        Каталог товаров <i class="fa fa-caret-down" aria-hidden="true"></i>
+      </button>
+      <div id="mob-header__catalog-content" class="mob-header__catalog-content mob-header__catalog-content_show" >
+        <div class="mob-header__catalog-search">
+          <%= form_tag spree.products_path, method: :get, class: "mob-header__search-form" do %>
+              <label for="mob-header__search-input" class="mob-header__search-label"><i class="fa fa-search" aria-hidden="true"></i></label>
+              <%= search_field_tag :keywords, params[:keywords], id:'mob-header__search-input', placeholder: 'поиск товаров', class: "mob-header__search-input" %>
+          <% end %>
+        </div>
+        <% Spree::Taxonomy.first.root.children.each do |taxon| %>
+            <%= link_to taxon.name, seo_url(taxon), :title => taxon.name %>
         <% end %>
       </div>
-
-      <% Spree::Taxonomy.first.root.children.each do |taxon| %>
-          <%= link_to taxon.name, seo_url(taxon), :title => taxon.name %>
-      <% end %>
+    </div>
+    <div class="mob-header__cart">
+      <%= render partial: "/mobile/cart", :locals => {:order => current_order} %>
     </div>
   </div>
+
 </div>
 
 <div class="mob-header-blank hidden-md-up"></div>

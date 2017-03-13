@@ -8,7 +8,7 @@
    //        $(this).children(".nav-link").attr("aria-expanded","true")
    //      }
    //      else
-   //    { 
+   //    {
    //      $(this).removeClass("open");
    //        $(this).children(".nav-link").attr("aria-expanded","false")
    //      }
@@ -16,7 +16,7 @@
    $('.navbar-mini-cart .nav-link').dropdownHover();
   // });
 // });
-	
+
 </script>
 <ul class="navbar-mini-cart navbar-nav animate-dropdown nav pull-right flip" >
     <li class="nav-item dropdown" >
@@ -25,23 +25,24 @@
             <span class="cart-items-count count"><%= order.nil? ? 0 : order_count(order.item_count) %></span>
             <span class="cart-items-total-price total-price"><span class="amount"><%= order.nil? ? 0 : display_hum_price(order.total) %> руб.</span></span>
         </a>
-        <ul class="dropdown-menu dropdown-menu-mini-cart">
-            <li>
-                <div class="widget_shopping_cart_content">
-					<ul class="cart_list product_list_widget ">
-            <% if order.nil? or order.line_items.empty? %>
-              <li class="empty"><%= Spree.t(:your_cart_is_empty)%></li>
-            <% else %>
-					    <%= render :partial => "/spree/shared/cart_item", :locals => {:items => order.line_items}%>
-          </ul>
-                    <p class="total"><strong>Subtotal:</strong> <span class="amount"><%= order.nil? ? 0 : display_hum_price(order.total) %> руб.</span></p>
-                    <p class="buttons">
-                        <a class="button wc-forward" href="/cart">Корзина</a>
-                      	<a class="button checkout wc-forward" href="/checkout">Оформить заказ</a>
-                    </p>
-                </div>
-            </li>
-            <% end %>
-        </ul>
+      <ul class="dropdown-menu dropdown-menu-mini-cart">
+        <li>
+          <div class="widget_shopping_cart_content">
+            <ul class="cart_list product_list_widget ">
+              <% if order.nil? or order.line_items.empty? %>
+                  <li class="empty"><%= Spree.t(:your_cart_is_empty) %></li>
+              <% else %>
+                  <%= render :partial => "/spree/shared/cart_item", :locals => {:items => order.line_items} %>
+                  </ul>
+                  <p class="total"><strong>Subtotal:</strong>
+                    <span class="amount"><%= order.nil? ? 0 : display_hum_price(order.total) %> руб.</span></p>
+                  <p class="buttons">
+                    <a class="button wc-forward" href="/cart">Корзина</a>
+                    <a class="button checkout wc-forward" href="/checkout">Оформить заказ</a>
+                  </p>
+                  </div>
+                  </li>
+              <% end %>
+              </ul>
    	</li>
 </ul>

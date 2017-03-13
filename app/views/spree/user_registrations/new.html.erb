@@ -9,7 +9,7 @@
         <article id="post-8" class="hentry">
           <div class="entry-content">
             <div class="woocommerce">
-              <div class="customer-login-form" style="margin-left: 26%; width: 50%;">
+              <div class="customer-login-form">
                 <h2 class="panel-title"><%= Spree.t(:registration) %></h2>
                 <%= form_for resource, :as => :spree_user, :url => spree.registration_path(@user),:class => "register" do |f| %>
                   <div data-hook="signup_inside_form">

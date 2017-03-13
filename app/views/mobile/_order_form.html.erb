@@ -1,0 +1,37 @@
+<article class="mob-order">
+  <% if order.line_items.empty? %>
+      <div class="woocommerce">
+        <p class="cart-empty"><%= Spree.t(:your_cart_is_empty) %></p>
+        <p class="return-to-shop">
+          <%= link_to Spree.t(:continue_shopping), products_path, class: 'button wc-backward' %>
+        </p>
+      </div>
+  <% else %>
+      <header class="entry-header-cart"><h1 itemprop="name"><%= Spree.t(:shopping_cart) %></h1></header>
+
+      тут будет вся тема
+      <div class="mob-order__total">
+        <p>
+          <span class="mob-order__total-word"><%= Spree.t(:total) %>:</span>
+          <span class="mob-order__total-amount"><%= display_hum_price(@order.total) %> руб.</span>
+
+
+        </p>
+        <div class="mob-order__checkout">
+          <a href="/checkout">Оформить заказ</a>
+        </div>
+      </div>
+  <% end %>
+
+</article>
+
+
+<div data-hook="outside_cart_form" class="cart_form_edit">
+  <%= form_for order, url: update_cart_path, html: {id: 'update-cart', :remote => true} do |order_form| %>
+      <div data-hook="inside_cart_form">
+        <div data-hook="cart_items" class="table-responsive">
+          <%= render partial: 'form', locals: {order_form: order_form} %>
+        </div>
+      </div>
+  <% end %>
+</div>
