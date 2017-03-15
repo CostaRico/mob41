@@ -393,6 +393,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   bourbon
   byebug
   coffee-rails (~> 4.2)

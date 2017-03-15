@@ -27,7 +27,7 @@ $brand-alert: #aa0000;
   }
 
   &__logo {
-    flex: 0 1 6.5em;
+    flex: 0 10 6.5em;
     padding-left: .5em;
     img {
       display: inline;
@@ -39,7 +39,7 @@ $brand-alert: #aa0000;
 
   &__tel {
     line-height: 2em;
-    flex: 20 1 12.5em;
+    flex: 20 10 12.5em;
     //padding-right: 6.5em;
     font-size: 1.1em;
     text-align: center;
@@ -349,4 +349,10 @@ div[data-hook="homepage_products"]{
       background-color: $brand-alert;
     }
   }
+}
+
+input[type='text'],
+input[type='number'],
+textarea {
+  font-size: 16px;
 }
