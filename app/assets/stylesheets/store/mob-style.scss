@@ -29,11 +29,17 @@ $brand-alert: #aa0000;
   &__logo {
     flex: 0 10 6.5em;
     padding-left: .5em;
-    img {
-      display: inline;
-      width: 6em;
-      height: 0.90em;
+    line-height: 2em;
+
+    a{
+      color:white;
+      font-weight: bold;
     }
+    //img {
+    //  display: inline;
+    //  width: 6em;
+    //  height: 0.90em;
+    //}
     position: relative;
   }
 
