@@ -67,8 +67,11 @@
 
 <div class="shop-control-bar-bottom">
   <% if products.respond_to?(:total_pages) %>
-    <nav class="woocommerce-pagination">
+    <nav class="woocommerce-pagination hidden-sm-down">
         <%= paginate products,  window: 2, :left => 1, :right => 1, views_prefix: 'spree' %>
+    </nav>
+    <nav class="woocommerce-pagination hidden-md-up">
+      <%= paginate products,  window: 1, :left => 1, :right => 1, views_prefix: 'spree' %>
     </nav>
   <% end %>
 </div>

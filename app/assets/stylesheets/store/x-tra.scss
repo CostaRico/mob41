@@ -38,6 +38,11 @@
     margin-bottom: 0 !important;
   }
 
+  a.page-numbers, span.page-numbers, .page .gap > a{
+    min-width: 2.5em;
+    padding: .1em .5em .2em !important;
+    border-radius: .3em !important;
+  }
   .line_item_quantity{
     max-width: 3em !important;
     padding: 3px !important;
