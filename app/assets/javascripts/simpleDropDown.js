@@ -4,7 +4,8 @@ function openMobileCatalog() {
 
 
 window.onclick = function(event) {
-  if (!event.target.matches('.mob-header__catalog-btn')) {
+  if (!event.target.matches('.mob-header__catalog-btn') && !event.target.matches('.mob-header__search-input')) {
+    console.info('event', event)
     var dropdowns = document.getElementsByClassName("mob-header__catalog-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
